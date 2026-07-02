@@ -1,0 +1,19 @@
+:root {
+  --anyboom-duration-none: 0ms;
+  --anyboom-duration-instant: 50ms;
+  --anyboom-duration-fast: 150ms;
+  --anyboom-duration-base: 250ms;
+  --anyboom-duration-moderate: 350ms;
+  --anyboom-duration-slow: 500ms;
+  --anyboom-duration-slower: 700ms;
+  --anyboom-duration-slowest: 1000ms;
+
+  --anyboom-ease-linear: cubic-bezier(0, 0, 1, 1);
+  --anyboom-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --anyboom-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --anyboom-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --anyboom-ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --anyboom-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --anyboom-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --anyboom-ease-elastic: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}

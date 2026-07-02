@@ -1,0 +1,14 @@
+:root {
+  --anyboom-radius-base: 4px;
+  --anyboom-radius-0: 0;
+  --anyboom-radius-1: var(--anyboom-radius-base);
+  --anyboom-radius-2: calc(var(--anyboom-radius-base) * 2);
+  --anyboom-radius-3: calc(var(--anyboom-radius-base) * 3);
+  --anyboom-radius-4: calc(var(--anyboom-radius-base) * 4);
+  --anyboom-radius-5: calc(var(--anyboom-radius-base) * 5);
+  --anyboom-radius-6: calc(var(--anyboom-radius-base) * 6);
+  --anyboom-radius-8: calc(var(--anyboom-radius-base) * 8);
+  --anyboom-radius-10: calc(var(--anyboom-radius-base) * 10);
+  --anyboom-radius-12: calc(var(--anyboom-radius-base) * 12);
+  --anyboom-radius-16: calc(var(--anyboom-radius-base) * 16);
+}

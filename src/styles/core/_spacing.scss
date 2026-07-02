@@ -1,0 +1,21 @@
+:root {
+  --anyboom-spacing-base: 4px;
+  --anyboom-spacing-0: 0;
+  --anyboom-spacing-1: var(--anyboom-spacing-base);
+  --anyboom-spacing-2: calc(var(--anyboom-spacing-base) * 2);
+  --anyboom-spacing-3: calc(var(--anyboom-spacing-base) * 3);
+  --anyboom-spacing-4: calc(var(--anyboom-spacing-base) * 4);
+  --anyboom-spacing-5: calc(var(--anyboom-spacing-base) * 5);
+  --anyboom-spacing-6: calc(var(--anyboom-spacing-base) * 6);
+  --anyboom-spacing-8: calc(var(--anyboom-spacing-base) * 8);
+  --anyboom-spacing-10: calc(var(--anyboom-spacing-base) * 10);
+  --anyboom-spacing-12: calc(var(--anyboom-spacing-base) * 12);
+  --anyboom-spacing-16: calc(var(--anyboom-spacing-base) * 16);
+  --anyboom-spacing-20: calc(var(--anyboom-spacing-base) * 20);
+  --anyboom-spacing-24: calc(var(--anyboom-spacing-base) * 24);
+  --anyboom-spacing-32: calc(var(--anyboom-spacing-base) * 32);
+  --anyboom-spacing-40: calc(var(--anyboom-spacing-base) * 40);
+  --anyboom-spacing-48: calc(var(--anyboom-spacing-base) * 48);
+  --anyboom-spacing-56: calc(var(--anyboom-spacing-base) * 56);
+  --anyboom-spacing-64: calc(var(--anyboom-spacing-base) * 64);
+}

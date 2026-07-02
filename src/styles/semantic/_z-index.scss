@@ -1,0 +1,40 @@
+:root {
+  --anyboom-z-below: var(--anyboom-z-n1); /* -1 — под контент (декорации) */
+  --anyboom-z-base: var(--anyboom-z-0); /* 0 — стандартный поток */
+  --anyboom-z-default: var(--anyboom-z-1); /* 1 — базовый слой */
+  --anyboom-z-hover: var(--anyboom-z-2); /* 2 — ховер, фокус */
+  --anyboom-z-active: var(--anyboom-z-3); /* 3 — активный, выбранный */
+
+  --anyboom-z-dropdown: var(--anyboom-z-1000); /* 1000 — выпадающие списки */
+  --anyboom-z-sticky: var(--anyboom-z-1020); /* 1020 — липкие элементы */
+  --anyboom-z-fixed: var(--anyboom-z-1030); /* 1030 — фиксированные элементы */
+  --anyboom-z-offcanvas-backdrop: var(--anyboom-z-1040); /* 1040 — подложка оффканаваса */
+  --anyboom-z-offcanvas: var(--anyboom-z-1045); /* 1045 — оффканавас */
+
+  --anyboom-z-modal-backdrop: var(--anyboom-z-1050); /* 1050 — подложка модалки */
+  --anyboom-z-modal: var(--anyboom-z-1055); /* 1055 — модальное окно */
+
+  --anyboom-z-popover: var(--anyboom-z-1070); /* 1070 — поповер */
+  --anyboom-z-tooltip: var(--anyboom-z-1080); /* 1080 — тултип */
+  --anyboom-z-toast: var(--anyboom-z-1090); /* 1090 — тост */
+
+  --anyboom-z-header: var(--anyboom-z-1100); /* 1100 — фиксированная шапка */
+  --anyboom-z-footer: var(--anyboom-z-1110); /* 1110 — фиксированный подвал */
+  --anyboom-z-sidebar: var(--anyboom-z-1120); /* 1120 — сайдбар */
+  --anyboom-z-navigation: var(--anyboom-z-1130); /* 1130 — навигация */
+
+  --anyboom-z-context-menu: var(--anyboom-z-1140); /* 1140 — контекстное меню */
+  --anyboom-z-drawer: var(--anyboom-z-1150); /* 1150 — выезжающий drawer */
+  --anyboom-z-dialog: var(--anyboom-z-1160); /* 1160 — диалоговое окно */
+
+  --anyboom-z-alert: var(--anyboom-z-1170); /* 1170 — системный алерт */
+  --anyboom-z-loading: var(--anyboom-z-1180); /* 1180 — индикатор загрузки */
+  --anyboom-z-skeleton: var(--anyboom-z-1190); /* 1190 — скелетон */
+
+  --anyboom-z-notification: var(--anyboom-z-1200); /* 1200 — системные уведомления */
+  --anyboom-z-progress: var(--anyboom-z-1210); /* 1210 — прогресс-бар */
+  --anyboom-z-scrollbar: var(--anyboom-z-1220); /* 1220 — кастомный скроллбар */
+  --anyboom-z-overlay: var(--anyboom-z-1230); /* 1230 — оверлей (затемнение) */
+
+  --anyboom-z-max: var(--anyboom-z-9999); /* 9999 — критический максимум */
+}

@@ -1,0 +1,7 @@
+:root {
+  --anyboom-transition-fast: var(--anyboom-duration-fast) var(--anyboom-ease-out);
+  --anyboom-transition-default: var(--anyboom-duration-base) var(--anyboom-ease-in-out);
+  --anyboom-transition-slow: var(--anyboom-duration-moderate) var(--anyboom-ease-in-out);
+  --anyboom-transition-slower: var(--anyboom-duration-slow) var(--anyboom-ease-smooth);
+  --anyboom-transition-spring: var(--anyboom-duration-moderate) var(--anyboom-ease-spring);
+}

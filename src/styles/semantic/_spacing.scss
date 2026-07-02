@@ -1,0 +1,18 @@
+:root {
+  /* Inset — внутренние отступы (padding) */
+  --anyboom-inset-xs: var(--anyboom-spacing-1);
+  --anyboom-inset-sm: var(--anyboom-spacing-2);
+  --anyboom-inset-md: var(--anyboom-spacing-3);
+  --anyboom-inset-lg: var(--anyboom-spacing-4);
+  --anyboom-inset-xl: var(--anyboom-spacing-6);
+  --anyboom-inset-2xl: var(--anyboom-spacing-8);
+
+  /* Stack — внешние отступы между элементами (margin) */
+  --anyboom-stack-xs: var(--anyboom-spacing-2);
+  --anyboom-stack-sm: var(--anyboom-spacing-4);
+  --anyboom-stack-md: var(--anyboom-spacing-6);
+  --anyboom-stack-lg: var(--anyboom-spacing-8);
+  --anyboom-stack-xl: var(--anyboom-spacing-12);
+  --anyboom-stack-2xl: var(--anyboom-spacing-16);
+  --anyboom-stack-3xl: var(--anyboom-spacing-24);
+}
