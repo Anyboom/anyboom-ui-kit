@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import type { ComponentPublicInstance } from 'vue'
 import XBoldIcon from '@iconify-vue/ph/x-bold'
-import { computed, onMounted, onUnmounted, ref, useId, useSlots, watch } from 'vue'
+
+import { computed, onUnmounted, ref, useId, useSlots, watch } from 'vue'
 
 import Button from '@/components/button/Button.vue'
 import Divider from '@/components/divider/Divider.vue'
 import Overlay from '@/components/overlay/Overlay.vue'
 import { useBodyScrollLock } from '@/composables/use-body-scroll-lock.ts'
 import { useFocusTrap } from '@/composables/use-focus-trap.ts'
+import { useOverlayStack } from '@/composables/use-overlay-stack.ts'
 
 interface Props {
   modelValue: boolean
@@ -46,6 +48,8 @@ useFocusTrap(panelRef, computed(() => props.modelValue), {
   excludedRefs: [overlayRef],
 })
 
+useOverlayStack(computed(() => props.modelValue && props.escClosable), close)
+
 const hasHeaderSlot = computed(() => Boolean(slots.header))
 const hasFooterSlot = computed(() => Boolean(slots.footer))
 
@@ -64,12 +68,6 @@ function handleOverlayClick(): void {
   }
 }
 
-function handleKeydown(event: KeyboardEvent): void {
-  if (props.escClosable && event.key === 'Escape' && props.modelValue) {
-    close()
-  }
-}
-
 watch(
   () => props.modelValue,
   (newValue) => {
@@ -84,14 +82,8 @@ watch(
   { immediate: true },
 )
 
-onMounted(() => {
-  document.addEventListener('keydown', handleKeydown)
-})
-
 onUnmounted(() => {
   unlock()
-
-  document.removeEventListener('keydown', handleKeydown)
 })
 </script>
 

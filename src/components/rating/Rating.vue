@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, useId } from 'vue'
 
 interface Props {
   modelValue?: number
@@ -24,6 +24,7 @@ interface Emits {
 
 const focusedOptionIndex = ref(-1)
 const isFocusVisibleItem = ref(true)
+const inputName = useId()
 
 function onClick(event: MouseEvent, value: number) {
   if (props.readonly || props.disabled)
@@ -47,12 +48,10 @@ function onChange(event: Event, value: number) {
 }
 
 function onSelect(event: Event, value: number) {
-  if (focusedOptionIndex.value === value || props.modelValue === value) {
-    focusedOptionIndex.value = -1
+  if (props.modelValue === value) {
     updateModel(event, 0)
   }
   else {
-    focusedOptionIndex.value = value
     updateModel(event, value)
   }
 }
@@ -71,6 +70,8 @@ function updateModel(event: Event, value: number) {
       rating_disabled: disabled,
     }"
     role="radiogroup"
+    :aria-readonly="readonly || undefined"
+    :aria-disabled="disabled || undefined"
   >
     <div
       v-for="value in stars"
@@ -83,12 +84,14 @@ function updateModel(event: Event, value: number) {
       @click="onClick($event, value)"
     >
       <input
+        :id="`${inputName}-${value}`"
         class="rating__hidden-input"
         type="radio"
+        :name="inputName"
         :value="value"
         :checked="modelValue === value"
-        :disabled="disabled"
-        :readonly="readonly"
+        :disabled="disabled || readonly"
+        :aria-label="String(value)"
         @focus="onFocus(value)"
         @blur="onBlur"
         @change="onChange($event, value)"
@@ -96,6 +99,7 @@ function updateModel(event: Event, value: number) {
 
       <span
         class="rating__icon"
+        aria-hidden="true"
         :class="{
           rating__icon_filled: value <= modelValue,
           rating__icon_empty: value > modelValue,
@@ -147,7 +151,15 @@ function updateModel(event: Event, value: number) {
   }
 
   &__hidden-input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   &__icon {

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { FloatingPlacement } from '@/utils/floating-placement.ts'
 
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
+
+import { useOverlayStack } from '@/composables/use-overlay-stack.ts'
 import { pickPlacement } from '@/utils/pick-placement.ts'
 import { resolvePosition } from '@/utils/resolve-position.ts'
 
@@ -23,6 +25,8 @@ const isOpen = ref(false)
 const triggerRef = ref<HTMLElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
 const contentStyle = ref<Record<string, string | number>>({})
+
+useOverlayStack(isOpen, closePopover)
 
 let resizeObserver: ResizeObserver | null = null
 let contentResizeObserver: ResizeObserver | null = null
@@ -142,12 +146,6 @@ function handleGlobalClick(event: MouseEvent): void {
   }
 }
 
-function handleGlobalKeydown(event: KeyboardEvent): void {
-  if (event.key === 'Escape' && isOpen.value) {
-    closePopover()
-  }
-}
-
 watch(isOpen, (val) => {
   if (!val && contentResizeObserver) {
     contentResizeObserver.disconnect()
@@ -170,7 +168,6 @@ onMounted(() => {
   window.addEventListener('scroll', updatePosition, true)
   window.addEventListener('resize', updatePosition)
   document.addEventListener('click', handleGlobalClick)
-  document.addEventListener('keydown', handleGlobalKeydown)
 })
 
 onBeforeUnmount(() => {
@@ -179,7 +176,6 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', updatePosition, true)
   window.removeEventListener('resize', updatePosition)
   document.removeEventListener('click', handleGlobalClick)
-  document.removeEventListener('keydown', handleGlobalKeydown)
 })
 
 defineExpose({

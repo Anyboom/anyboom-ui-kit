@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { FloatingPlacement } from '@/utils/floating-placement.ts'
 
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
+
+import { useOverlayStack } from '@/composables/use-overlay-stack.ts'
 import { pickPlacement } from '@/utils/pick-placement.ts'
 import { resolvePosition } from '@/utils/resolve-position.ts'
 
@@ -42,6 +44,8 @@ let tooltipResizeObserver: ResizeObserver | null = null
 
 let isMouseOnTrigger = false
 let isMouseOnTooltip = false
+
+useOverlayStack(isVisible, forceHide)
 
 function canHide(): boolean {
   if (props.interactive && isMouseOnTooltip) {
@@ -118,12 +122,6 @@ function handleGlobalClick(event: MouseEvent): void {
   const isInsideTooltip = tooltipRef.value?.contains(target) || false
 
   if (!isInsideTrigger && !isInsideTooltip) {
-    forceHide()
-  }
-}
-
-function handleGlobalKeydown(event: KeyboardEvent): void {
-  if (event.key === 'Escape' && isVisible.value) {
     forceHide()
   }
 }
@@ -311,7 +309,6 @@ onMounted(() => {
   window.addEventListener('scroll', updatePosition, true)
   window.addEventListener('resize', updatePosition)
   document.addEventListener('click', handleGlobalClick)
-  document.addEventListener('keydown', handleGlobalKeydown)
 })
 
 onBeforeUnmount(() => {
@@ -328,7 +325,6 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', updatePosition, true)
   window.removeEventListener('resize', updatePosition)
   document.removeEventListener('click', handleGlobalClick)
-  document.removeEventListener('keydown', handleGlobalKeydown)
 })
 </script>
 
