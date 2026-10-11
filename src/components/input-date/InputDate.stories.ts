@@ -37,11 +37,6 @@ const meta = {
       description:
         'Отключает поле выбора даты. При `true` компонент становится неактивным и недоступным для взаимодействия.',
     },
-    readonly: {
-      control: 'boolean',
-      description:
-        'Делает поле выбора даты доступным только для чтения. Пользователь не может изменять значение, но может его копировать.',
-    },
     minDate: {
       control: 'date',
       description:
@@ -106,15 +101,6 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     placeholder: 'Disabled date picker',
-    modelValue: null,
-  },
-}
-
-export const Readonly: Story = {
-  render: args => withVModel(args),
-  args: {
-    readonly: true,
-    placeholder: 'Read-only date picker',
     modelValue: null,
   },
 }

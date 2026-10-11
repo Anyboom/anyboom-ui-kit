@@ -16,7 +16,6 @@ interface Props {
   inputId?: string
   placeholder?: string
   disabled?: boolean
-  readonly?: boolean
   minDate?: Date | null
   maxDate?: Date | null
 }
@@ -27,7 +26,6 @@ const props = withDefaults(defineProps<Props>(), {
   inputId: undefined,
   placeholder: '',
   disabled: false,
-  readonly: false,
   minDate: null,
   maxDate: null,
 })
@@ -189,7 +187,7 @@ function isToday(day: InputDateDay): boolean {
 }
 
 function selectDate(day: InputDateDay): void {
-  if (day.isDisabled || props.disabled || props.readonly) {
+  if (day.isDisabled || props.disabled) {
     return
   }
 
@@ -221,7 +219,7 @@ function selectDate(day: InputDateDay): void {
 }
 
 function showCalendar(): void {
-  if (!props.disabled && !props.readonly) {
+  if (!props.disabled) {
     isOpen.value = true
   }
 }
@@ -285,11 +283,11 @@ watch(
 <template>
   <div ref="datePickerRef" class="input-date">
     <InputText
-      v-model="displayValue"
+      :model-value="displayValue"
       :input-id="inputId"
       :placeholder="placeholder"
       :disabled="disabled"
-      :readonly="readonly"
+      readonly
       @click="showCalendar"
     >
       <template v-if="$slots['icon-left']" #icon-left>
