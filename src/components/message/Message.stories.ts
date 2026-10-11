@@ -18,7 +18,7 @@ const meta: Meta<typeof Message> = {
     },
     size: {
       control: 'select',
-      options: ['small', 'normal', 'large'],
+      options: ['small', 'medium', 'large'],
       description: 'Размер сообщения.',
     },
     default: {
@@ -36,6 +36,6 @@ export const Default: Story = {
     default: 'Информационное сообщение',
     variant: 'filled',
     severity: 'info',
-    size: 'normal',
+    size: 'medium',
   },
 }

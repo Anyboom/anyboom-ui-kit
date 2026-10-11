@@ -4,7 +4,7 @@ interface Props {
   label?: string
   inputId?: string
   disabled?: boolean
-  size?: 'small' | 'medium'
+  size?: 'small' | 'medium' | 'large'
 }
 
 withDefaults(defineProps<Props>(), {
@@ -158,6 +158,21 @@ function handleChange(event: Event) {
       }
       &#{$this}_checked #{$this}__thumb {
         transform: translateX(18px) translateY(-50%);
+      }
+    }
+    &_large {
+      #{$this}__slider {
+        width: 48px;
+        height: 28px;
+      }
+      #{$this}__thumb {
+        width: 24px;
+        height: 24px;
+        transform: translateX(2px) translateY(-50%);
+        top: 50%;
+      }
+      &#{$this}_checked #{$this}__thumb {
+        transform: translateX(22px) translateY(-50%);
       }
     }
   }

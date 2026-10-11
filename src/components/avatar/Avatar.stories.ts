@@ -8,7 +8,7 @@ const meta: Meta<typeof Avatar> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['xsmall', 'small', 'normal', 'large', 'xlarge', 'xxlarge'],
+      options: ['small', 'medium', 'large'],
       description: 'Размер',
     },
     image: {
@@ -28,13 +28,13 @@ type Story = StoryObj<typeof Avatar>
 export const Default: Story = {
   args: {
     label: 'ДВ',
-    size: 'normal',
+    size: 'medium',
   },
 }
 
 export const WithImage: Story = {
   args: {
     image: 'https://i.pravatar.cc/150?img=12',
-    size: 'normal',
+    size: 'medium',
   },
 }

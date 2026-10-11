@@ -23,7 +23,7 @@ const meta: Meta<typeof InputOtp> = {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium'],
+      options: ['small', 'medium', 'large'],
       description: 'Размер компонента.',
     },
     shape: {

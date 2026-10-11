@@ -10,7 +10,7 @@ const meta = {
   argTypes: {
     size: {
       control: 'radio',
-      options: ['small', 'medium'],
+      options: ['small', 'medium', 'large'],
       description: 'Размер лейбла',
     },
     required: {

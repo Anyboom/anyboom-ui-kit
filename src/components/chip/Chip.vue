@@ -3,7 +3,7 @@ import XBoldIcon from '@iconify-vue/ph/x-bold'
 
 interface Props {
   variant?: 'dismissable' | 'link' | 'filter'
-  size?: 'small' | 'medium'
+  size?: 'small' | 'medium' | 'large'
   removable?: boolean
   selected?: boolean
   label?: string
@@ -139,6 +139,13 @@ function remove(event: Event) {
 
       #{$this}__label {
         @include mixins.apply-text("body-sm");
+      }
+    }
+    &_large {
+      padding: var(--anyboom-spacing-1-5) var(--anyboom-spacing-4);
+
+      #{$this}__label {
+        @include mixins.apply-text("body-base");
       }
     }
   }

@@ -2,10 +2,10 @@
 interface Props {
   image?: string
   label?: string
-  size?: 'xsmall' | 'small' | 'normal' | 'large' | 'xlarge' | 'xxlarge'
+  size?: 'small' | 'medium' | 'large'
 }
 
-withDefaults(defineProps<Props>(), { size: 'normal' })
+withDefaults(defineProps<Props>(), { size: 'medium' })
 </script>
 
 <template>
@@ -37,13 +37,6 @@ withDefaults(defineProps<Props>(), { size: 'normal' })
   }
 
   &_size {
-    &_xsmall {
-      width: var(--anyboom-spacing-6);
-
-      #{$this}__label {
-        @include mixins.apply-text("body-xs-medium");
-      }
-    }
     &_small {
       width: var(--anyboom-spacing-8);
 
@@ -51,7 +44,7 @@ withDefaults(defineProps<Props>(), { size: 'normal' })
         @include mixins.apply-text("body-sm-medium");
       }
     }
-    &_normal {
+    &_medium {
       width: var(--anyboom-spacing-10);
 
       #{$this}__label {
@@ -60,20 +53,6 @@ withDefaults(defineProps<Props>(), { size: 'normal' })
     }
     &_large {
       width: var(--anyboom-spacing-12);
-
-      #{$this}__label {
-        @include mixins.apply-text("body-xl-medium");
-      }
-    }
-    &_xlarge {
-      width: var(--anyboom-spacing-14);
-
-      #{$this}__label {
-        @include mixins.apply-text("body-xl-medium");
-      }
-    }
-    &_xxlarge {
-      width: var(--anyboom-spacing-16);
 
       #{$this}__label {
         @include mixins.apply-text("body-xl-medium");

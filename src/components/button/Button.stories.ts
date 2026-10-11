@@ -48,7 +48,7 @@ const meta = {
     },
     size: {
       control: 'radio',
-      options: ['small', 'normal', 'large'],
+      options: ['small', 'medium', 'large'],
       description: 'Размер кнопки',
     },
     iconOnly: {

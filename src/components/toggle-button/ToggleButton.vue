@@ -6,7 +6,7 @@ interface Props {
   onLabel?: string
   offLabel?: string
   iconPos?: 'left' | 'right'
-  size?: 'small' | 'normal' | 'large'
+  size?: 'small' | 'medium' | 'large'
   disabled?: boolean
   readonly?: boolean
   ariaLabel?: string
@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   onLabel: '',
   offLabel: '',
   iconPos: 'left',
-  size: 'normal',
+  size: 'medium',
   disabled: false,
   readonly: false,
   ariaLabel: '',
@@ -104,7 +104,7 @@ function handleClick(): void {
       }
     }
 
-    &_normal {
+    &_medium {
       padding: var(--anyboom-spacing-2) var(--anyboom-spacing-4);
       border-radius: var(--anyboom-radius-small);
 

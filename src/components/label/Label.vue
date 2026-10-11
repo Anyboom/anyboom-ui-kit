@@ -7,7 +7,7 @@ import TextDivider from '@/components/text-divider/TextDivider.vue'
 import Tooltip from '@/components/tooltip/Tooltip.vue'
 
 interface Props {
-  size?: 'small' | 'medium'
+  size?: 'small' | 'medium' | 'large'
   required?: LabelRequired
   inputId?: string
   tooltip?: string
@@ -88,6 +88,17 @@ withDefaults(defineProps<Props>(), {
       #{$this}__required {
         &_optional {
           @include mixins.apply-text("body-base");
+        }
+      }
+    }
+    &_large {
+      #{$this}__text {
+        @include mixins.apply-text("body-lg-medium");
+      }
+
+      #{$this}__required {
+        &_optional {
+          @include mixins.apply-text("body-lg");
         }
       }
     }

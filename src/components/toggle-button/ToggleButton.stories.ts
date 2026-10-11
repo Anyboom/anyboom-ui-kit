@@ -27,7 +27,7 @@ const meta = {
     },
     size: {
       control: 'select',
-      options: ['small', 'normal', 'large'],
+      options: ['small', 'medium', 'large'],
       description: 'Размер кнопки.',
     },
     disabled: {
@@ -52,7 +52,7 @@ const meta = {
     onLabel: 'Включено',
     offLabel: 'Выключено',
     iconPos: 'left',
-    size: 'normal',
+    size: 'medium',
     disabled: false,
     readonly: false,
   },

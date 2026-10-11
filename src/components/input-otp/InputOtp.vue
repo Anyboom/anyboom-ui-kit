@@ -6,7 +6,7 @@ interface Props {
   modelValue?: string
   inputId?: string
   ariaLabel?: string
-  size?: 'small' | 'medium'
+  size?: 'small' | 'medium' | 'large'
   disabled?: boolean
   autofocus?: boolean
   invalid?: boolean
@@ -319,6 +319,16 @@ function toAutofocus() {
         width: 40px;
 
         @include mixins.apply-text("input-opt-md");
+      }
+    }
+
+    &_large {
+      gap: var(--anyboom-spacing-4);
+
+      #{$this}__input {
+        width: 48px;
+
+        @include mixins.apply-text("body-xl");
       }
     }
   }

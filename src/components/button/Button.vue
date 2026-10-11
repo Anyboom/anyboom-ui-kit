@@ -14,7 +14,7 @@ interface Props {
     | 'danger'
     | 'info'
     | 'warn'
-  size?: 'small' | 'normal' | 'large'
+  size?: 'small' | 'medium' | 'large'
   iconOnly?: boolean
   mono?: boolean
   ariaLabel?: string
@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<Props>(), {
   target: undefined,
   severity: 'primary',
   variant: 'filled',
-  size: 'normal',
+  size: 'medium',
   iconOnly: false,
   mono: false,
   ariaLabel: undefined,
@@ -102,7 +102,7 @@ const tag = computed(() => (isLink.value ? 'a' : 'button'))
         @include mixins.apply-text("button-mono-sm");
       }
     }
-    &_normal {
+    &_medium {
       padding: var(--anyboom-spacing-2) var(--anyboom-spacing-4);
       border-radius: var(--anyboom-radius-small);
 
@@ -133,7 +133,7 @@ const tag = computed(() => (isLink.value ? 'a' : 'button'))
       min-width: var(--anyboom-spacing-8);
     }
 
-    &#{$this}_size_normal {
+    &#{$this}_size_medium {
       width: var(--anyboom-spacing-9);
       min-width: var(--anyboom-spacing-9);
     }

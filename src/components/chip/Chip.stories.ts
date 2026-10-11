@@ -13,7 +13,7 @@ const meta: Meta<typeof Chip> = {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium'],
+      options: ['small', 'medium', 'large'],
       description: 'Размер чипа',
     },
     removable: {

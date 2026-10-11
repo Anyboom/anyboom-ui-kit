@@ -2,13 +2,13 @@
 interface Props {
   variant?: 'filled' | 'outline' | 'text'
   severity?: 'primary' | 'secondary' | 'contrast' | 'success' | 'danger' | 'info' | 'warn'
-  size?: 'small' | 'normal' | 'large'
+  size?: 'small' | 'medium' | 'large'
 }
 
 withDefaults(defineProps<Props>(), {
   severity: 'info',
   variant: 'filled',
-  size: 'normal',
+  size: 'medium',
 })
 </script>
 
@@ -46,7 +46,7 @@ withDefaults(defineProps<Props>(), {
 
       @include mixins.apply-text("body-xs");
     }
-    &_normal {
+    &_medium {
       padding: var(--anyboom-spacing-2) var(--anyboom-spacing-4);
       border-radius: var(--anyboom-radius-small);
 
