@@ -68,7 +68,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="toast" :class="[`toast_severity_${severity}`]">
+  <div class="anyboom-toast" :class="[`toast_severity_${severity}`]">
     <div v-if="showIcon">
       <component :is="iconComponent" class="toast__icon" />
     </div>
@@ -90,10 +90,10 @@ defineExpose({
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@/styles/mixins";
 
-.toast {
+.anyboom-toast {
   $this: &;
 
   position: relative;

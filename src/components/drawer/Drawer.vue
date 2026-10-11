@@ -137,7 +137,7 @@ onUnmounted(() => {
         v-if="modelValue"
         ref="panelRef"
         tabindex="-1"
-        class="drawer"
+        class="anyboom-drawer"
         :class="drawerModifiers"
         :style="drawerStyles"
         role="dialog"
@@ -171,10 +171,10 @@ onUnmounted(() => {
   </Teleport>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@/styles/mixins";
 
-.drawer {
+.anyboom-drawer {
   $block: &;
 
   position: fixed;

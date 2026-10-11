@@ -21,7 +21,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <span class="label" :class="[`label_size_${size}`]">
+  <span class="anyboom-label" :class="[`label_size_${size}`]">
     <label class="label__label" :for="inputId">
       <span class="label__text">
         <slot>
@@ -58,10 +58,10 @@ withDefaults(defineProps<Props>(), {
   </span>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.label {
+.anyboom-label {
   $this: &;
 
   display: flex;

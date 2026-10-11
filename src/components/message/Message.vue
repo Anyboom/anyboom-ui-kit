@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="message"
+    class="anyboom-message"
     :class="[
       `message_variant_${variant}`,
       `message_severity_${severity}`,
@@ -25,10 +25,10 @@ withDefaults(defineProps<Props>(), {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.message {
+.anyboom-message {
   $this: &;
 
   display: inline-flex;

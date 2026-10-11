@@ -214,7 +214,7 @@ function toAutofocus() {
 
 <template>
   <div
-    class="input-otp"
+    class="anyboom-input-otp"
     :class="[
       `input-otp_size_${size}`,
       `input-otp_shape_${shape}`,
@@ -251,10 +251,10 @@ function toAutofocus() {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.input-otp {
+.anyboom-input-otp {
   $this: &;
 
   display: inline-flex;

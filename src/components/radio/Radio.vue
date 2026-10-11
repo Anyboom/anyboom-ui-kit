@@ -67,10 +67,10 @@ function handleChange(event: Event) {
   </label>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.radio {
+.anyboom-radio {
   $this: &;
 
   display: flex;

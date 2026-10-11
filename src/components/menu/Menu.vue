@@ -19,7 +19,7 @@ function handleItemClick(item: MenuItemType) {
 </script>
 
 <template>
-  <nav class="menu">
+  <nav class="anyboom-menu">
     <ul class="menu__list">
       <MenuItem
         v-for="(item, index) in items"
@@ -31,8 +31,8 @@ function handleItemClick(item: MenuItemType) {
   </nav>
 </template>
 
-<style scoped lang="scss">
-.menu {
+<style lang="scss">
+.anyboom-menu {
   width: 100%;
   background-color: var(--anyboom-menu-background);
   border: 1px solid var(--anyboom-menu-border);

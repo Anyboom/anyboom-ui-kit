@@ -27,7 +27,7 @@ function remove(event: Event) {
 
 <template>
   <div
-    class="chip"
+    class="anyboom-chip"
     :class="[
       `chip_variant_${variant}`,
       `chip_size_${size}`,
@@ -51,10 +51,10 @@ function remove(event: Event) {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.chip {
+.anyboom-chip {
   $this: &;
 
   display: flex;

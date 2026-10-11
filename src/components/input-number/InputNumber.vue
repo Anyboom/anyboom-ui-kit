@@ -674,7 +674,7 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="input-number"
+    class="anyboom-input-number"
     :class="[
       {
         'input-number_disabled': disabled,
@@ -795,10 +795,10 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.input-number {
+.anyboom-input-number {
   $this: &;
 
   display: flex;

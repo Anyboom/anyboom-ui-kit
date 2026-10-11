@@ -41,7 +41,7 @@ function handleChange(event: Event) {
 
 <template>
   <label
-    class="toggle-switch"
+    class="anyboom-toggle-switch"
     :class="[
       `toggle-switch_size_${size}`,
       {
@@ -68,10 +68,10 @@ function handleChange(event: Event) {
   </label>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@/styles/mixins";
 
-.toggle-switch {
+.anyboom-toggle-switch {
   $this: &;
 
   display: inline-flex;

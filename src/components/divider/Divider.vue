@@ -9,11 +9,11 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="divider" :class="{ divider_vertical: vertical }" />
+  <div class="anyboom-divider" :class="{ divider_vertical: vertical }" />
 </template>
 
-<style scoped lang="scss">
-.divider {
+<style lang="scss">
+.anyboom-divider {
   width: 100%;
   height: 1px;
   background: var(--anyboom-border-default);

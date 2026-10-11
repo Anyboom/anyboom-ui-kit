@@ -102,7 +102,7 @@ onUnmounted(() => {
         v-if="modelValue"
         ref="panelRef"
         tabindex="-1"
-        class="modal"
+        class="anyboom-modal"
         :class="`modal_size_${size}`"
         role="dialog"
         aria-modal="true"
@@ -139,10 +139,10 @@ onUnmounted(() => {
   </Teleport>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.modal {
+.anyboom-modal {
   position: fixed;
   top: 50%;
   left: 50%;

@@ -209,7 +209,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="popover">
+  <div class="anyboom-popover">
     <div
       ref="triggerRef"
       class="popover__trigger"
@@ -242,8 +242,8 @@ defineExpose({
   </div>
 </template>
 
-<style scoped lang="scss">
-.popover {
+<style lang="scss">
+.anyboom-popover {
   display: inline-block;
   position: relative;
 

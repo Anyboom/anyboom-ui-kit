@@ -65,10 +65,10 @@ function goToPage(page: number) {
 </script>
 
 <template>
-  <nav v-if="totalPages > 1" class="app-paginator">
-    <ul class="app-paginator__list">
+  <nav v-if="totalPages > 1" class="anyboom-paginator">
+    <ul class="anyboom-paginator__list">
       <li v-if="showFirstPage">
-        <button type="button" class="app-paginator__button" aria-label="Первая страница" @click="goToPage(1)">
+        <button type="button" class="anyboom-paginator__button" aria-label="Первая страница" @click="goToPage(1)">
           <CaretDoubleLeftIcon height="1em" />
         </button>
       </li>
@@ -76,7 +76,7 @@ function goToPage(page: number) {
       <li>
         <button
           type="button"
-          class="app-paginator__button"
+          class="anyboom-paginator__button"
           :class="{ disabled: currentPage === 1 }"
           :disabled="currentPage === 1"
           aria-label="Предыдущая страница"
@@ -89,7 +89,7 @@ function goToPage(page: number) {
       <li v-for="page in visiblePages" :key="page">
         <button
           type="button"
-          class="app-paginator__button"
+          class="anyboom-paginator__button"
           :class="{ active: page === currentPage }"
           @click="goToPage(page)"
         >
@@ -100,7 +100,7 @@ function goToPage(page: number) {
       <li>
         <button
           type="button"
-          class="app-paginator__button"
+          class="anyboom-paginator__button"
           :class="{ disabled: currentPage === totalPages }"
           :disabled="currentPage === totalPages"
           aria-label="Следующая страница"
@@ -111,7 +111,7 @@ function goToPage(page: number) {
       </li>
 
       <li v-if="showLastPage">
-        <button type="button" class="app-paginator__button" aria-label="Последняя страница" @click="goToPage(totalPages)">
+        <button type="button" class="anyboom-paginator__button" aria-label="Последняя страница" @click="goToPage(totalPages)">
           <CaretDoubleRightIcon height="1em" />
         </button>
       </li>
@@ -119,10 +119,10 @@ function goToPage(page: number) {
   </nav>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.app-paginator {
+.anyboom-paginator {
   margin: var(--anyboom-spacing-4) 0;
 
   &__list {
@@ -135,7 +135,7 @@ function goToPage(page: number) {
 
   &__button {
     padding: var(--anyboom-spacing-2) var(--anyboom-spacing-4);
-    background-color: white;
+    background-color: var(--anyboom-surface-primary);
     color: var(--anyboom-input-primary-text);
     cursor: pointer;
 

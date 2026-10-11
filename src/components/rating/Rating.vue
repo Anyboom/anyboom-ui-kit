@@ -64,7 +64,7 @@ function updateModel(event: Event, value: number) {
 
 <template>
   <div
-    class="rating"
+    class="anyboom-rating"
     :class="{
       rating_readonly: readonly,
       rating_disabled: disabled,
@@ -112,8 +112,8 @@ function updateModel(event: Event, value: number) {
   </div>
 </template>
 
-<style lang="scss" scoped>
-.rating {
+<style lang="scss">
+.anyboom-rating {
   $this: &;
 
   display: inline-flex;

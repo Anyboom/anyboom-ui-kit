@@ -464,7 +464,7 @@ const hasSelectedItems = computed(() => {
 <template>
   <div
     ref="dropdownRef"
-    class="select"
+    class="anyboom-select"
     :class="{
       select_disabled: disabled,
       select_error: error,
@@ -666,7 +666,7 @@ const hasSelectedItems = computed(() => {
 <style lang="scss">
 @use "@/styles/mixins";
 
-.select {
+.anyboom-select {
   $self: &;
 
   position: relative;

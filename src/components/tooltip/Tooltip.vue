@@ -343,7 +343,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="wrapperRef" class="tooltip">
+  <div ref="wrapperRef" class="anyboom-tooltip">
     <span
       ref="triggerRef"
       class="tooltip__trigger"
@@ -386,10 +386,10 @@ onBeforeUnmount(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@/styles/mixins";
 
-.tooltip {
+.anyboom-tooltip {
   $this: &;
 
   display: inline-block;

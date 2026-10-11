@@ -218,7 +218,7 @@ onUnmounted(() => {
 <template>
   <div
     ref="textareaWrapper"
-    class="textarea"
+    class="anyboom-textarea"
     :class="[
       {
         'textarea_disabled': disabled,
@@ -285,10 +285,10 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.textarea {
+.anyboom-textarea {
   $this: &;
 
   display: flex;

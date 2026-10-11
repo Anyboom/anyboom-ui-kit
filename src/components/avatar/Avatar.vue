@@ -9,16 +9,16 @@ withDefaults(defineProps<Props>(), { size: 'medium' })
 </script>
 
 <template>
-  <div class="avatar" :class="[`avatar_size_${size}`]">
+  <div class="anyboom-avatar" :class="[`avatar_size_${size}`]">
     <img v-if="image" :src="image" class="avatar__image">
     <span v-else-if="label" class="avatar__label">{{ label }}</span>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.avatar {
+.anyboom-avatar {
   $this: &;
 
   border-radius: 50%;

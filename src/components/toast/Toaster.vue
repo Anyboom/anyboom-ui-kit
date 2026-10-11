@@ -78,7 +78,7 @@ else {
     <div
       v-for="group in groupedToasts"
       :key="group.position"
-      class="toaster"
+      class="anyboom-toaster"
       :class="`toaster_position_${group.position}`"
     >
       <transition-group
@@ -98,8 +98,8 @@ else {
   </Teleport>
 </template>
 
-<style lang="scss" scoped>
-.toaster {
+<style lang="scss">
+.anyboom-toaster {
   position: fixed;
   display: flex;
   flex-direction: column;

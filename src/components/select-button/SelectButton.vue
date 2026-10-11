@@ -119,7 +119,7 @@ function handleSelect(option: unknown): void {
 
 <template>
   <div
-    class="select-button"
+    class="anyboom-select-button"
     :class="{ 'select-button_disabled': disabled, 'select-button_readonly': readonly }"
     role="group"
     :aria-labelledby="ariaLabelledby || undefined"
@@ -142,10 +142,10 @@ function handleSelect(option: unknown): void {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.select-button {
+.anyboom-select-button {
   $this: &;
 
   display: inline-flex;

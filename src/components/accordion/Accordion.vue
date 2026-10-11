@@ -24,7 +24,7 @@ function toggle(): void {
 
 <template>
   <div
-    class="accordion"
+    class="anyboom-accordion"
     :class="{
       accordion_open: modelValue,
       accordion_disabled: disabled,
@@ -53,10 +53,10 @@ function toggle(): void {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.accordion {
+.anyboom-accordion {
   $this: &;
 
   &_open > #{$this}__summary {

@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="spinner"
+    class="anyboom-spinner"
     :class="[
       `spinner_speed_${speed}`,
       `spinner_thickness_${thickness}`,
@@ -24,8 +24,8 @@ withDefaults(defineProps<Props>(), {
   />
 </template>
 
-<style scoped lang="scss">
-.spinner {
+<style lang="scss">
+.anyboom-spinner {
   display: inline-block;
   border-style: solid;
   border-color: var(--anyboom-spinner-background);

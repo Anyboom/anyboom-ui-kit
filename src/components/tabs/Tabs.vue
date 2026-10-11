@@ -39,7 +39,7 @@ function setActiveTab(tabId: string | number) {
 </script>
 
 <template>
-  <div class="tabs">
+  <div class="anyboom-tabs">
     <div class="tabs__header">
       <button
         v-for="tab in tabs"
@@ -71,10 +71,10 @@ function setActiveTab(tabId: string | number) {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@/styles/mixins";
 
-.tabs {
+.anyboom-tabs {
   &__header {
     display: flex;
     gap: var(--anyboom-spacing-2);

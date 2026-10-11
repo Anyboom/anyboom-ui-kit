@@ -48,18 +48,18 @@ function handleClick(event: MouseEvent) {
 }
 
 const isLink = computed(() => Boolean(props.href) && !props.disabled)
-const tag = computed(() => (isLink.value ? 'a' : 'button'))
+const tag = computed(() => (isLink.value ? 'a' : 'anyboom-button'))
 </script>
 
 <template>
   <component
     :is="tag"
-    :type="isLink ? undefined : 'button'"
+    :type="isLink ? undefined : 'anyboom-button'"
     :href="isLink ? href : undefined"
     :target="isLink ? target : undefined"
     :rel="isLink && target === '_blank' ? 'noopener noreferrer' : undefined"
     :disabled="isLink ? undefined : disabled"
-    class="button"
+    class="anyboom-button"
     :class="[
       `button_variant_${variant}`,
       `button_severity_${severity}`,
@@ -76,10 +76,10 @@ const tag = computed(() => (isLink.value ? 'a' : 'button'))
   </component>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.button {
+.anyboom-button {
   $this: &;
 
   display: inline-flex;

@@ -14,15 +14,15 @@ withDefaults(defineProps<Props>(), { severity: 'secondary' })
 </script>
 
 <template>
-  <div class="badge" :class="[`badge_severity_${severity}`]">
+  <div class="anyboom-badge" :class="[`badge_severity_${severity}`]">
     <slot />
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.badge {
+.anyboom-badge {
   padding: var(--anyboom-spacing-0-5) var(--anyboom-spacing-2);
   border-radius: var(--anyboom-radius-small);
   border: 1px solid transparent;

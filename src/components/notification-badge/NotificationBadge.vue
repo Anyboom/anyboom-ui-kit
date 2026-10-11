@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="notification-badge"
+    class="anyboom-notification-badge"
     :class="[`notification-badge_severity_${severity}`]"
   >
     <div v-if="active" class="notification-badge__badge">
@@ -30,10 +30,10 @@ withDefaults(defineProps<Props>(), {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.notification-badge {
+.anyboom-notification-badge {
   $this: &;
 
   position: relative;

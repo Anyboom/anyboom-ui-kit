@@ -281,7 +281,7 @@ watch(
 </script>
 
 <template>
-  <div ref="datePickerRef" class="input-date">
+  <div ref="datePickerRef" class="anyboom-input-date">
     <InputText
       :model-value="displayValue"
       :input-id="inputId"
@@ -345,10 +345,10 @@ watch(
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.input-date {
+.anyboom-input-date {
   position: relative;
   display: inline-block;
   width: 100%;

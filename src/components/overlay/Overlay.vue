@@ -1,11 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="overlay" />
+  <div class="anyboom-overlay" />
 </template>
 
-<style scoped lang="scss">
-.overlay {
+<style lang="scss">
+.anyboom-overlay {
   background: var(--anyboom-overlay-default);
   opacity: 0.6;
   position: fixed;

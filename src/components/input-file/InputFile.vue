@@ -212,7 +212,7 @@ function triggerFileSelect(): void {
 </script>
 
 <template>
-  <div class="input-file">
+  <div class="anyboom-input-file">
     <div
       class="input-file__drop-zone"
       :class="{
@@ -308,10 +308,10 @@ function triggerFileSelect(): void {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@/styles/mixins";
 
-.input-file {
+.anyboom-input-file {
   &__drop-zone {
     border: 2px dashed var(--anyboom-border-default);
     border-radius: var(--anyboom-radius-small);

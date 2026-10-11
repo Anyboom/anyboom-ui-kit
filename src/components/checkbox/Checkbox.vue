@@ -73,10 +73,10 @@ function handleChange(event: Event) {
   </label>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.checkbox {
+.anyboom-checkbox {
   $this: &;
 
   display: flex;

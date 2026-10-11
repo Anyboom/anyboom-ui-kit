@@ -101,7 +101,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="input-text"
+    class="anyboom-input-text"
     :class="[
       `input-text_size_${size}`,
       {
@@ -150,10 +150,10 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.input-text {
+.anyboom-input-text {
   $this: &;
   display: flex;
   flex-direction: column;

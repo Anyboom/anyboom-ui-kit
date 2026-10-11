@@ -57,7 +57,7 @@ defineExpose({
   <button
     :id="fieldId"
     type="button"
-    class="toggle-button"
+    class="anyboom-toggle-button"
     :class="[
       `toggle-button_icon-pos_${iconPos}`,
       `toggle-button_size_${size}`,
@@ -81,10 +81,10 @@ defineExpose({
   </button>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.toggle-button {
+.anyboom-toggle-button {
   $this: &;
 
   display: inline-flex;

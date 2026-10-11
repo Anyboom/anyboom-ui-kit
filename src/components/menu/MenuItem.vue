@@ -24,7 +24,7 @@ function handleClick() {
 
 <template>
   <li
-    class="menu-item"
+    class="anyboom-menu-item"
     :class="{
       'menu-item_active': props.item.active,
       'menu-item_disabled': props.item.disabled,
@@ -53,10 +53,10 @@ function handleClick() {
   </li>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/mixins";
 
-.menu-item {
+.anyboom-menu-item {
   $this: &;
 
   position: relative;

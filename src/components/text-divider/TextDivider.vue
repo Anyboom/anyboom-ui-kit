@@ -1,11 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="text-divider" />
+  <div class="anyboom-text-divider" />
 </template>
 
-<style scoped lang="scss">
-.text-divider {
+<style lang="scss">
+.anyboom-text-divider {
   width: 3px;
   height: 3px;
   border-radius: var(--anyboom-radius-full);
