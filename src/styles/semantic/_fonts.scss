@@ -1,0 +1,324 @@
+@use "sass:map";
+
+$text-styles: (
+  "badge": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 700,
+    "font-size": 11px,
+    "line-height": 18px,
+    "letter-spacing": 0,
+  ),
+  "heading-h1": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 700,
+    "font-size": 36px,
+    "line-height": 48px,
+    "letter-spacing": -0.5px,
+  ),
+  "heading-h2": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 700,
+    "font-size": 28px,
+    "line-height": 36px,
+    "letter-spacing": -0.4px,
+  ),
+  "heading-h3": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 700,
+    "font-size": 20px,
+    "line-height": 30px,
+    "letter-spacing": -0.3px,
+  ),
+  "heading-h4": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 700,
+    "font-size": 16px,
+    "line-height": 24px,
+    "letter-spacing": 0,
+  ),
+  "body-xs": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 12px,
+    "line-height": 16px,
+    "letter-spacing": -1px,
+  ),
+  "body-xs-medium": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 12px,
+    "line-height": 20px,
+    "letter-spacing": -1px,
+  ),
+  "body-sm": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 14px,
+    "line-height": 20px,
+    "letter-spacing": 0,
+  ),
+  "body-sm-medium": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 14px,
+    "line-height": 20px,
+    "letter-spacing": 0,
+  ),
+  "body-base": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 16px,
+    "line-height": 24px,
+    "letter-spacing": 0,
+  ),
+  "body-lg": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 18px,
+    "line-height": 28px,
+    "letter-spacing": 0.2px,
+  ),
+  "body-lg-medium": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 18px,
+    "line-height": 28px,
+    "letter-spacing": 0.2px,
+  ),
+  "body-xl": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 20px,
+    "line-height": 32px,
+    "letter-spacing": 0.2px,
+  ),
+  "body-xl-medium": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 20px,
+    "line-height": 32px,
+    "letter-spacing": 0.2px,
+  ),
+  "caption-xs": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 12px,
+    "line-height": 18px,
+    "letter-spacing": 0.3px,
+  ),
+  "caption-sm": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 14px,
+    "line-height": 20px,
+    "letter-spacing": 0.2px,
+  ),
+  "caption-base": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 16px,
+    "line-height": 24px,
+    "letter-spacing": 0.1px,
+  ),
+  "caption-lg": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 18px,
+    "line-height": 28px,
+    "letter-spacing": -0.1px,
+  ),
+  "caption-xl": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 20px,
+    "line-height": 32px,
+    "letter-spacing": -0.2px,
+  ),
+  "button-sm": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 14px,
+    "line-height": 20px,
+    "letter-spacing": 1px,
+  ),
+  "button-md": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 700,
+    "font-size": 14px,
+    "line-height": 20px,
+    "letter-spacing": 1px,
+  ),
+  "button-lg": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 700,
+    "font-size": 16px,
+    "line-height": 24px,
+    "letter-spacing": -0.3px,
+  ),
+  "button-mono-sm": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 14px,
+    "line-height": 20px,
+    "letter-spacing": 0.25px,
+  ),
+  "button-mono-md": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 14px,
+    "line-height": 20px,
+    "letter-spacing": 0,
+  ),
+  "button-mono-lg": (
+    "font-family": (
+      JetBrains Mono,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 16px,
+    "line-height": 24px,
+    "letter-spacing": 0.1px,
+  ),
+  "label-md": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 14px,
+    "line-height": 18px,
+    "letter-spacing": 0,
+  ),
+  "label-lg": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 500,
+    "font-size": 16px,
+    "line-height": 24px,
+    "letter-spacing": 0.1px,
+  ),
+  "input-md": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 14px,
+    "line-height": 16px,
+    "letter-spacing": 0,
+  ),
+  "input-lg": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 18px,
+    "line-height": 28px,
+    "letter-spacing": 0,
+  ),
+  "link-base": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 16px,
+    "line-height": 28px,
+    "letter-spacing": 0,
+  ),
+  "input-opt-sm": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 14px,
+    "line-height": 16px,
+    "letter-spacing": 0,
+  ),
+  "input-opt-md": (
+    "font-family": (
+      Inter,
+      sans-serif,
+    ),
+    "font-weight": 400,
+    "font-size": 18px,
+    "line-height": 20px,
+    "letter-spacing": 0,
+  ),
+) !default;

@@ -1,0 +1,15 @@
+:root {
+  --anyboom-toggle-switch-inactive-icon: var(--anyboom-icon-inverse);
+  --anyboom-toggle-switch-inactive-background: var(--anyboom-surface-tertiary);
+  --anyboom-toggle-switch-inactive-hover-icon: var(--anyboom-icon-inverse);
+  --anyboom-toggle-switch-inactive-hover-background: var(
+    --anyboom-color-gray-300
+  );
+  --anyboom-toggle-switch-text: var(--anyboom-text-primary);
+  --anyboom-toggle-switch-checked-icon: var(--anyboom-icon-inverse);
+  --anyboom-toggle-switch-checked-background: var(--anyboom-surface-brand);
+  --anyboom-toggle-switch-checked-hover-icon: var(--anyboom-icon-inverse);
+  --anyboom-toggle-switch-checked-hover-background: var(
+    --anyboom-surface-brand-hover
+  );
+}

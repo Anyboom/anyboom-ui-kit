@@ -1,0 +1,14 @@
+@use "../semantic";
+@use "sass:map";
+
+@mixin apply-text($style-name) {
+  $style: map.get(semantic.$text-styles, $style-name);
+
+  @if $style {
+    @each $property, $value in $style {
+      #{$property}: $value;
+    }
+  } @else {
+    @error 'Текстовый стиль "#{$style-name}" не найден';
+  }
+}

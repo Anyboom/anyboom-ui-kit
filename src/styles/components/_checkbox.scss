@@ -1,0 +1,17 @@
+:root {
+  --anyboom-checkbox-inactive-border: var(--anyboom-control-inactive-border);
+  --anyboom-checkbox-inactive-background: var(
+    --anyboom-control-inactive-background
+  );
+  --anyboom-checkbox-inactive-hover-border: var(
+    --anyboom-control-inactive-hover-border
+  );
+  --anyboom-checkbox-inactive-hover-background: var(
+    --anyboom-control-inactive-hover-background
+  );
+  --anyboom-checkbox-text: var(--anyboom-text-primary);
+  --anyboom-checkbox-checked-icon: var(--anyboom-icon-inverse);
+  --anyboom-checkbox-checked-background: var(--anyboom-surface-brand);
+  --anyboom-checkbox-checked-hover-icon: var(--anyboom-icon-inverse);
+  --anyboom-checkbox-checked-hover-background: var(--anyboom-surface-brand-hover);
+}

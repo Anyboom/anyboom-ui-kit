@@ -1,0 +1,32 @@
+:root {
+  --anyboom-message-secondary-filled-background: var(--anyboom-surface-secondary);
+  --anyboom-message-secondary-filled-text: var(--anyboom-text-secondary);
+  --anyboom-message-secondary-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-secondary-outlined-text: var(--anyboom-text-tertiary);
+  --anyboom-message-secondary-outlined-border: var(--anyboom-border-default);
+  --anyboom-message-secondary-text-text: var(--anyboom-text-tertiary);
+  --anyboom-message-positive-filled-background: var(--anyboom-surface-positive);
+  --anyboom-message-positive-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-positive-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-positive-outlined-text: var(--anyboom-text-positive);
+  --anyboom-message-positive-outlined-border: var(--anyboom-border-positive);
+  --anyboom-message-positive-text-text: var(--anyboom-text-positive);
+  --anyboom-message-negative-filled-background: var(--anyboom-surface-negative);
+  --anyboom-message-negative-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-negative-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-negative-outlined-text: var(--anyboom-text-negative);
+  --anyboom-message-negative-outlined-border: var(--anyboom-border-negative);
+  --anyboom-message-negative-text-text: var(--anyboom-text-negative);
+  --anyboom-message-contrast-filled-background: var(--anyboom-surface-contrast);
+  --anyboom-message-contrast-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-contrast-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-contrast-outlined-text: var(--anyboom-text-contrast);
+  --anyboom-message-contrast-outlined-border: var(--anyboom-border-contrast);
+  --anyboom-message-contrast-text-text: var(--anyboom-text-contrast);
+  --anyboom-message-info-filled-background: var(--anyboom-surface-info);
+  --anyboom-message-info-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-info-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-info-outlined-text: var(--anyboom-text-info);
+  --anyboom-message-info-outlined-border: var(--anyboom-border-info);
+  --anyboom-message-info-text-text: var(--anyboom-text-info);
+}

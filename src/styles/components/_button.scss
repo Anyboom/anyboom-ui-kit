@@ -1,0 +1,162 @@
+:root {
+  --anyboom-button-primary-filled-background: var(--anyboom-surface-contrast);
+  --anyboom-button-primary-filled-background-hover: var(
+    --anyboom-surface-contrast-hover
+  );
+  --anyboom-button-primary-filled-background-active: var(
+    --anyboom-surface-contrast-active
+  );
+  --anyboom-button-primary-filled-text: var(--anyboom-text-inverse);
+  --anyboom-button-primary-text-text: var(--anyboom-text-contrast);
+  --anyboom-button-primary-text-text-hover: var(--anyboom-text-contrast-hover);
+  --anyboom-button-primary-text-text-active: var(--anyboom-text-contrast-active);
+  --anyboom-button-primary-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-button-primary-outlined-background-hover: var(--anyboom-color-gray-50);
+  --anyboom-button-primary-outlined-background-active: var(--anyboom-color-gray-75);
+  --anyboom-button-primary-outlined-text: var(--anyboom-text-contrast);
+  --anyboom-button-primary-outlined-text-hover: var(--anyboom-text-contrast-hover);
+  --anyboom-button-primary-outlined-text-active: var(
+    --anyboom-text-contrast-active
+  );
+  --anyboom-button-primary-outlined-border: var(--anyboom-border-contrast);
+  --anyboom-button-primary-outlined-border-hover: var(
+    --anyboom-border-contrast-hover
+  );
+  --anyboom-button-primary-outlined-border-active: var(
+    --anyboom-border-contrast-active
+  );
+  --anyboom-button-secondary-filled-background: var(--anyboom-surface-secondary);
+  --anyboom-button-secondary-filled-background-hover: var(
+    --anyboom-surface-disabled
+  );
+  --anyboom-button-secondary-filled-background-active: var(
+    --anyboom-surface-tertiary
+  );
+  --anyboom-button-secondary-filled-text: var(--anyboom-text-secondary);
+  --anyboom-button-secondary-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-button-secondary-outlined-background-hover: var(--anyboom-color-gray-50);
+  --anyboom-button-secondary-outlined-background-active: var(--anyboom-color-gray-50);
+  --anyboom-button-secondary-outlined-text: var(--anyboom-text-tertiary);
+  --anyboom-button-secondary-outlined-text-hover: var(--anyboom-text-secondary);
+  --anyboom-button-secondary-outlined-text-active: var(--anyboom-text-secondary);
+  --anyboom-button-secondary-outlined-border: var(--anyboom-border-default);
+  --anyboom-button-secondary-outlined-border-hover: var(--anyboom-border-strong);
+  --anyboom-button-secondary-outlined-border-active: var(--anyboom-border-strong);
+  --anyboom-button-secondary-text-text: var(--anyboom-text-tertiary);
+  --anyboom-button-secondary-text-text-hover: var(--anyboom-text-secondary);
+  --anyboom-button-secondary-text-text-active: var(--anyboom-text-primary);
+  --anyboom-button-positive-filled-background: var(--anyboom-surface-positive);
+  --anyboom-button-positive-filled-background-hover: var(
+    --anyboom-surface-positive-hover
+  );
+  --anyboom-button-positive-filled-background-active: var(
+    --anyboom-surface-positive-active
+  );
+  --anyboom-button-positive-filled-text: var(--anyboom-text-inverse);
+  --anyboom-button-positive-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-button-positive-outlined-background-hover: var(
+    --anyboom-surface-positive-light
+  );
+  --anyboom-button-positive-outlined-background-active: var(
+    --anyboom-surface-positive-light
+  );
+  --anyboom-button-positive-outlined-text: var(--anyboom-text-positive);
+  --anyboom-button-positive-outlined-text-hover: var(--anyboom-text-positive-hover);
+  --anyboom-button-positive-outlined-text-active: var(
+    --anyboom-text-positive-active
+  );
+  --anyboom-button-positive-outlined-border: var(--anyboom-border-positive);
+  --anyboom-button-positive-outlined-border-hover: var(
+    --anyboom-border-positive-hover
+  );
+  --anyboom-button-positive-outlined-border-active: var(
+    --anyboom-border-positive-active
+  );
+  --anyboom-button-positive-text-text: var(--anyboom-text-positive);
+  --anyboom-button-positive-text-text-hover: var(--anyboom-text-positive-hover);
+  --anyboom-button-positive-text-text-active: var(--anyboom-text-positive-active);
+  --anyboom-button-negative-filled-background: var(--anyboom-surface-negative);
+  --anyboom-button-negative-filled-background-hover: var(
+    --anyboom-surface-negative-hover
+  );
+  --anyboom-button-negative-filled-background-active: var(
+    --anyboom-surface-negative-active
+  );
+  --anyboom-button-negative-filled-text: var(--anyboom-text-inverse);
+  --anyboom-button-negative-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-button-negative-outlined-background-hover: var(
+    --anyboom-surface-negative-light
+  );
+  --anyboom-button-negative-outlined-background-active: var(
+    --anyboom-surface-negative-light
+  );
+  --anyboom-button-negative-outlined-text: var(--anyboom-text-negative);
+  --anyboom-button-negative-outlined-text-hover: var(--anyboom-text-negative-hover);
+  --anyboom-button-negative-outlined-text-active: var(
+    --anyboom-text-negative-active
+  );
+  --anyboom-button-negative-outlined-border: var(--anyboom-border-negative);
+  --anyboom-button-negative-outlined-border-hover: var(
+    --anyboom-border-negative-hover
+  );
+  --anyboom-button-negative-outlined-border-active: var(
+    --anyboom-border-negative-active
+  );
+  --anyboom-button-negative-text-text: var(--anyboom-text-negative);
+  --anyboom-button-negative-text-text-hover: var(--anyboom-text-negative-hover);
+  --anyboom-button-negative-text-text-active: var(--anyboom-text-negative-active);
+  --anyboom-button-disabled-filled-background: var(--anyboom-surface-disabled);
+  --anyboom-button-disabled-filled-text: var(--anyboom-text-disabled);
+  --anyboom-button-disabled-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-button-disabled-outlined-text: var(--anyboom-text-disabled);
+  --anyboom-button-disabled-outlined-border: var(--anyboom-border-default);
+  --anyboom-button-disabled-text-text: var(--anyboom-text-disabled);
+  --anyboom-button-contrast-filled-background: var(--anyboom-surface-contrast);
+  --anyboom-button-contrast-filled-background-hover: var(
+    --anyboom-surface-contrast-hover
+  );
+  --anyboom-button-contrast-filled-background-active: var(
+    --anyboom-surface-contrast-active
+  );
+  --anyboom-button-contrast-filled-text: var(--anyboom-text-inverse);
+  --anyboom-button-contrast-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-button-contrast-outlined-background-hover: var(--anyboom-color-gray-50);
+  --anyboom-button-contrast-outlined-background-active: var(--anyboom-color-gray-75);
+  --anyboom-button-contrast-outlined-text: var(--anyboom-text-contrast);
+  --anyboom-button-contrast-outlined-text-hover: var(--anyboom-text-contrast-hover);
+  --anyboom-button-contrast-outlined-text-active: var(
+    --anyboom-text-contrast-active
+  );
+  --anyboom-button-contrast-outlined-border: var(--anyboom-border-contrast);
+  --anyboom-button-contrast-outlined-border-hover: var(
+    --anyboom-border-contrast-hover
+  );
+  --anyboom-button-contrast-outlined-border-active: var(
+    --anyboom-border-contrast-active
+  );
+  --anyboom-button-contrast-text-text: var(--anyboom-text-contrast);
+  --anyboom-button-contrast-text-text-hover: var(--anyboom-text-contrast-hover);
+  --anyboom-button-contrast-text-text-active: var(--anyboom-text-contrast-active);
+  --anyboom-button-info-filled-background: var(--anyboom-surface-info);
+  --anyboom-button-info-filled-background-hover: var(--anyboom-surface-info-hover);
+  --anyboom-button-info-filled-background-active: var(
+    --anyboom-surface-info-active
+  );
+  --anyboom-button-info-filled-text: var(--anyboom-text-inverse);
+  --anyboom-button-info-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-button-info-outlined-background-hover: var(
+    --anyboom-surface-info-light
+  );
+  --anyboom-button-info-outlined-background-active: var(
+    --anyboom-surface-info-light
+  );
+  --anyboom-button-info-outlined-text: var(--anyboom-text-info);
+  --anyboom-button-info-outlined-text-hover: var(--anyboom-text-info-hover);
+  --anyboom-button-info-outlined-text-active: var(--anyboom-text-info-active);
+  --anyboom-button-info-outlined-border: var(--anyboom-border-info);
+  --anyboom-button-info-outlined-border-hover: var(--anyboom-border-info-hover);
+  --anyboom-button-info-outlined-border-active: var(--anyboom-border-info-active);
+  --anyboom-button-info-text-text: var(--anyboom-text-info);
+  --anyboom-button-info-text-text-hover: var(--anyboom-text-info-hover);
+  --anyboom-button-info-text-text-active: var(--anyboom-text-info-active);
+}
