@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FloatingPlacement } from '@/utils/floating-placement.ts'
 
-import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, useId, watch } from 'vue'
 
 import { useOverlayStack } from '@/composables/use-overlay-stack.ts'
 import { pickPlacement } from '@/utils/pick-placement.ts'
@@ -36,6 +36,7 @@ const tooltipStyle = ref<Record<string, string | number>>({})
 const wrapperRef = ref<HTMLElement | null>(null)
 const triggerRef = ref<HTMLElement | null>(null)
 const tooltipRef = ref<HTMLElement | null>(null)
+const tooltipId = useId()
 
 let showTimer: ReturnType<typeof setTimeout> | null = null
 let hideTimer: ReturnType<typeof setTimeout> | null = null
@@ -161,6 +162,19 @@ function handleTriggerBlur(): void {
 
   if (!props.interactive) {
     hide()
+  }
+}
+
+function handleTriggerKeydown(event: KeyboardEvent): void {
+  if (event.key === 'Escape' && isVisible.value) {
+    event.preventDefault()
+    forceHide()
+    return
+  }
+
+  if (props.triggerOnClick && (event.key === 'Enter' || event.key === ' ')) {
+    event.preventDefault()
+    toggle()
   }
 }
 
@@ -333,11 +347,15 @@ onBeforeUnmount(() => {
     <span
       ref="triggerRef"
       class="tooltip__trigger"
+      tabindex="0"
+      role="button"
+      :aria-describedby="isVisible ? tooltipId : undefined"
       @mouseenter="handleTriggerMouseEnter"
       @mouseleave="handleTriggerMouseLeave"
-      @focus="handleTriggerFocus"
-      @blur="handleTriggerBlur"
+      @focusin="handleTriggerFocus"
+      @focusout="handleTriggerBlur"
       @click="handleTriggerClick"
+      @keydown="handleTriggerKeydown"
     >
       <slot name="default"> Наведи на меня </slot>
     </span>
@@ -346,8 +364,10 @@ onBeforeUnmount(() => {
       <Transition name="tooltip">
         <div
           v-if="isVisible"
+          :id="tooltipId"
           ref="tooltipRef"
           class="tooltip__popup"
+          role="tooltip"
           :class="{
             tooltip__popup_interactive: interactive,
           }"
@@ -380,6 +400,12 @@ onBeforeUnmount(() => {
     cursor: pointer;
     user-select: none;
     outline: none;
+
+    &:focus-visible {
+      outline: 2px solid var(--anyboom-border-focus);
+      outline-offset: 2px;
+      border-radius: var(--anyboom-radius-small);
+    }
   }
 
   &__popup {

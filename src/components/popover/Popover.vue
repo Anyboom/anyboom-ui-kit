@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FloatingPlacement } from '@/utils/floating-placement.ts'
 
-import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, useId, watch } from 'vue'
 
 import { useOverlayStack } from '@/composables/use-overlay-stack.ts'
 import { pickPlacement } from '@/utils/pick-placement.ts'
@@ -25,31 +25,54 @@ const isOpen = ref(false)
 const triggerRef = ref<HTMLElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
 const contentStyle = ref<Record<string, string | number>>({})
+const contentId = useId()
 
 useOverlayStack(isOpen, closePopover)
 
 let resizeObserver: ResizeObserver | null = null
 let contentResizeObserver: ResizeObserver | null = null
 
-async function openPopover(): Promise<void> {
+async function openPopover(focusContent = false): Promise<void> {
   if (props.disabled) {
     return
   }
 
   isOpen.value = true
   await updatePosition()
+
+  if (focusContent) {
+    await nextTick()
+    contentRef.value?.focus()
+  }
 }
 
 function closePopover(): void {
+  const content = contentRef.value
+
+  if (content?.contains(document.activeElement)) {
+    triggerRef.value?.focus()
+  }
+
   isOpen.value = false
 }
 
-function togglePopover(): void {
+function togglePopover(focusContent = false): void {
   if (isOpen.value) {
     closePopover()
   }
   else {
-    openPopover()
+    openPopover(focusContent)
+  }
+}
+
+function handleTriggerKeydown(event: KeyboardEvent): void {
+  if (event.target !== triggerRef.value) {
+    return
+  }
+
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault()
+    togglePopover(true)
   }
 }
 
@@ -187,7 +210,17 @@ defineExpose({
 
 <template>
   <div class="popover">
-    <div ref="triggerRef" class="popover__trigger" @click="togglePopover">
+    <div
+      ref="triggerRef"
+      class="popover__trigger"
+      role="button"
+      tabindex="0"
+      aria-haspopup="dialog"
+      :aria-expanded="isOpen"
+      :aria-controls="isOpen ? contentId : undefined"
+      @click="togglePopover()"
+      @keydown="handleTriggerKeydown"
+    >
       <slot name="trigger" />
     </div>
 
@@ -195,8 +228,11 @@ defineExpose({
       <Transition name="popover">
         <div
           v-if="isOpen"
+          :id="contentId"
           ref="contentRef"
           class="popover__content"
+          role="dialog"
+          tabindex="-1"
           :style="contentStyle"
         >
           <slot />
@@ -214,6 +250,12 @@ defineExpose({
   &__trigger {
     cursor: pointer;
     display: inline-block;
+
+    &:focus-visible {
+      outline: 2px solid var(--anyboom-border-focus);
+      outline-offset: 2px;
+      border-radius: var(--anyboom-radius-small);
+    }
   }
 
   &__content {
