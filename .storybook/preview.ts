@@ -12,11 +12,13 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      name: 'Anyboom UI Kit',
+    },
     options: {
       storySort: {
         method: 'alphabetical',
         order: [
-          'Docs',
           'Form',
           'Button',
           'Data',
