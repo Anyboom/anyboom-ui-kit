@@ -2,42 +2,52 @@
 import CaretDownIcon from '@iconify-vue/ph/caret-down'
 
 interface Props {
+  modelValue?: boolean
   disabled?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+interface Emits {
+  'update:modelValue': [value: boolean]
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: false,
   disabled: false,
 })
 
-const open = defineModel<boolean>('open', { default: false })
+const emit = defineEmits<Emits>()
+
+function toggle(): void {
+  emit('update:modelValue', !props.modelValue)
+}
 </script>
 
 <template>
   <div
     class="accordion"
     :class="{
-      accordion_open: open,
+      accordion_open: modelValue,
       accordion_disabled: disabled,
     }"
   >
     <button
       type="button"
       class="accordion__summary"
-      :aria-expanded="open"
+      :aria-expanded="modelValue"
       :disabled="disabled"
-      @click="open = !open"
+      @click="toggle"
     >
       <span class="accordion__title">
         <slot name="title" />
       </span>
       <CaretDownIcon
         class="accordion__icon"
-        :class="{ accordion__icon_open: open }"
+        :class="{ accordion__icon_open: modelValue }"
         height="1em"
       />
     </button>
 
-    <div v-if="open" class="accordion__content" role="region">
+    <div v-if="modelValue" class="accordion__content" role="region">
       <slot />
     </div>
   </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
-
 interface Props {
+  modelValue?: boolean
   label?: string
   inputId?: string
   disabled?: boolean
@@ -10,24 +9,23 @@ interface Props {
 }
 
 interface Emits {
-  change: [event: Event, value: boolean]
+  'update:modelValue': [value: boolean]
+  'change': [event: Event, value: boolean]
 }
 
-const props = withDefaults(defineProps<Props>(), { size: 'medium' })
+withDefaults(defineProps<Props>(), {
+  modelValue: false,
+  size: 'medium',
+})
 
 const emit = defineEmits<Emits>()
 
-const model = defineModel<boolean>({ default: false })
-const inputRef = ref<HTMLInputElement>()
+function handleChange(event: Event) {
+  const target = event.target as HTMLInputElement
+  const value = target.checked
 
-watchEffect(() => {
-  if (inputRef.value) {
-    inputRef.value.indeterminate = props.indeterminate ?? false
-  }
-})
-
-function onChange(event: Event) {
-  emit('change', event, model.value)
+  emit('update:modelValue', value)
+  emit('change', event, value)
 }
 </script>
 
@@ -38,12 +36,12 @@ function onChange(event: Event) {
   >
     <input
       :id="inputId"
-      ref="inputRef"
-      v-model="model"
       type="checkbox"
       class="checkbox__input"
+      :checked="modelValue"
+      :indeterminate="indeterminate"
       :disabled="disabled"
-      @change="onChange"
+      @change="handleChange"
     >
     <span class="checkbox__checkmark" />
     <span v-if="label" class="checkbox__label">{{ label }}</span>

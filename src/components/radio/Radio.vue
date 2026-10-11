@@ -1,5 +1,6 @@
 <script setup lang="ts">
 interface Props {
+  modelValue?: string | number | boolean
   label?: string
   inputId?: string
   disabled?: boolean
@@ -7,9 +8,21 @@ interface Props {
   size?: 'small' | 'medium' | 'large'
 }
 
-withDefaults(defineProps<Props>(), { size: 'medium' })
+interface Emits {
+  'update:modelValue': [value: string | number | boolean]
+}
 
-const model = defineModel<string | number | boolean>()
+const props = withDefaults(defineProps<Props>(), {
+  size: 'medium',
+  modelValue: undefined,
+  value: undefined,
+})
+
+const emit = defineEmits<Emits>()
+
+function handleChange() {
+  emit('update:modelValue', props.value as string | number | boolean)
+}
 </script>
 
 <template>
@@ -19,11 +32,12 @@ const model = defineModel<string | number | boolean>()
   >
     <input
       :id="inputId"
-      v-model="model"
       type="radio"
       class="radio__input"
+      :checked="modelValue === value"
       :disabled="disabled"
       :value="value"
+      @change="handleChange"
     >
     <span class="radio__checkmark" />
     <span v-if="label" class="radio__label">{{ label }}</span>

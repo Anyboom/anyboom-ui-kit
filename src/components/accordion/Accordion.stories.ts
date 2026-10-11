@@ -31,7 +31,7 @@ function withAccordion(args: { disabled?: boolean, open?: boolean }) {
       return { args, open }
     },
     template: `
-    <Accordion v-bind="args" v-model:open="open">
+    <Accordion v-bind="args" v-model="open">
       <template #title>Что такое Lorem Ipsum?</template>
       Lorem Ipsum — это текст-«рыба», часто используемый в печати и вёрстке. Lorem Ipsum является стандартной «рыбой» для этих целей уже с 1966 года, когда дизайнеры Letraset и Джеймс Мосли, библиотекарь и коллекционер каллиграфии, популяризировали его.
     </Accordion>

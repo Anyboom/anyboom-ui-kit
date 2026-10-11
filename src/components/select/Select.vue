@@ -16,6 +16,7 @@ import Radio from '@/components/radio/Radio.vue'
 import Spinner from '@/components/spinner/Spinner.vue'
 
 interface Props {
+  modelValue?: Option | Option[] | null
   options?: Option[] | OptionGroup[]
   mode?: SelectMode
   inputId?: string
@@ -32,6 +33,10 @@ interface Props {
   selectAllGroup?: boolean
   showClear?: boolean
   showCounter?: boolean
+}
+
+interface Emits {
+  'update:modelValue': [value: Option | Option[] | null]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -53,11 +58,11 @@ const props = withDefaults(defineProps<Props>(), {
   showCounter: false,
 })
 
-const modelValue = defineModel<Option | Option[] | null>('modelValue')
+const emit = defineEmits<Emits>()
 
 const selectedItems = computed({
   get() {
-    const value = modelValue.value ?? null
+    const value = props.modelValue ?? null
 
     if (props.mode === 'multiple') {
       return Array.isArray(value) ? value : []
@@ -67,7 +72,7 @@ const selectedItems = computed({
     }
   },
   set(value) {
-    modelValue.value = value
+    emit('update:modelValue', value)
   },
 })
 
