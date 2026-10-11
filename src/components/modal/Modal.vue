@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import type { ComponentPublicInstance } from 'vue'
 import XBoldIcon from '@iconify-vue/ph/x-bold'
-import { computed, onMounted, onUnmounted, useId, useSlots, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, useId, useSlots, watch } from 'vue'
 
 import Button from '@/components/button/Button.vue'
 import Divider from '@/components/divider/Divider.vue'
 import Overlay from '@/components/overlay/Overlay.vue'
 import { useBodyScrollLock } from '@/composables/use-body-scroll-lock.ts'
+import { useFocusTrap } from '@/composables/use-focus-trap.ts'
 
 interface Props {
   modelValue: boolean
@@ -37,6 +39,12 @@ const { lock, unlock } = useBodyScrollLock()
 const slots = useSlots()
 
 const titleId = useId()
+const panelRef = ref<HTMLElement>()
+const overlayRef = ref<ComponentPublicInstance>()
+
+useFocusTrap(panelRef, computed(() => props.modelValue), {
+  excludedRefs: [overlayRef],
+})
 
 const hasHeaderSlot = computed(() => Boolean(slots.header))
 const hasFooterSlot = computed(() => Boolean(slots.footer))
@@ -90,12 +98,18 @@ onUnmounted(() => {
 <template>
   <Teleport to="body">
     <Transition name="modal-overlay">
-      <Overlay v-if="modelValue" @click="handleOverlayClick" />
+      <Overlay
+        v-if="modelValue"
+        ref="overlayRef"
+        @click="handleOverlayClick"
+      />
     </Transition>
 
     <Transition name="modal">
       <div
         v-if="modelValue"
+        ref="panelRef"
+        tabindex="-1"
         class="modal"
         :class="`modal_size_${size}`"
         role="dialog"

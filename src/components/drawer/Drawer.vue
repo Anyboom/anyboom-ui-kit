@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import type { ComponentPublicInstance } from 'vue'
 import XBoldIcon from '@iconify-vue/ph/x-bold'
-import { computed, onMounted, onUnmounted, useSlots, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, useSlots, watch } from 'vue'
 
 import Button from '@/components/button/Button.vue'
 import Overlay from '@/components/overlay/Overlay.vue'
 import { useBodyScrollLock } from '@/composables/use-body-scroll-lock.ts'
+import { useFocusTrap } from '@/composables/use-focus-trap.ts'
 
 interface Props {
   modelValue: boolean
@@ -37,6 +39,12 @@ interface AppDrawerEmits {
 const { lock, unlock } = useBodyScrollLock()
 
 const slots = useSlots()
+const panelRef = ref<HTMLElement>()
+const overlayRef = ref<ComponentPublicInstance>()
+
+useFocusTrap(panelRef, computed(() => modelValue), {
+  excludedRefs: [overlayRef],
+})
 
 const showHeader = computed<boolean>(() =>
   Boolean(title || closable || slots.header),
@@ -126,12 +134,18 @@ onUnmounted(() => {
 <template>
   <Teleport to="body">
     <Transition name="drawer-overlay">
-      <Overlay v-if="modelValue" @click="handleOverlayClick" />
+      <Overlay
+        v-if="modelValue"
+        ref="overlayRef"
+        @click="handleOverlayClick"
+      />
     </Transition>
 
     <Transition :name="drawerTransitionName">
       <div
         v-if="modelValue"
+        ref="panelRef"
+        tabindex="-1"
         class="drawer"
         :class="drawerModifiers"
         :style="drawerStyles"
