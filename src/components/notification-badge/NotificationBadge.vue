@@ -37,12 +37,16 @@ withDefaults(defineProps<Props>(), {
   $this: &;
 
   position: relative;
+  display: inline-flex;
+  width: fit-content;
 
   &__badge {
     position: absolute;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background: var(--anyboom-surface-inverse);
+    color: var(--anyboom-text-inverse);
     top: 0;
     right: 0;
     transform: translate(30%, -30%);
