@@ -150,7 +150,7 @@ onUnmounted(() => {
   z-index: 10000;
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - var(--anyboom-spacing-10) * 2);
+  max-height: calc(100dvh - var(--anyboom-spacing-10) * 2);
   width: min(
     calc(100vw - var(--anyboom-spacing-8) * 2),
     var(--modal-width, 560px)
@@ -172,7 +172,10 @@ onUnmounted(() => {
     }
 
     &_fullscreen {
-      --modal-width: 100%;
+      width: 100%;
+      max-height: 100dvh;
+      height: 100dvh;
+      border-radius: 0;
     }
   }
 
