@@ -3,12 +3,7 @@ import type { EnterKeyHint } from '@/components/input-text/enter-key-hint.ts'
 
 import type { InputMode } from '@/components/input-text/input-mode.ts'
 import type { InputType } from '@/components/input-text/input-type.ts'
-import { computed, nextTick, onMounted, ref, useId, watch } from 'vue'
-import {
-  applyMask,
-  shouldClearMaskedValue,
-  unmaskValue,
-} from '@/components/input-text/input-mask.ts'
+import { computed, nextTick, onMounted, ref, useId } from 'vue'
 
 interface Props {
   size?: 'small' | 'medium' | 'large'
@@ -18,7 +13,6 @@ interface Props {
   disabled?: boolean
   error?: boolean
   success?: boolean
-  mask?: string | null
   type?: InputType
   readonly?: boolean
   autofocus?: boolean
@@ -38,7 +32,6 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   error: false,
   success: false,
-  mask: null,
   type: 'text',
   readonly: false,
   autofocus: false,
@@ -61,61 +54,10 @@ const inputElement = ref<HTMLInputElement | undefined>(undefined)
 const autoId = useId()
 const fieldId = computed(() => props.inputId ?? autoId)
 
-const inputType = computed(() => {
-  if (props.mask) {
-    return 'text'
-  }
-
-  return props.type
-})
-
-function fixCaret(
-  target: HTMLInputElement,
-  oldValue: string,
-  newValue: string,
-  caret: number,
-  isDelete: boolean,
-): void {
-  if (caret === oldValue.length && !isDelete) {
-    return
-  }
-
-  const oldPrefix = oldValue.slice(0, caret)
-  const newPrefix = newValue.slice(0, caret)
-
-  if (oldPrefix === newPrefix) {
-    return
-  }
-
-  const newCaret = isDelete
-    ? caret + newValue.length - oldValue.length
-    : caret
-      + unmaskValue(oldPrefix, props.mask).length
-      - unmaskValue(newPrefix, props.mask).length
-
-  target.setSelectionRange(newCaret, newCaret)
-}
+const inputType = computed(() => props.type)
 
 function handleInput(event: Event) {
   const target = event.target as HTMLInputElement
-  const inputEvent = event as InputEvent
-  const isDelete = inputEvent.inputType?.startsWith('delete') ?? false
-  const oldValue = target.value
-
-  let newValue = applyMask(oldValue, props.mask)
-
-  if (isDelete && shouldClearMaskedValue(oldValue, props.mask)) {
-    newValue = ''
-  }
-
-  if (newValue !== oldValue) {
-    const caret = target.selectionStart
-    target.value = newValue
-
-    if (caret !== null) {
-      fixCaret(target, oldValue, newValue, caret, isDelete)
-    }
-  }
 
   emit('update:modelValue', target.value)
 }
@@ -129,35 +71,9 @@ defineExpose({
   inputId: fieldId,
 })
 
-watch(
-  () => props.modelValue,
-  (newValue) => {
-    if (inputElement.value === undefined) {
-      return
-    }
-
-    if (document.activeElement === inputElement.value) {
-      return
-    }
-
-    if (props.mask) {
-      inputElement.value.value = applyMask(String(newValue), props.mask)
-    }
-  },
-)
-
 onMounted(() => {
   if (props.defaultValue && !props.modelValue) {
     emit('update:modelValue', props.defaultValue)
-  }
-
-  if (props.mask && inputElement.value) {
-    const masked = applyMask(inputElement.value.value, props.mask)
-
-    if (masked !== inputElement.value.value) {
-      inputElement.value.value = masked
-      emit('update:modelValue', masked)
-    }
   }
 
   if (props.autofocus) {

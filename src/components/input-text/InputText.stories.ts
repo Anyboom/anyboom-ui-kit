@@ -43,10 +43,6 @@ const meta = {
       control: 'boolean',
       description: 'Активирует состояние успеха.',
     },
-    mask: {
-      control: 'text',
-      description: 'Маска ввода для форматирования текста.',
-    },
     type: {
       control: 'select',
       options: ['text', 'email', 'password', 'number', 'tel', 'url'],
@@ -186,15 +182,6 @@ export const Password: Story = {
   args: {
     type: 'password',
     placeholder: 'Введите пароль...',
-    modelValue: '',
-  },
-}
-
-export const MaskPhone: Story = {
-  render: args => withVModel(args),
-  args: {
-    mask: '#-(###)-###-####',
-    placeholder: '7-(901)-023-3345',
     modelValue: '',
   },
 }
