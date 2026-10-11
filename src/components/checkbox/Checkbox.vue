@@ -85,6 +85,8 @@ function handleChange(event: Event) {
   user-select: none;
   gap: var(--anyboom-spacing-2);
 
+  @include mixins.disabled;
+
   &_readonly {
     cursor: default;
 
@@ -285,11 +287,6 @@ function handleChange(event: Event) {
     &:hover #{$this}__input:not(:checked):not(:indeterminate) + #{$this}__checkmark {
       border-color: var(--anyboom-input-danger-border-hover);
     }
-  }
-
-  &_disabled {
-    cursor: not-allowed;
-    opacity: 0.4;
   }
 }
 </style>

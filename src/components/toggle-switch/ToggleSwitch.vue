@@ -81,10 +81,7 @@ function handleChange(event: Event) {
   user-select: none;
   position: relative;
 
-  &_disabled {
-    cursor: not-allowed;
-    opacity: 0.4;
-  }
+  @include mixins.disabled;
 
   &_readonly {
     cursor: default;

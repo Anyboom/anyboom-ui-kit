@@ -154,11 +154,7 @@ defineExpose({
     }
   }
 
-  &_disabled,
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
+  @include mixins.disabled;
 
   &__icon {
     display: inline-flex;

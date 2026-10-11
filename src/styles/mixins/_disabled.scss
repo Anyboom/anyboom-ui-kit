@@ -1,0 +1,12 @@
+/**
+ * Единый disabled-паттерн для интерактивных контролов:
+ * нативный `:disabled` и BEM-модификатор `_disabled` получают
+ * одинаковые cursor и прозрачность.
+ */
+@mixin disabled {
+  &:disabled,
+  &_disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}

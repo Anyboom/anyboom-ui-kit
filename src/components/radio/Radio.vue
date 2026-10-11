@@ -79,10 +79,7 @@ function handleChange(event: Event) {
   user-select: none;
   gap: var(--anyboom-spacing-2);
 
-  &_disabled {
-    cursor: not-allowed;
-    opacity: 0.4;
-  }
+  @include mixins.disabled;
 
   &__input {
     position: absolute;

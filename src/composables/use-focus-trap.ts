@@ -111,7 +111,7 @@ export function useFocusTrap(
     if (!panel || !panel.parentElement)
       return
 
-    const excluded = new Set(getExcludedElements(excludedRefs))
+    const excluded = new Set<Element>(getExcludedElements(excludedRefs))
     excluded.add(panel)
 
     const siblings = Array.from(panel.parentElement.children)

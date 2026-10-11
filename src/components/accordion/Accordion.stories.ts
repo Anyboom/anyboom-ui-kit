@@ -12,10 +12,10 @@ const meta: Meta<typeof Accordion> = {
       description:
         'Отключает аккордеон: заголовок недоступен для взаимодействия.',
     },
-    open: {
+    modelValue: {
       control: 'boolean',
       description:
-        'Открыт ли аккордеон. Привязано через v-model:open — можно управлять снаружи.',
+        'Открыт ли аккордеон. Привязано через v-model — можно управлять снаружи.',
     },
   },
 }
@@ -23,11 +23,11 @@ const meta: Meta<typeof Accordion> = {
 export default meta
 type Story = StoryObj<typeof Accordion>
 
-function withAccordion(args: { disabled?: boolean, open?: boolean }) {
+function withAccordion(args: { disabled?: boolean, modelValue?: boolean }) {
   return {
     components: { Accordion },
     setup() {
-      const open = ref(Boolean(args.open))
+      const open = ref(Boolean(args.modelValue))
       return { args, open }
     },
     template: `
@@ -43,7 +43,7 @@ export const Default: Story = {
   render: args => withAccordion(args),
   args: {
     disabled: false,
-    open: false,
+    modelValue: false,
   },
 }
 
@@ -51,7 +51,7 @@ export const OpenByDefault: Story = {
   render: args => withAccordion(args),
   args: {
     disabled: false,
-    open: true,
+    modelValue: true,
   },
 }
 
@@ -59,6 +59,6 @@ export const Disabled: Story = {
   render: args => withAccordion(args),
   args: {
     disabled: true,
-    open: false,
+    modelValue: false,
   },
 }

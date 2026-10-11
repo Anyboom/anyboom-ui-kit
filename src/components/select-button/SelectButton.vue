@@ -150,9 +150,7 @@ function handleSelect(option: unknown): void {
 
   display: inline-flex;
 
-  &_disabled {
-    cursor: not-allowed;
-  }
+  @include mixins.disabled;
 
   &_readonly &__item {
     cursor: default;
@@ -220,7 +218,6 @@ function handleSelect(option: unknown): void {
 
     &:disabled {
       cursor: not-allowed;
-      opacity: 0.6;
     }
   }
 }
