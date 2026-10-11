@@ -1,8 +1,15 @@
 import type { FloatingPlacement } from './floating-placement.ts'
-import type { FloatingPosition } from './floating-position.ts'
-import { clamp } from './clamp.ts'
 
 const VIEWPORT_PADDING = 10
+
+export interface FloatingPosition {
+  top: number
+  left: number
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max)
+}
 
 function verticalOverlap(
   top: number,
