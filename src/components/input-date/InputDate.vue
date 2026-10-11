@@ -8,7 +8,7 @@ import InputText from '@/components/input-text/InputText.vue'
 import Select from '@/components/select/Select.vue'
 import { formatDate } from '@/utils/format-date.ts'
 
-export type InputDateValue = Date | [Date, Date] | null
+export type InputDateValue = Date | [Date, Date | null] | null
 
 interface Props {
   modelValue?: InputDateValue
@@ -193,9 +193,9 @@ function selectDate(day: InputDateDay): void {
 
   if (props.mode === 'range') {
     if (selectedDate.value && !selectedEndDate.value) {
-      if (day.date < selectedDate.value) {
+      if (normalizeDate(day.date) < normalizeDate(selectedDate.value)) {
         selectedDate.value = day.date
-        emit('update:modelValue', null)
+        emit('update:modelValue', [selectedDate.value, null])
       }
       else {
         selectedEndDate.value = day.date
@@ -206,7 +206,7 @@ function selectDate(day: InputDateDay): void {
     else {
       selectedDate.value = day.date
       selectedEndDate.value = null
-      emit('update:modelValue', null)
+      emit('update:modelValue', [selectedDate.value, null])
     }
 
     return
