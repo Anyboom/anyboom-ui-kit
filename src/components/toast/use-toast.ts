@@ -39,17 +39,17 @@ export function useToast() {
     })
   }
 
-  function warning(message: string, options?: Partial<Toast>) {
+  function warn(message: string, options?: Partial<Toast>) {
     show({
       title: 'Предупреждение',
-      severity: 'warning',
+      severity: 'warn',
       ...options,
       message,
     })
   }
 
-  function error(message: string, options?: Partial<Toast>) {
-    show({ title: 'Ошибка', severity: 'error', ...options, message })
+  function danger(message: string, options?: Partial<Toast>) {
+    show({ title: 'Ошибка', severity: 'danger', ...options, message })
   }
 
   function show(options?: Partial<Toast>) {
@@ -71,8 +71,8 @@ export function useToast() {
     primary,
     info,
     secondary,
-    warning,
-    error,
+    warn,
+    danger,
     clear,
     remove,
   }

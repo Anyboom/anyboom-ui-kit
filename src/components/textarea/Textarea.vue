@@ -280,14 +280,14 @@ onUnmounted(() => {
 
   &_error {
     #{$this}__input {
-      border: 1px solid var(--anyboom-input-negative-border);
+      border: 1px solid var(--anyboom-input-danger-border);
 
       &:hover {
-        border: 1px solid var(--anyboom-input-negative-border-hover);
+        border: 1px solid var(--anyboom-input-danger-border-hover);
       }
 
       &:focus {
-        border-color: var(--anyboom-input-negative-border-focus);
+        border-color: var(--anyboom-input-danger-border-focus);
       }
     }
   }
@@ -399,11 +399,11 @@ onUnmounted(() => {
     @include mixins.apply-text("body-xs");
 
     &_warning {
-      color: var(--anyboom-text-warning);
+      color: var(--anyboom-text-warn);
     }
 
     &_danger {
-      color: var(--anyboom-text-negative);
+      color: var(--anyboom-text-danger);
     }
   }
 }

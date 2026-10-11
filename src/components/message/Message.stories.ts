@@ -13,7 +13,7 @@ const meta: Meta<typeof Message> = {
     },
     severity: {
       control: 'select',
-      options: ['secondary', 'contrast', 'positive', 'negative', 'info'],
+      options: ['primary', 'secondary', 'contrast', 'success', 'danger', 'info', 'warn'],
       description: 'Тип сообщения.',
     },
     size: {
@@ -24,28 +24,6 @@ const meta: Meta<typeof Message> = {
     default: {
       control: 'text',
       description: 'Содержимое сообщения.',
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Message поддерживает следующие компонентные токены.
-
-Токены строятся по шаблону \`--anyboom-message-{severity}-{variant}-{свойство}\`, где \`{severity}\` — secondary, positive, negative, info, contrast; \`{variant}\` — filled, outlined, text.
-
-| Токен | Описание |
-| --- | --- |
-| \`--anyboom-message-{severity}-filled-background\` | Фон сообщения варианта \`filled\` |
-| \`--anyboom-message-{severity}-filled-text\` | Цвет текста сообщения \`filled\` |
-| \`--anyboom-message-{severity}-outlined-background\` | Фон сообщения \`outline\` |
-| \`--anyboom-message-{severity}-outlined-text\` | Цвет текста сообщения \`outline\` |
-| \`--anyboom-message-{severity}-outlined-border\` | Цвет рамки сообщения \`outline\` |
-| \`--anyboom-message-{severity}-text-text\` | Цвет текста сообщения \`text\` |
-
-Токены определены в \`src/styles/components/_message.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
     },
   },
 }

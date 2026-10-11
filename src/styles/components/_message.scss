@@ -5,18 +5,18 @@
   --anyboom-message-secondary-outlined-text: var(--anyboom-text-tertiary);
   --anyboom-message-secondary-outlined-border: var(--anyboom-border-default);
   --anyboom-message-secondary-text-text: var(--anyboom-text-tertiary);
-  --anyboom-message-positive-filled-background: var(--anyboom-surface-positive);
-  --anyboom-message-positive-filled-text: var(--anyboom-text-inverse);
-  --anyboom-message-positive-outlined-background: var(--anyboom-surface-primary);
-  --anyboom-message-positive-outlined-text: var(--anyboom-text-positive);
-  --anyboom-message-positive-outlined-border: var(--anyboom-border-positive);
-  --anyboom-message-positive-text-text: var(--anyboom-text-positive);
-  --anyboom-message-negative-filled-background: var(--anyboom-surface-negative);
-  --anyboom-message-negative-filled-text: var(--anyboom-text-inverse);
-  --anyboom-message-negative-outlined-background: var(--anyboom-surface-primary);
-  --anyboom-message-negative-outlined-text: var(--anyboom-text-negative);
-  --anyboom-message-negative-outlined-border: var(--anyboom-border-negative);
-  --anyboom-message-negative-text-text: var(--anyboom-text-negative);
+  --anyboom-message-success-filled-background: var(--anyboom-surface-success);
+  --anyboom-message-success-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-success-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-success-outlined-text: var(--anyboom-text-success);
+  --anyboom-message-success-outlined-border: var(--anyboom-border-success);
+  --anyboom-message-success-text-text: var(--anyboom-text-success);
+  --anyboom-message-danger-filled-background: var(--anyboom-surface-danger);
+  --anyboom-message-danger-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-danger-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-danger-outlined-text: var(--anyboom-text-danger);
+  --anyboom-message-danger-outlined-border: var(--anyboom-border-danger);
+  --anyboom-message-danger-text-text: var(--anyboom-text-danger);
   --anyboom-message-contrast-filled-background: var(--anyboom-surface-contrast);
   --anyboom-message-contrast-filled-text: var(--anyboom-text-inverse);
   --anyboom-message-contrast-outlined-background: var(--anyboom-surface-primary);
@@ -29,4 +29,19 @@
   --anyboom-message-info-outlined-text: var(--anyboom-text-info);
   --anyboom-message-info-outlined-border: var(--anyboom-border-info);
   --anyboom-message-info-text-text: var(--anyboom-text-info);
+}
+
+:root {
+  --anyboom-message-primary-filled-background: var(--anyboom-surface-contrast);
+  --anyboom-message-primary-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-primary-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-primary-outlined-text: var(--anyboom-text-contrast);
+  --anyboom-message-primary-outlined-border: var(--anyboom-border-contrast);
+  --anyboom-message-primary-text-text: var(--anyboom-text-contrast);
+  --anyboom-message-warn-filled-background: var(--anyboom-surface-warn);
+  --anyboom-message-warn-filled-text: var(--anyboom-text-inverse);
+  --anyboom-message-warn-outlined-background: var(--anyboom-surface-primary);
+  --anyboom-message-warn-outlined-text: var(--anyboom-text-warn);
+  --anyboom-message-warn-outlined-border: var(--anyboom-border-warn);
+  --anyboom-message-warn-text-text: var(--anyboom-text-warn);
 }

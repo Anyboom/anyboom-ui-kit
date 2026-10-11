@@ -264,15 +264,15 @@ function toAutofocus() {
   &_status {
     &_error {
       #{$this}__input {
-        border: 1px solid var(--anyboom-input-negative-border);
-        color: var(--anyboom-input-negative-text);
+        border: 1px solid var(--anyboom-input-danger-border);
+        color: var(--anyboom-input-danger-text);
       }
     }
 
     &_success {
       #{$this}__input {
-        border: 1px solid var(--anyboom-input-positive-border);
-        color: var(--anyboom-input-positive-text);
+        border: 1px solid var(--anyboom-input-success-border);
+        color: var(--anyboom-input-success-text);
       }
     }
   }

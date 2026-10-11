@@ -1,15 +1,16 @@
 <script setup lang="ts">
 interface Props {
   severity?:
-    | 'incomplete'
+    | 'primary'
     | 'secondary'
     | 'success'
-    | 'active'
-    | 'negative'
-    | 'non-actionable'
+    | 'danger'
+    | 'info'
+    | 'warn'
+    | 'contrast'
 }
 
-withDefaults(defineProps<Props>(), { severity: 'non-actionable' })
+withDefaults(defineProps<Props>(), { severity: 'secondary' })
 </script>
 
 <template>
@@ -34,10 +35,11 @@ withDefaults(defineProps<Props>(), { severity: 'non-actionable' })
   @include mixins.apply-text("badge");
 
   &_severity {
-    &_incomplete {
-      background: var(--anyboom-badge-incomplete-background);
-      color: var(--anyboom-badge-incomplete-text);
-      border-color: var(--anyboom-badge-incomplete-border);
+    &_primary,
+    &_contrast {
+      background: var(--anyboom-badge-primary-background);
+      color: var(--anyboom-badge-primary-text);
+      border-color: var(--anyboom-badge-primary-border);
     }
     &_secondary {
       background: var(--anyboom-badge-secondary-background);
@@ -49,20 +51,20 @@ withDefaults(defineProps<Props>(), { severity: 'non-actionable' })
       color: var(--anyboom-badge-success-text);
       border-color: var(--anyboom-badge-success-border);
     }
-    &_active {
+    &_danger {
+      background: var(--anyboom-badge-danger-background);
+      color: var(--anyboom-badge-danger-text);
+      border-color: var(--anyboom-badge-danger-border);
+    }
+    &_info {
       background: var(--anyboom-badge-info-background);
       color: var(--anyboom-badge-info-text);
       border-color: var(--anyboom-badge-info-border);
     }
-    &_negative {
-      background: var(--anyboom-badge-negative-background);
-      color: var(--anyboom-badge-negative-text);
-      border-color: var(--anyboom-badge-negative-border);
-    }
-    &_non-actionable {
-      background: var(--anyboom-badge-non-actionable-background);
-      color: var(--anyboom-badge-non-actionable-text);
-      border-color: var(--anyboom-badge-non-actionable-border);
+    &_warn {
+      background: var(--anyboom-badge-warn-background);
+      color: var(--anyboom-badge-warn-text);
+      border-color: var(--anyboom-badge-warn-border);
     }
   }
 }

@@ -38,22 +38,6 @@ const meta: Meta<typeof Modal> = {
       description: 'Закрывать по нажатию Escape.',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Modal поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-modal-text\` | Цвет текста | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-modal-background\` | Фон окна | \`var(--anyboom-surface-primary)\` |
-
-Токены определены в \`src/styles/components/_modal.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

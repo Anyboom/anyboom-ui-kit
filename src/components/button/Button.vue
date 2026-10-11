@@ -8,9 +8,10 @@ interface Props {
     | 'primary'
     | 'secondary'
     | 'contrast'
-    | 'positive'
-    | 'negative'
+    | 'success'
+    | 'danger'
     | 'info'
+    | 'warn'
   size?: 'small' | 'normal' | 'large'
   iconOnly?: boolean
   mono?: boolean
@@ -134,7 +135,7 @@ const tag = props.href && !props.disabled ? 'a' : 'button'
     }
   }
 
-  $severities: primary, secondary, positive, info, negative, contrast;
+  $severities: primary, secondary, contrast, success, danger, info, warn;
 
   &_variant {
     &_filled {

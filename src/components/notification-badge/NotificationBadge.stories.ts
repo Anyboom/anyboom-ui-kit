@@ -13,27 +13,8 @@ const meta: Meta<typeof NotificationBadge> = {
     },
     severity: {
       control: 'select',
-      options: ['active', 'negative'],
+      options: ['primary', 'secondary', 'success', 'danger', 'info', 'warn'],
       description: 'Визуальный стиль бейджа',
-    },
-  },
-  parameters: {
-    layout: 'centered',
-    docs: {
-      description: {
-        component: `
-Компонент NotificationBadge поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-badge-info-background\` | Фон бейджа active | \`var(--anyboom-surface-info-light)\` |
-| \`--anyboom-badge-info-border\` | Цвет рамки и фона бейджа active | \`var(--anyboom-border-info-hover)\` |
-| \`--anyboom-badge-negative-background\` | Фон бейджа negative | \`var(--anyboom-surface-negative-light)\` |
-| \`--anyboom-badge-negative-border\` | Цвет рамки и фона бейджа negative | \`var(--anyboom-border-negative)\` |
-
-Токены определены в \`src/styles/components/_badge.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
     },
   },
 }
@@ -55,6 +36,6 @@ export const Default: Story = {
   }),
   args: {
     value: 1,
-    severity: 'active',
+    severity: 'info',
   },
 }

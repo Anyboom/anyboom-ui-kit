@@ -18,21 +18,6 @@ const meta: Meta<typeof Accordion> = {
         'Открыт ли аккордеон. Привязано через v-model:open — можно управлять снаружи.',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Accordion поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-input-primary-border-focus\` | Цвет рамки при открытии аккордеона | \`var(--anyboom-border-focus)\` |
-
-Токены определены в \`src/styles/components/_input.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

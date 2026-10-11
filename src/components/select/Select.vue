@@ -443,7 +443,7 @@ const hasSelectedItems = computed(() => {
       </template>
 
       <div class="select__icons-wrapper">
-        <Badge v-if="showCounterVisible" severity="non-actionable">
+        <Badge v-if="showCounterVisible" severity="secondary">
           {{ (selectedItems as Option[]).length }}
         </Badge>
         <span
@@ -643,15 +643,15 @@ const hasSelectedItems = computed(() => {
     }
 
     #{$self}_error & {
-      border: 1px solid var(--anyboom-input-negative-border);
+      border: 1px solid var(--anyboom-input-danger-border);
 
       &:hover {
-        border: 1px solid var(--anyboom-input-negative-border-hover);
+        border: 1px solid var(--anyboom-input-danger-border-hover);
       }
 
       &:focus {
-        border-color: var(--anyboom-input-negative-border-focus);
-        background: var(--anyboom-input-negative-background);
+        border-color: var(--anyboom-input-danger-border-focus);
+        background: var(--anyboom-input-danger-background);
       }
     }
 

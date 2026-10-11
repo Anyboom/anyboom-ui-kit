@@ -112,28 +112,6 @@ const meta = {
     wrap: 'soft',
     resize: 'none',
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Textarea поддерживает следующие компонентные токены.
-
-Используются токены полей ввода \`--anyboom-input-{state}-{свойство}[-{состояние}]\` (см. документацию InputText), где \`{state}\` — primary, negative, disabled.
-
-| Токен | Описание |
-| --- | --- |
-| \`--anyboom-input-{state}-placeholder\` | Цвет плейсхолдера |
-| \`--anyboom-input-{state}-text\` | Цвет текста |
-| \`--anyboom-input-{state}-background\` | Фон поля |
-| \`--anyboom-input-{state}-border\` | Цвет рамки поля |
-| \`--anyboom-input-{state}-border-hover\` | Цвет рамки поля при наведении |
-| \`--anyboom-input-{state}-border-focus\` | Цвет рамки поля в фокусе |
-
-Токены определены в \`src/styles/components/_input.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 } satisfies Meta<typeof Textarea>
 
 export default meta

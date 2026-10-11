@@ -20,24 +20,6 @@ const meta: Meta<typeof Avatar> = {
       description: 'Текстовая подпись',
     },
   },
-  parameters: {
-    layout: 'centered',
-    docs: {
-      description: {
-        component: `
-Компонент Avatar поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-avatar-border\` | Цвет рамки аватара с изображением | \`var(--anyboom-border-strong)\` |
-| \`--anyboom-avatar-icon-border\` | Цвет рамки аватара с текстовой подписью | \`var(--anyboom-border-default)\` |
-| \`--anyboom-avatar-text\` | Цвет текста подписи | \`var(--anyboom-text-primary)\` |
-
-Токены определены в \`src/styles/components/_avatar.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

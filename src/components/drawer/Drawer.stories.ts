@@ -42,22 +42,6 @@ const meta: Meta<typeof Drawer> = {
       description: 'Закрывать по нажатию Escape.',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Drawer поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-modal-text\` | Цвет текста (используются токены Modal) | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-modal-background\` | Фон панели (используются токены Modal) | \`var(--anyboom-surface-primary)\` |
-
-Токены определены в \`src/styles/components/_modal.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

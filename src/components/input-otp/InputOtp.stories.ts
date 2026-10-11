@@ -61,32 +61,6 @@ const meta: Meta<typeof InputOtp> = {
       description: 'Тип ввода.',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент InputOtp поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-input-primary-background\` | Фон поля | \`var(--anyboom-surface-primary)\` |
-| \`--anyboom-input-primary-border\` | Цвет рамки поля | \`var(--anyboom-border-default)\` |
-| \`--anyboom-input-primary-border-hover\` | Цвет рамки поля при наведении | \`var(--anyboom-border-extra-strong)\` |
-| \`--anyboom-input-primary-border-focus\` | Цвет рамки поля в фокусе | \`var(--anyboom-border-focus)\` |
-| \`--anyboom-input-primary-text\` | Цвет текста | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-input-negative-border\` | Цвет рамки при ошибке | \`var(--anyboom-border-negative)\` |
-| \`--anyboom-input-negative-text\` | Цвет текста при ошибке | \`var(--anyboom-text-negative)\` |
-| \`--anyboom-input-positive-border\` | Цвет рамки при успехе | \`var(--anyboom-border-positive)\` |
-| \`--anyboom-input-positive-text\` | Цвет текста при успехе | \`var(--anyboom-text-positive)\` |
-| \`--anyboom-input-disabled-background\` | Фон отключённого поля | \`var(--anyboom-surface-primary)\` |
-| \`--anyboom-input-disabled-border\` | Цвет рамки отключённого поля | \`var(--anyboom-border-default)\` |
-| \`--anyboom-input-disabled-text\` | Цвет текста отключённого поля | \`var(--anyboom-text-tertiary)\` |
-
-Токены определены в \`src/styles/components/_input.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

@@ -9,28 +9,6 @@ import Toaster from './Toaster.vue'
 const meta: Meta<typeof Toast> = {
   title: 'Messages/Toast',
   component: Toast,
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Toast поддерживает следующие компонентные токены.
-
-Токены строятся по шаблону \`--anyboom-toast-{severity}-{свойство}\`, где \`{severity}\` — brand, secondary, positive, warning, error, info.
-
-| Токен | Описание |
-| --- | --- |
-| \`--anyboom-toast-{severity}-title\` | Цвет заголовка |
-| \`--anyboom-toast-{severity}-text\` | Цвет основного текста |
-| \`--anyboom-toast-{severity}-icon\` | Цвет иконки |
-| \`--anyboom-toast-{severity}-background\` | Фон уведомления |
-| \`--anyboom-toast-{severity}-border\` | Цвет рамки |
-| \`--anyboom-toast-{severity}-close-icon\` | Цвет иконки закрытия |
-
-Токены определены в \`src/styles/components/_toast.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta
@@ -44,10 +22,10 @@ export const Default: Story = {
 
       function show() {
         toast.success('Успешно сохранено')
-        toast.error('Произошла ошибка')
+        toast.danger('Произошла ошибка')
         toast.secondary('Второстепенное уведомление')
         toast.info('Информационное сообщение')
-        toast.warning('Проверьте введённые данные')
+        toast.warn('Проверьте введённые данные')
         toast.primary('Основное уведомление')
       }
 

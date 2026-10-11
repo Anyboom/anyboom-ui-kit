@@ -1,12 +1,19 @@
 <script setup lang="ts">
 interface Props {
   value?: number
-  severity?: 'success' | 'active' | 'negative' | 'non-actionable'
+  severity?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'info'
+    | 'warn'
+    | 'contrast'
   active?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
-  severity: 'non-actionable',
+  severity: 'secondary',
   active: true,
 })
 </script>
@@ -56,18 +63,18 @@ withDefaults(defineProps<Props>(), {
   }
 
   &_severity {
-    &_active {
+    &_info {
       #{$this}__badge {
         background: var(--anyboom-badge-info-border);
         color: var(--anyboom-badge-info-background);
         border-color: var(--anyboom-badge-info-border);
       }
     }
-    &_negative {
+    &_danger {
       #{$this}__badge {
-        background: var(--anyboom-badge-negative-border);
-        color: var(--anyboom-badge-negative-background);
-        border-color: var(--anyboom-badge-negative-border);
+        background: var(--anyboom-badge-danger-border);
+        color: var(--anyboom-badge-danger-background);
+        border-color: var(--anyboom-badge-danger-border);
       }
     }
   }

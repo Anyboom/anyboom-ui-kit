@@ -15,35 +15,6 @@ const meta: Meta<typeof Menu> = {
       description: 'Массив пунктов меню',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Menu поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-menu-background\` | Фон меню | \`var(--anyboom-surface-primary)\` |
-| \`--anyboom-menu-border\` | Цвет рамки меню | \`var(--anyboom-border-default)\` |
-
-Токены пункта меню (MenuItem):
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-menu-item-text\` | Цвет текста пункта меню | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-menu-item-text-hover\` | Цвет текста пункта при наведении | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-menu-item-text-active\` | Цвет текста активного пункта | \`var(--anyboom-text-positive)\` |
-| \`--anyboom-menu-item-icon\` | Цвет иконки пункта | \`var(--anyboom-icon-neutral-default)\` |
-| \`--anyboom-menu-item-icon-active\` | Цвет иконки активного пункта | \`var(--anyboom-icon-positive)\` |
-| \`--anyboom-menu-item-background\` | Фон пункта | \`var(--anyboom-surface-primary)\` |
-| \`--anyboom-menu-item-background-hover\` | Фон пункта при наведении | \`var(--anyboom-surface-secondary)\` |
-| \`--anyboom-menu-item-background-active\` | Фон активного пункта | \`var(--anyboom-surface-positive-light)\` |
-
-Токены определены в \`src/styles/components/_menu.scss\` и \`_menu-item.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

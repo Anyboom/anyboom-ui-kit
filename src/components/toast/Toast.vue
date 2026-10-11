@@ -28,8 +28,8 @@ const iconComponent = computed(() => {
     primary: InfoFillIcon,
     info: InfoFillIcon,
     secondary: InfoFillIcon,
-    warning: WarningFillIcon,
-    error: WarningDiamondFillIcon,
+    warn: WarningFillIcon,
+    danger: WarningDiamondFillIcon,
   }
 
   return icons[props.severity] || InfoFillIcon
@@ -105,43 +105,43 @@ defineExpose({
 
   &_severity {
     &_success {
-      background: var(--anyboom-toast-positive-background);
-      border: 1px solid var(--anyboom-toast-positive-border);
+      background: var(--anyboom-toast-success-background);
+      border: 1px solid var(--anyboom-toast-success-border);
 
       #{$this}__icon {
-        color: var(--anyboom-toast-positive-icon);
+        color: var(--anyboom-toast-success-icon);
       }
 
       #{$this}__title {
-        color: var(--anyboom-toast-positive-title);
+        color: var(--anyboom-toast-success-title);
       }
 
       #{$this}__message {
-        color: var(--anyboom-toast-positive-text);
+        color: var(--anyboom-toast-success-text);
       }
 
       #{$this}__close {
-        color: var(--anyboom-toast-positive-close-icon);
+        color: var(--anyboom-toast-success-close-icon);
       }
     }
     &_primary {
-      background: var(--anyboom-toast-brand-background);
-      border: 1px solid var(--anyboom-toast-brand-border);
+      background: var(--anyboom-toast-primary-background);
+      border: 1px solid var(--anyboom-toast-primary-border);
 
       #{$this}__icon {
-        color: var(--anyboom-toast-brand-icon);
+        color: var(--anyboom-toast-primary-icon);
       }
 
       #{$this}__title {
-        color: var(--anyboom-toast-brand-title);
+        color: var(--anyboom-toast-primary-title);
       }
 
       #{$this}__message {
-        color: var(--anyboom-toast-brand-text);
+        color: var(--anyboom-toast-primary-text);
       }
 
       #{$this}__close {
-        color: var(--anyboom-toast-brand-close-icon);
+        color: var(--anyboom-toast-primary-close-icon);
       }
     }
     &_info {
@@ -184,44 +184,44 @@ defineExpose({
         color: var(--anyboom-toast-secondary-close-icon);
       }
     }
-    &_warning {
-      background: var(--anyboom-toast-warning-background);
-      border: 1px solid var(--anyboom-toast-warning-border);
+    &_warn {
+      background: var(--anyboom-toast-warn-background);
+      border: 1px solid var(--anyboom-toast-warn-border);
 
       #{$this}__icon {
-        color: var(--anyboom-toast-warning-icon);
+        color: var(--anyboom-toast-warn-icon);
       }
 
       #{$this}__title {
-        color: var(--anyboom-toast-warning-title);
+        color: var(--anyboom-toast-warn-title);
       }
 
       #{$this}__message {
-        color: var(--anyboom-toast-warning-text);
+        color: var(--anyboom-toast-warn-text);
       }
 
       #{$this}__close {
-        color: var(--anyboom-toast-warning-close-icon);
+        color: var(--anyboom-toast-warn-close-icon);
       }
     }
-    &_error {
-      background: var(--anyboom-toast-error-background);
-      border: 1px solid var(--anyboom-toast-error-border);
+    &_danger {
+      background: var(--anyboom-toast-danger-background);
+      border: 1px solid var(--anyboom-toast-danger-border);
 
       #{$this}__icon {
-        color: var(--anyboom-toast-error-icon);
+        color: var(--anyboom-toast-danger-icon);
       }
 
       #{$this}__title {
-        color: var(--anyboom-toast-error-title);
+        color: var(--anyboom-toast-danger-title);
       }
 
       #{$this}__message {
-        color: var(--anyboom-toast-error-text);
+        color: var(--anyboom-toast-danger-text);
       }
 
       #{$this}__close {
-        color: var(--anyboom-toast-error-close-icon);
+        color: var(--anyboom-toast-danger-close-icon);
       }
     }
   }

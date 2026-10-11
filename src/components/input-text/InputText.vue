@@ -228,30 +228,30 @@ onMounted(() => {
 
   &_error {
     #{$this}__input {
-      border: 1px solid var(--anyboom-input-negative-border);
+      border: 1px solid var(--anyboom-input-danger-border);
 
       &:hover {
-        border: 1px solid var(--anyboom-input-negative-border-hover);
+        border: 1px solid var(--anyboom-input-danger-border-hover);
       }
 
       &:focus {
-        border-color: var(--anyboom-input-negative-border-focus);
-        background: var(--anyboom-input-negative-background);
+        border-color: var(--anyboom-input-danger-border-focus);
+        background: var(--anyboom-input-danger-background);
       }
     }
   }
 
   &_success {
     #{$this}__input {
-      border: 1px solid var(--anyboom-input-positive-border);
+      border: 1px solid var(--anyboom-input-success-border);
 
       &:hover {
-        border: 1px solid var(--anyboom-input-positive-border-hover);
+        border: 1px solid var(--anyboom-input-success-border-hover);
       }
 
       &:focus {
-        border-color: var(--anyboom-input-positive-border-focus);
-        background: var(--anyboom-input-positive-background);
+        border-color: var(--anyboom-input-success-border-focus);
+        background: var(--anyboom-input-success-background);
       }
     }
   }

@@ -266,7 +266,7 @@ function triggerFileSelect(): void {
           v-if="files.length > 0"
           size="small"
           variant="filled"
-          severity="negative"
+          severity="danger"
           @click="reset"
         >
           Очистить все
@@ -294,7 +294,7 @@ function triggerFileSelect(): void {
           <div class="input-file__file-actions">
             <Button
               variant="text"
-              severity="negative"
+              severity="danger"
               icon-only
               @click="removeFile(file.id)"
             >
@@ -356,7 +356,7 @@ function triggerFileSelect(): void {
   }
 
   &__error-message {
-    background: var(--anyboom-surface-negative);
+    background: var(--anyboom-surface-danger);
     padding: var(--anyboom-spacing-3) var(--anyboom-spacing-4);
     border-radius: var(--anyboom-radius-small);
     margin-bottom: var(--anyboom-spacing-2);

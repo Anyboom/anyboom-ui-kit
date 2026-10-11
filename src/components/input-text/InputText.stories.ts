@@ -109,30 +109,6 @@ const meta = {
     placeholder: 'Введите текст...',
     type: 'text',
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент InputText поддерживает следующие компонентные токены.
-
-Токены строятся по шаблону \`--anyboom-input-{state}-{свойство}[-{состояние}]\`, где \`{state}\` — primary, negative, positive, read-only, disabled.
-
-| Токен | Описание |
-| --- | --- |
-| \`--anyboom-input-{state}-placeholder\` | Цвет плейсхолдера |
-| \`--anyboom-input-{state}-text\` | Цвет текста |
-| \`--anyboom-input-{state}-bottom-label\` | Цвет подписи под полем |
-| \`--anyboom-input-{state}-icon\` | Цвет иконок |
-| \`--anyboom-input-{state}-background\` | Фон поля |
-| \`--anyboom-input-{state}-border\` | Цвет рамки поля |
-| \`--anyboom-input-{state}-border-hover\` | Цвет рамки поля при наведении |
-| \`--anyboom-input-{state}-border-focus\` | Цвет рамки поля в фокусе |
-
-Токены определены в \`src/styles/components/_input.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 } satisfies Meta<typeof InputText>
 
 export default meta

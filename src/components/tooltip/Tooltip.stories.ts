@@ -46,22 +46,6 @@ const meta: Meta<typeof Tooltip> = {
       description: 'Показывать подсказку по клику вместо наведения',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Tooltip поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-tooltip-text\` | Цвет текста подсказки | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-tooltip-background\` | Фон подсказки | \`var(--anyboom-surface-primary)\` |
-
-Токены определены в \`src/styles/components/_tooltip.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

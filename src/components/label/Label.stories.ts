@@ -31,24 +31,6 @@ const meta = {
       description: 'Текст лейбла',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Label поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-label-text\` | Цвет текста лейбла | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-label-required\` | Цвет текста пометки "Необязательное" | \`var(--anyboom-text-tertiary)\` |
-| \`--anyboom-label-divider\` | Цвет разделителя в пометке "Необязательное" | \`var(--anyboom-icon-disabled)\` |
-| \`--anyboom-label-tooltip\` | Цвет иконки тултипа | \`var(--anyboom-icon-neutral-default)\` |
-
-Токены определены в \`src/styles/components/_label.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 } satisfies Meta<typeof Label>
 
 export default meta

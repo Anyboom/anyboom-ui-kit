@@ -13,24 +13,6 @@ const meta: Meta<typeof Tabs> = {
       control: 'text',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Tabs поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-tabs-text\` | Цвет текста вкладки | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-tabs-text-active\` | Цвет текста активной вкладки | \`var(--anyboom-text-positive)\` |
-| \`--anyboom-tabs-border-active\` | Цвет индикатора активной вкладки | \`var(--anyboom-border-positive)\` |
-| \`--anyboom-tabs-list-border\` | Цвет линии под списком вкладок | \`var(--anyboom-border-default)\` |
-
-Токены определены в \`src/styles/components/_tabs.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

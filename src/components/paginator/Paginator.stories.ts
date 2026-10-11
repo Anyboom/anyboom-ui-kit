@@ -24,22 +24,6 @@ const meta: Meta<typeof Paginator> = {
     totalItems: 100,
     itemsPerPage: 10,
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Paginator поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-input-primary-text\` | Цвет текста кнопок страниц | \`var(--anyboom-text-primary)\` |
-| \`--anyboom-input-read-only-background\` | Фон активной страницы | \`var(--anyboom-surface-secondary)\` |
-
-Токены определены в \`src/styles/components/_input.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

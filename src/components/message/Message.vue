@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   variant?: 'filled' | 'outline' | 'text'
-  severity?: 'secondary' | 'contrast' | 'positive' | 'negative' | 'info'
+  severity?: 'primary' | 'secondary' | 'contrast' | 'success' | 'danger' | 'info' | 'warn'
   size?: 'small' | 'normal' | 'large'
 }
 
@@ -60,7 +60,7 @@ withDefaults(defineProps<Props>(), {
     }
   }
 
-  $severities: secondary, positive, info, negative, contrast;
+  $severities: primary, secondary, contrast, success, danger, info, warn;
 
   &_variant {
     &_filled {

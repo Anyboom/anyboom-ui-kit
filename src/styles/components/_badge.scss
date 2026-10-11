@@ -1,20 +1,29 @@
 :root {
+  --anyboom-badge-primary-background: var(--anyboom-surface-contrast);
+  --anyboom-badge-primary-border: var(--anyboom-border-contrast);
+  --anyboom-badge-primary-text: var(--anyboom-text-inverse);
+
+  --anyboom-badge-contrast-background: var(--anyboom-surface-contrast);
+  --anyboom-badge-contrast-border: var(--anyboom-border-contrast);
+  --anyboom-badge-contrast-text: var(--anyboom-text-inverse);
+
   --anyboom-badge-secondary-background: var(--anyboom-surface-light);
   --anyboom-badge-secondary-border: var(--anyboom-border-strong);
   --anyboom-badge-secondary-text: var(--anyboom-text-secondary);
-  --anyboom-badge-incomplete-background: var(--anyboom-color-amber-100);
-  --anyboom-badge-incomplete-border: var(--anyboom-border-warning);
-  --anyboom-badge-incomplete-text: var(--anyboom-text-warning-active);
+
   --anyboom-badge-success-background: var(--anyboom-color-green-100);
-  --anyboom-badge-success-border: var(--anyboom-border-positive-active);
+  --anyboom-badge-success-border: var(--anyboom-border-success-active);
   --anyboom-badge-success-text: var(--anyboom-color-green-950);
+
+  --anyboom-badge-danger-background: var(--anyboom-surface-danger-light);
+  --anyboom-badge-danger-border: var(--anyboom-border-danger);
+  --anyboom-badge-danger-text: var(--anyboom-text-danger);
+
   --anyboom-badge-info-background: var(--anyboom-surface-info-light);
   --anyboom-badge-info-border: var(--anyboom-border-info-hover);
   --anyboom-badge-info-text: var(--anyboom-text-info-hover);
-  --anyboom-badge-negative-background: var(--anyboom-surface-negative-light);
-  --anyboom-badge-negative-border: var(--anyboom-border-negative);
-  --anyboom-badge-negative-text: var(--anyboom-text-negative);
-  --anyboom-badge-non-actionable-background: var(--anyboom-surface-primary);
-  --anyboom-badge-non-actionable-border: var(--anyboom-border-strong);
-  --anyboom-badge-non-actionable-text: var(--anyboom-text-secondary);
+
+  --anyboom-badge-warn-background: var(--anyboom-color-amber-100);
+  --anyboom-badge-warn-border: var(--anyboom-border-warn);
+  --anyboom-badge-warn-text: var(--anyboom-text-warn-active);
 }

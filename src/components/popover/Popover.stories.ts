@@ -37,22 +37,6 @@ const meta: Meta<typeof Popover> = {
       description: 'Содержимое',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Popover поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-input-primary-background\` | Фон popover | \`var(--anyboom-surface-primary)\` |
-| \`--anyboom-input-primary-border\` | Цвет рамки popover | \`var(--anyboom-border-default)\` |
-
-Токены определены в \`src/styles/components/_input.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 }
 
 export default meta

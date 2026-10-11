@@ -22,22 +22,6 @@ const meta = {
       description: 'Толщина линии',
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Spinner поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-spinner-background\` | Цвет фонового кольца | \`var(--anyboom-surface-tertiary)\` |
-| \`--anyboom-spinner-border\` | Цвет активной дуги | \`var(--anyboom-border-contrast)\` |
-
-Токены определены в \`src/styles/components/_spinner.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 } satisfies Meta<typeof Spinner>
 
 export default meta

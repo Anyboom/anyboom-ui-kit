@@ -107,24 +107,6 @@ const meta = {
     optionGroupChildren: 'options',
     dataKey: 'value',
   },
-  parameters: {
-    docs: {
-      description: {
-        component: `
-Компонент Select поддерживает следующие компонентные токены:
-
-| Токен | Описание | Значение по умолчанию |
-| --- | --- | --- |
-| \`--anyboom-select-menu-background\` | Фон выпадающего меню | \`var(--anyboom-surface-primary)\` |
-| \`--anyboom-select-menu-border\` | Цвет рамки выпадающего меню | \`var(--anyboom-border-default)\` |
-
-Также Select использует токены полей ввода \`--anyboom-input-*\` (см. документацию InputText).
-
-Токены определены в \`src/styles/components/_select.scss\` и могут быть переопределены через CSS-переменные.
-`,
-      },
-    },
-  },
 } satisfies Meta<typeof Select>
 
 export default meta

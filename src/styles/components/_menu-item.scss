@@ -1,10 +1,10 @@
 :root {
   --anyboom-menu-item-text: var(--anyboom-text-primary);
   --anyboom-menu-item-text-hover: var(--anyboom-text-primary);
-  --anyboom-menu-item-text-active: var(--anyboom-text-positive);
+  --anyboom-menu-item-text-active: var(--anyboom-text-success);
   --anyboom-menu-item-icon: var(--anyboom-icon-neutral-default);
-  --anyboom-menu-item-icon-active: var(--anyboom-icon-positive);
+  --anyboom-menu-item-icon-active: var(--anyboom-icon-success);
   --anyboom-menu-item-background: var(--anyboom-surface-primary);
   --anyboom-menu-item-background-hover: var(--anyboom-surface-secondary);
-  --anyboom-menu-item-background-active: var(--anyboom-surface-positive-light);
+  --anyboom-menu-item-background-active: var(--anyboom-surface-success-light);
 }
