@@ -231,6 +231,7 @@ onUnmounted(() => {
         :autocomplete="autocomplete"
         :aria-label="ariaLabel || undefined"
         :aria-describedby="ariaDescribedby || undefined"
+        :aria-invalid="error || undefined"
         :maxlength="maxlength"
         :rows="autoHeight ? 1 : rows"
         :wrap="wrap"

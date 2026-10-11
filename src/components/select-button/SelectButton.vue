@@ -8,6 +8,7 @@ interface Props {
   multiple?: boolean
   allowEmpty?: boolean
   disabled?: boolean
+  readonly?: boolean
   ariaLabelledby?: string
 }
 
@@ -19,6 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   multiple: false,
   allowEmpty: true,
   disabled: false,
+  readonly: false,
   ariaLabelledby: '',
 })
 
@@ -91,7 +93,7 @@ function isSelected(option: unknown): boolean {
 }
 
 function handleSelect(option: unknown): void {
-  if (isOptionDisabled(option)) {
+  if (isOptionDisabled(option) || props.readonly) {
     return
   }
 
@@ -130,9 +132,10 @@ function handleSelect(option: unknown): void {
 <template>
   <div
     class="select-button"
-    :class="{ 'select-button_disabled': disabled }"
+    :class="{ 'select-button_disabled': disabled, 'select-button_readonly': readonly }"
     role="group"
     :aria-labelledby="ariaLabelledby || undefined"
+    :aria-readonly="readonly || undefined"
   >
     <button
       v-for="(option, index) in options"
@@ -161,6 +164,16 @@ function handleSelect(option: unknown): void {
 
   &_disabled {
     cursor: not-allowed;
+  }
+
+  &_readonly &__item {
+    cursor: default;
+
+    &:hover:not(:disabled) {
+      z-index: 1;
+      background: var(--anyboom-surface-primary);
+      border-color: var(--anyboom-border-default);
+    }
   }
 
   &__item {

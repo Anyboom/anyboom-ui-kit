@@ -4,6 +4,8 @@ interface Props {
   label?: string
   inputId?: string
   disabled?: boolean
+  readonly?: boolean
+  error?: boolean
   indeterminate?: boolean
   size?: 'small' | 'medium' | 'large'
 }
@@ -13,8 +15,11 @@ interface Emits {
   'change': [event: Event, value: boolean]
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   modelValue: false,
+  disabled: false,
+  readonly: false,
+  error: false,
   size: 'medium',
 })
 
@@ -22,6 +27,16 @@ const emit = defineEmits<Emits>()
 
 function handleChange(event: Event) {
   const target = event.target as HTMLInputElement
+
+  if (props.disabled) {
+    return
+  }
+
+  if (props.readonly) {
+    target.checked = props.modelValue
+    return
+  }
+
   const value = target.checked
 
   emit('update:modelValue', value)
@@ -32,7 +47,14 @@ function handleChange(event: Event) {
 <template>
   <label
     class="checkbox"
-    :class="[`checkbox_size_${size}`, { checkbox_disabled: disabled }]"
+    :class="[
+      `checkbox_size_${size}`,
+      {
+        checkbox_disabled: disabled,
+        checkbox_readonly: readonly,
+        checkbox_error: error,
+      },
+    ]"
   >
     <input
       :id="inputId"
@@ -41,6 +63,7 @@ function handleChange(event: Event) {
       :checked="modelValue"
       :indeterminate="indeterminate"
       :disabled="disabled"
+      :aria-invalid="error || undefined"
       @change="handleChange"
     >
     <span class="checkbox__checkmark" />
@@ -59,6 +82,14 @@ function handleChange(event: Event) {
   cursor: pointer;
   user-select: none;
   gap: var(--anyboom-spacing-2);
+
+  &_readonly {
+    cursor: default;
+
+    #{$this}__input {
+      cursor: default;
+    }
+  }
 
   &__input {
     $input: &;
@@ -241,6 +272,16 @@ function handleChange(event: Event) {
     #{$this}__input:checked + #{$this}__checkmark:after,
     #{$this}__input:indeterminate + #{$this}__checkmark:before {
       background-color: var(--anyboom-checkbox-checked-hover-icon);
+    }
+  }
+
+  &_error:not(#{$this}_disabled) {
+    #{$this}__input + #{$this}__checkmark {
+      border-color: var(--anyboom-input-danger-border);
+    }
+
+    &:hover #{$this}__input:not(:checked):not(:indeterminate) + #{$this}__checkmark {
+      border-color: var(--anyboom-input-danger-border-hover);
     }
   }
 

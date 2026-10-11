@@ -77,9 +77,9 @@ withDefaults(defineProps<Props>(), {
 
       @each $severity in $severities {
         &#{$this}_severity_#{$severity}:not(:disabled) {
-          border-color: var(--anyboom-message-#{$severity}-outlined-border);
-          color: var(--anyboom-message-#{$severity}-outlined-text);
-          background: var(--anyboom-message-#{$severity}-outlined-background);
+          border-color: var(--anyboom-message-#{$severity}-outline-border);
+          color: var(--anyboom-message-#{$severity}-outline-text);
+          background: var(--anyboom-message-#{$severity}-outline-background);
         }
       }
     }

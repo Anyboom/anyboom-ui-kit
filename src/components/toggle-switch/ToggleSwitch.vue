@@ -4,26 +4,38 @@ interface Props {
   label?: string
   inputId?: string
   disabled?: boolean
+  readonly?: boolean
+  error?: boolean
   size?: 'small' | 'medium' | 'large'
 }
-
-withDefaults(defineProps<Props>(), {
-  modelValue: false,
-  disabled: false,
-  size: 'medium',
-})
-
-const emit = defineEmits<Emits>()
 
 interface Emits {
   'update:modelValue': [value: boolean]
 }
 
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: false,
+  disabled: false,
+  readonly: false,
+  error: false,
+  size: 'medium',
+})
+
+const emit = defineEmits<Emits>()
+
 function handleChange(event: Event) {
   const target = event.target as HTMLInputElement
-  const value = target.checked
 
-  emit('update:modelValue', value)
+  if (props.disabled) {
+    return
+  }
+
+  if (props.readonly) {
+    target.checked = props.modelValue
+    return
+  }
+
+  emit('update:modelValue', target.checked)
 }
 </script>
 
@@ -35,6 +47,8 @@ function handleChange(event: Event) {
       {
         'toggle-switch_checked': modelValue,
         'toggle-switch_disabled': disabled,
+        'toggle-switch_readonly': readonly,
+        'toggle-switch_error': error,
       },
     ]"
   >
@@ -44,6 +58,7 @@ function handleChange(event: Event) {
       class="toggle-switch__input"
       :checked="modelValue"
       :disabled="disabled"
+      :aria-invalid="error || undefined"
       @change="handleChange"
     >
     <span class="toggle-switch__slider">
@@ -69,6 +84,16 @@ function handleChange(event: Event) {
   &_disabled {
     cursor: not-allowed;
     opacity: 0.4;
+  }
+
+  &_readonly {
+    cursor: default;
+  }
+
+  &_error:not(&_disabled) {
+    #{$this}__slider {
+      box-shadow: 0 0 0 1px var(--anyboom-input-danger-border);
+    }
   }
 
   &_checked {

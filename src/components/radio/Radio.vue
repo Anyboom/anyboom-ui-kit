@@ -4,6 +4,8 @@ interface Props {
   label?: string
   inputId?: string
   disabled?: boolean
+  readonly?: boolean
+  error?: boolean
   value?: string | number | boolean
   size?: 'small' | 'medium' | 'large'
 }
@@ -20,7 +22,18 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>()
 
-function handleChange() {
+function handleChange(event: Event) {
+  const target = event.target as HTMLInputElement
+
+  if (props.disabled) {
+    return
+  }
+
+  if (props.readonly) {
+    target.checked = props.modelValue === props.value
+    return
+  }
+
   emit('update:modelValue', props.value as string | number | boolean)
 }
 </script>
@@ -28,7 +41,14 @@ function handleChange() {
 <template>
   <label
     class="radio"
-    :class="[`radio_size_${size}`, { radio_disabled: disabled }]"
+    :class="[
+      `radio_size_${size}`,
+      {
+        radio_disabled: disabled,
+        radio_readonly: readonly,
+        radio_error: error,
+      },
+    ]"
   >
     <input
       :id="inputId"
@@ -37,6 +57,7 @@ function handleChange() {
       :checked="modelValue === value"
       :disabled="disabled"
       :value="value"
+      :aria-invalid="error || undefined"
       @change="handleChange"
     >
     <span class="radio__checkmark" />
@@ -155,6 +176,24 @@ function handleChange() {
     #{$this}__input:checked + #{$this}__checkmark {
       background-color: var(--anyboom-radio-checked-hover-border);
       border-color: var(--anyboom-radio-checked-hover-border);
+    }
+  }
+
+  &_readonly {
+    cursor: default;
+
+    #{$this}__input {
+      cursor: default;
+    }
+  }
+
+  &_error:not(#{$this}_disabled) {
+    #{$this}__input + #{$this}__checkmark {
+      border-color: var(--anyboom-input-danger-border);
+    }
+
+    &:hover #{$this}__input:not(:checked) + #{$this}__checkmark {
+      border-color: var(--anyboom-input-danger-border-hover);
     }
   }
 }

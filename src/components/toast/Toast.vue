@@ -26,8 +26,9 @@ const iconComponent = computed(() => {
   const icons = {
     success: CheckCircleFillIcon,
     primary: InfoFillIcon,
-    info: InfoFillIcon,
     secondary: InfoFillIcon,
+    contrast: InfoFillIcon,
+    info: InfoFillIcon,
     warn: WarningFillIcon,
     danger: WarningDiamondFillIcon,
   }
@@ -182,6 +183,26 @@ defineExpose({
 
       #{$this}__close {
         color: var(--anyboom-toast-secondary-close-icon);
+      }
+    }
+    &_contrast {
+      background: var(--anyboom-toast-contrast-background);
+      border: 1px solid var(--anyboom-toast-contrast-border);
+
+      #{$this}__icon {
+        color: var(--anyboom-toast-contrast-icon);
+      }
+
+      #{$this}__title {
+        color: var(--anyboom-toast-contrast-title);
+      }
+
+      #{$this}__message {
+        color: var(--anyboom-toast-contrast-text);
+      }
+
+      #{$this}__close {
+        color: var(--anyboom-toast-contrast-close-icon);
       }
     }
     &_warn {

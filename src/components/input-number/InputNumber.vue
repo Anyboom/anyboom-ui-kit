@@ -948,9 +948,9 @@ onUnmounted(() => {
     justify-content: center;
     min-width: var(--anyboom-spacing-8);
     padding: 0 var(--anyboom-spacing-2);
-    color: var(--anyboom-button-secondary-outlined-text);
-    background: var(--anyboom-button-secondary-outlined-background);
-    border: 1px solid var(--anyboom-button-secondary-outlined-border);
+    color: var(--anyboom-button-secondary-outline-text);
+    background: var(--anyboom-button-secondary-outline-background);
+    border: 1px solid var(--anyboom-button-secondary-outline-border);
     border-radius: var(--anyboom-radius-small);
     cursor: pointer;
     user-select: none;
@@ -958,9 +958,9 @@ onUnmounted(() => {
     @include mixins.apply-text("button-sm");
 
     &:hover:not(:disabled) {
-      background: var(--anyboom-button-secondary-outlined-background-hover);
-      border-color: var(--anyboom-button-secondary-outlined-border-hover);
-      color: var(--anyboom-button-secondary-outlined-text-hover);
+      background: var(--anyboom-button-secondary-outline-background-hover);
+      border-color: var(--anyboom-button-secondary-outline-border-hover);
+      color: var(--anyboom-button-secondary-outline-text-hover);
 
       #{$this}__button-icon {
         color: var(--anyboom-icon-neutral-hover);
@@ -968,9 +968,9 @@ onUnmounted(() => {
     }
 
     &:active:not(:disabled) {
-      background: var(--anyboom-button-secondary-outlined-background-active);
-      border-color: var(--anyboom-button-secondary-outlined-border-active);
-      color: var(--anyboom-button-secondary-outlined-text-active);
+      background: var(--anyboom-button-secondary-outline-background-active);
+      border-color: var(--anyboom-button-secondary-outline-border-active);
+      color: var(--anyboom-button-secondary-outline-text-active);
       transform: scale(0.95);
 
       #{$this}__button-icon {
@@ -980,9 +980,9 @@ onUnmounted(() => {
 
     &:disabled {
       cursor: not-allowed;
-      background: var(--anyboom-button-disabled-outlined-background);
-      border-color: var(--anyboom-button-disabled-outlined-border);
-      color: var(--anyboom-button-disabled-outlined-text);
+      background: var(--anyboom-button-disabled-outline-background);
+      border-color: var(--anyboom-button-disabled-outline-border);
+      color: var(--anyboom-button-disabled-outline-text);
 
       #{$this}__button-icon {
         color: var(--anyboom-icon-disabled);

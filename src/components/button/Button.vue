@@ -179,34 +179,34 @@ const tag = computed(() => (isLink.value ? 'a' : 'button'))
 
       &:disabled {
         cursor: not-allowed;
-        background: var(--anyboom-button-disabled-outlined-background);
-        border-color: var(--anyboom-button-disabled-outlined-border);
-        color: var(--anyboom-button-disabled-outlined-text);
+        background: var(--anyboom-button-disabled-outline-background);
+        border-color: var(--anyboom-button-disabled-outline-border);
+        color: var(--anyboom-button-disabled-outline-text);
       }
 
       @each $severity in $severities {
         &#{$this}_severity_#{$severity}:not(:disabled) {
-          border-color: var(--anyboom-button-#{$severity}-outlined-border);
-          color: var(--anyboom-button-#{$severity}-outlined-text);
-          background: var(--anyboom-button-#{$severity}-outlined-background);
+          border-color: var(--anyboom-button-#{$severity}-outline-border);
+          color: var(--anyboom-button-#{$severity}-outline-text);
+          background: var(--anyboom-button-#{$severity}-outline-background);
 
           &:hover {
             border-color: var(
-              --anyboom-button-#{$severity}-outlined-border-hover
+              --anyboom-button-#{$severity}-outline-border-hover
             );
-            color: var(--anyboom-button-#{$severity}-outlined-text-hover);
+            color: var(--anyboom-button-#{$severity}-outline-text-hover);
             background: var(
-              --anyboom-button-#{$severity}-outlined-background-hover
+              --anyboom-button-#{$severity}-outline-background-hover
             );
           }
 
           &:active {
             border-color: var(
-              --anyboom-button-#{$severity}-outlined-border-active
+              --anyboom-button-#{$severity}-outline-border-active
             );
-            color: var(--anyboom-button-#{$severity}-outlined-text-active);
+            color: var(--anyboom-button-#{$severity}-outline-text-active);
             background: var(
-              --anyboom-button-#{$severity}-outlined-background-active
+              --anyboom-button-#{$severity}-outline-background-active
             );
           }
         }

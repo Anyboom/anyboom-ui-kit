@@ -46,6 +46,10 @@ const meta = {
       control: 'boolean',
       description: 'Отключает весь компонент.',
     },
+    readonly: {
+      control: 'boolean',
+      description: 'Режим «только чтение»: выбранное отображается, выбор недоступен.',
+    },
     ariaLabelledby: {
       control: 'text',
       description: 'ID элемента с подписью для группы кнопок (доступность).',

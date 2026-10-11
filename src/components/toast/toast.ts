@@ -2,7 +2,14 @@ export interface Toast {
   id?: string | number
   message?: string
   title?: string
-  severity?: 'primary' | 'secondary' | 'success' | 'danger' | 'info' | 'warn'
+  severity?:
+    | 'primary'
+    | 'secondary'
+    | 'contrast'
+    | 'success'
+    | 'danger'
+    | 'info'
+    | 'warn'
   duration?: number
   closable?: boolean
   showIcon?: boolean

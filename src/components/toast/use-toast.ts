@@ -30,6 +30,15 @@ export function useToast() {
     })
   }
 
+  function contrast(message: string, options?: Partial<Toast>) {
+    show({
+      title: 'Сообщение',
+      severity: 'contrast',
+      ...options,
+      message,
+    })
+  }
+
   function secondary(message: string, options?: Partial<Toast>) {
     show({
       title: 'Дополнительная информация',
@@ -70,6 +79,7 @@ export function useToast() {
     success,
     primary,
     info,
+    contrast,
     secondary,
     warn,
     danger,

@@ -117,6 +117,7 @@ onMounted(() => {
         :enterkeyhint="enterkeyhint"
         :aria-label="ariaLabel || undefined"
         :aria-describedby="ariaDescribedby || undefined"
+        :aria-invalid="error || undefined"
         @input="handleInput"
       >
 

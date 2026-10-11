@@ -57,6 +57,11 @@ const meta = {
       description:
         'Отключает компонент селекта. При true список становится неактивным и недоступным для взаимодействия.',
     },
+    readonly: {
+      control: 'boolean',
+      description:
+        'Режим «только чтение»: значение отображается, но выбор и очистка недоступны.',
+    },
     error: {
       control: 'boolean',
       description:

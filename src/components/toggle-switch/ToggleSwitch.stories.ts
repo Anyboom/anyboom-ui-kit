@@ -18,6 +18,16 @@ const meta: Meta<typeof ToggleSwitch> = {
       control: 'boolean',
       description: 'Отключает переключатель',
     },
+    readonly: {
+      control: 'boolean',
+      description:
+        'Режим «только чтение»: состояние отображается, но изменить его нельзя.',
+    },
+    error: {
+      control: 'boolean',
+      description:
+        'Состояние ошибки: подсвечивает переключатель и указывает `aria-invalid`.',
+    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
@@ -46,4 +56,20 @@ export const Default: Story = {
     },
     template: '<ToggleSwitch v-model="args.modelValue" v-bind="args" />',
   }),
+}
+
+export const Readonly: Story = {
+  ...Default,
+  args: {
+    ...Default.args,
+    readonly: true,
+  },
+}
+
+export const Error: Story = {
+  ...Default,
+  args: {
+    ...Default.args,
+    error: true,
+  },
 }

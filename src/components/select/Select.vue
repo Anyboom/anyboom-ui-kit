@@ -27,6 +27,7 @@ interface Props {
   optionGroupChildren?: string
   disabled?: boolean
   error?: boolean
+  readonly?: boolean
   dataKey?: string
   grouped?: boolean
   loading?: boolean
@@ -49,6 +50,7 @@ const props = withDefaults(defineProps<Props>(), {
   optionGroupChildren: 'options',
   disabled: false,
   error: false,
+  readonly: false,
   dataKey: 'value',
   grouped: false,
   loading: false,
@@ -210,7 +212,7 @@ const filteredGroups = computed(() => {
  * Переключает открытие/закрытие dropdown.
  */
 function toggleDropdown() {
-  if (props.disabled || props.loading) {
+  if (props.disabled || props.readonly || props.loading) {
     return
   }
 
@@ -357,6 +359,10 @@ function deselectItem(item: Option) {
  * Удаляет все выбранные элементы (только для multiple).
  */
 function removeItems() {
+  if (props.readonly) {
+    return
+  }
+
   if (props.mode !== 'multiple') {
     selectedItems.value = null
   }
@@ -390,6 +396,10 @@ const showCounterVisible = computed(() => {
  * Отображать ли кнопку очистки.
  */
 const showClearVisible = computed(() => {
+  if (props.readonly) {
+    return false
+  }
+
   if (props.mode === 'multiple') {
     const selected = selectedItems.value as Option[]
     return props.showClear && selected?.length > 0
@@ -420,6 +430,7 @@ const hasSelectedItems = computed(() => {
     :class="{
       select_disabled: disabled,
       select_error: error,
+      select_readonly: readonly,
       select_loading: loading,
       select_open: isOpen,
       select_single: mode === 'single',
@@ -433,6 +444,8 @@ const hasSelectedItems = computed(() => {
       :disabled="disabled"
       :aria-expanded="isOpen"
       aria-haspopup="listbox"
+      :aria-invalid="error || undefined"
+      :aria-readonly="readonly || undefined"
       @click="toggleDropdown"
     >
       <template v-if="loading">
@@ -664,6 +677,14 @@ const hasSelectedItems = computed(() => {
       cursor: not-allowed;
       background-color: var(--anyboom-input-disabled-background);
       border-color: var(--anyboom-input-disabled-border);
+    }
+
+    #{$self}_readonly & {
+      cursor: default;
+
+      &:hover {
+        border-color: var(--anyboom-input-primary-border);
+      }
     }
 
     &:hover {

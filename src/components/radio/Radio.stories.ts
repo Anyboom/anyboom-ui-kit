@@ -15,6 +15,16 @@ const meta = {
       description:
         'Отключает радио-кнопку. При `true` кнопка становится неактивной и недоступной для выбора.',
     },
+    readonly: {
+      control: 'boolean',
+      description:
+        'Режим «только чтение»: значение отображается, но выбор изменить нельзя.',
+    },
+    error: {
+      control: 'boolean',
+      description:
+        'Состояние ошибки: подсвечивает радиокнопку и указывает `aria-invalid`.',
+    },
     value: {
       control: 'text',
       description:
@@ -40,5 +50,17 @@ export const Basic: Story = {}
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+}
+
+export const Readonly: Story = {
+  args: {
+    readonly: true,
+  },
+}
+
+export const Error: Story = {
+  args: {
+    error: true,
   },
 }
