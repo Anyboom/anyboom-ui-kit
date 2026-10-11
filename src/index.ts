@@ -1,4 +1,4 @@
-import './styles/preview.scss'
+import './styles/index.scss'
 
 export { default as Accordion } from './components/accordion/Accordion.vue'
 export { default as Avatar } from './components/avatar/Avatar.vue'

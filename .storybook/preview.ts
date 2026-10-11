@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/vue3-vite'
 
-import '@/styles/preview.scss'
+import '@/styles/index.scss'
+import '@/styles/reset.scss'
 
 const preview: Preview = {
   tags: ['autodocs'],
