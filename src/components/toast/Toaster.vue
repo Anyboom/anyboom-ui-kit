@@ -3,7 +3,7 @@ import type { Toast as ToastType } from './toast.ts'
 
 import { computed, onUnmounted, ref } from 'vue'
 import Toast from './Toast.vue'
-import { useToastBus } from './use-toast-bus.ts'
+import { claimToaster, releaseToaster, useToastBus } from './use-toast-bus.ts'
 
 const toasts = ref<ToastType[]>([])
 
@@ -54,16 +54,23 @@ function clearToasts() {
 }
 
 const bus = useToastBus()
+const toasterId = Symbol('toaster-instance')
 
-bus.on('toast:add', addToast)
-bus.on('toast:clear', clearToasts)
-bus.on('toast:remove', removeToast)
+if (claimToaster(toasterId)) {
+  const unsubscribe = [
+    bus.on('toast:add', addToast),
+    bus.on('toast:clear', clearToasts),
+    bus.on('toast:remove', removeToast),
+  ]
 
-onUnmounted(() => {
-  bus.off('toast:add', addToast)
-  bus.off('toast:clear', clearToasts)
-  bus.off('toast:remove', removeToast)
-})
+  onUnmounted(() => {
+    unsubscribe.forEach(fn => fn())
+    releaseToaster(toasterId)
+  })
+}
+else {
+  console.warn('[Toaster] Another <Toaster /> instance is already active. This instance will not handle toasts.')
+}
 </script>
 
 <template>
