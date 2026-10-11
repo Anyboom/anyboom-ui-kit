@@ -7,7 +7,7 @@ import WarningFillIcon from '@iconify-vue/ph/warning-fill'
 import XIcon from '@iconify-vue/ph/x'
 
 import { computed, onMounted, onUnmounted } from 'vue'
-import IconButton from '@/components/icon-button/IconButton.vue'
+import Button from '@/components/button/Button.vue'
 
 const props = withDefaults(defineProps<Toast>(), {
   severity: 'info',
@@ -83,9 +83,9 @@ defineExpose({
       </div>
     </div>
 
-    <IconButton v-if="closable" class="toast__close" @click="onClose">
+    <Button v-if="closable" variant="text" icon-only class="toast__close" @click="onClose">
       <XIcon height="1em" />
-    </IconButton>
+    </Button>
   </div>
 </template>
 

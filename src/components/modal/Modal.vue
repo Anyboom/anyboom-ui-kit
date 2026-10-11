@@ -2,8 +2,8 @@
 import XBoldIcon from '@iconify-vue/ph/x-bold'
 import { computed, onMounted, onUnmounted, useId, useSlots, watch } from 'vue'
 
+import Button from '@/components/button/Button.vue'
 import Divider from '@/components/divider/Divider.vue'
-import IconButton from '@/components/icon-button/IconButton.vue'
 import Overlay from '@/components/overlay/Overlay.vue'
 import { useBodyScrollLock } from '@/composables/use-body-scroll-lock.ts'
 
@@ -111,11 +111,11 @@ onUnmounted(() => {
             </slot>
           </div>
 
-          <IconButton v-if="closable" @click="close">
+          <Button v-if="closable" variant="text" icon-only @click="close">
             <slot name="close-icon">
               <XBoldIcon height="1em" />
             </slot>
-          </IconButton>
+          </Button>
         </div>
 
         <div class="modal__body">
