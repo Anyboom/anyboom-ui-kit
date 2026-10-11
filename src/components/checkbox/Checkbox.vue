@@ -3,6 +3,7 @@ interface Props {
   modelValue?: boolean
   label?: string
   inputId?: string
+  name?: string
   disabled?: boolean
   readonly?: boolean
   error?: boolean
@@ -60,6 +61,7 @@ function handleChange(event: Event) {
       :id="inputId"
       type="checkbox"
       class="checkbox__input"
+      :name="name"
       :checked="modelValue"
       :indeterminate="indeterminate"
       :disabled="disabled"

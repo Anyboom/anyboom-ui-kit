@@ -7,6 +7,7 @@ interface Props {
   offLabel?: string
   iconPos?: 'left' | 'right'
   size?: 'small' | 'medium' | 'large'
+  inputId?: string
   disabled?: boolean
   readonly?: boolean
   ariaLabel?: string
@@ -19,6 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   offLabel: '',
   iconPos: 'left',
   size: 'medium',
+  inputId: undefined,
   disabled: false,
   readonly: false,
   ariaLabel: '',
@@ -31,7 +33,8 @@ interface Emits {
   'update:modelValue': [value: boolean]
 }
 
-const inputId = `toggle-button-${useId()}`
+const autoId = `toggle-button-${useId()}`
+const fieldId = computed(() => props.inputId ?? autoId)
 
 const label = computed(() => {
   return props.modelValue ? props.onLabel : props.offLabel
@@ -44,11 +47,15 @@ function handleClick(): void {
 
   emit('update:modelValue', !props.modelValue)
 }
+
+defineExpose({
+  inputId: fieldId,
+})
 </script>
 
 <template>
   <button
-    :id="inputId"
+    :id="fieldId"
     type="button"
     class="toggle-button"
     :class="[

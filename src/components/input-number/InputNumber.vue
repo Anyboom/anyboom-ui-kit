@@ -11,6 +11,7 @@ import {
   onUnmounted,
 
   ref,
+  useAttrs,
   useId,
   watch,
 } from 'vue'
@@ -49,6 +50,8 @@ interface Props {
   ariaDescribedby?: string
 }
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(defineProps<Props>(), {
   modelValue: null,
   inputId: undefined,
@@ -83,6 +86,21 @@ const inputElement: Ref<HTMLInputElement | null> = ref(null)
 const isFocused = ref(false)
 const inputDisplayValue = ref('')
 const numericValue = ref<number | null>(getInitialNumericValue())
+
+const attrs = useAttrs()
+
+const wrapperAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const inputAttrs = computed(() => {
+  const { class: _class, style: _style, ...rest } = attrs
+  void _class
+  void _style
+
+  return rest
+})
 
 const autoId = useId()
 const fieldId = computed(() => props.inputId ?? autoId)
@@ -657,15 +675,18 @@ onUnmounted(() => {
 <template>
   <div
     class="input-number"
-    :class="{
-      'input-number_disabled': disabled,
-      'input-number_error': error,
-      'input-number_hidden': hidden,
-      'input-number_filled': isFilled,
-      'input-number_focused': isFocused,
-      'input-number_show-buttons': showButtons,
-      [`input-number_button-layout_${buttonLayout}`]: showButtons,
-    }"
+    :class="[
+      {
+        'input-number_disabled': disabled,
+        'input-number_error': error,
+        'input-number_hidden': hidden,
+        'input-number_filled': isFilled,
+        'input-number_focused': isFocused,
+        'input-number_show-buttons': showButtons,
+        [`input-number_button-layout_${buttonLayout}`]: showButtons,
+      },
+      wrapperAttrs,
+    ]"
   >
     <div class="input-number__wrapper">
       <div
@@ -692,6 +713,7 @@ onUnmounted(() => {
       </button>
 
       <input
+        v-bind="inputAttrs"
         :id="fieldId"
         ref="inputElement"
         type="text"

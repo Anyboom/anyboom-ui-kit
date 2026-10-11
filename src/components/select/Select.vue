@@ -22,13 +22,14 @@ interface Props {
   inputId?: string
   searchable?: boolean
   placeholder?: string
-  optionLabel?: string
+  optionLabel?: string | ((option: Option) => string)
+  optionValue?: string
+  optionDisabled?: string
   optionGroupLabel?: string
   optionGroupChildren?: string
   disabled?: boolean
   error?: boolean
   readonly?: boolean
-  dataKey?: string
   grouped?: boolean
   loading?: boolean
   selectAllGroup?: boolean
@@ -46,12 +47,13 @@ const props = withDefaults(defineProps<Props>(), {
   searchable: false,
   placeholder: 'Выберите элементы',
   optionLabel: 'label',
+  optionValue: 'value',
+  optionDisabled: undefined,
   optionGroupLabel: 'name',
   optionGroupChildren: 'options',
   disabled: false,
   error: false,
   readonly: false,
-  dataKey: 'value',
   grouped: false,
   loading: false,
   options: () => [],
@@ -102,13 +104,17 @@ if (props.grouped) {
  * @returns {string} Текст для отображения.
  */
 function getOptionLabel(option: Option): string {
+  if (typeof props.optionLabel === 'function') {
+    return String(props.optionLabel(option))
+  }
+
+  const labelKey = props.optionLabel ?? 'label'
+
   return String(
     // eslint-disable-next-line ts/no-use-before-define -- объявлен ниже в setup-скрипте, вызов происходит после инициализации
     flatOptions.value.find(
-      flatOption => flatOption[props.dataKey] === option[props.dataKey],
-    )?.[props.optionLabel]
-    || option[props.optionLabel]
-    || option.value,
+      flatOption => flatOption[props.optionValue] === option[props.optionValue],
+    )?.[labelKey] || option[labelKey] || option.value,
   )
 }
 
@@ -136,9 +142,41 @@ function getGroupChildren(group: OptionGroup): Option[] {
  * @returns {string | number} Уникальный ключ.
  */
 function getItemKey(item: Option): string | number {
-  return props.dataKey
-    ? (item[props.dataKey] as string | number)
+  return props.optionValue
+    ? (item[props.optionValue] as string | number)
     : JSON.stringify(item)
+}
+
+/**
+ * Проверяет, отключена ли опция.
+ * @param {Option} option - Опция.
+ * @returns {boolean} Опция отключена.
+ */
+function isOptionDisabled(option: Option): boolean {
+  if (props.optionDisabled === undefined) {
+    return false
+  }
+
+  return Boolean(option[props.optionDisabled])
+}
+
+/**
+ * Возвращает значение опции, пригодное для Radio (string | number | boolean).
+ * @param {Option} option - Опция.
+ * @returns {string | number | boolean} Значение опции.
+ */
+function getRadioValue(option: Option): string | number | boolean {
+  const value = props.optionValue ? option[props.optionValue] : undefined
+
+  if (
+    typeof value === 'string'
+    || typeof value === 'number'
+    || typeof value === 'boolean'
+  ) {
+    return value
+  }
+
+  return getItemKey(option)
 }
 
 /**
@@ -318,7 +356,7 @@ function toggleGroupSelection(group: OptionGroup) {
 function toggleOption(option: Option, event: MouseEvent) {
   event.stopPropagation()
 
-  if (props.disabled || props.loading) {
+  if (props.disabled || props.readonly || props.loading || isOptionDisabled(option)) {
     return
   }
 
@@ -559,7 +597,7 @@ const hasSelectedItems = computed(() => {
                 class="select__option"
                 :class="{
                   select__option_selected: isSelected(option),
-                  select__option_disabled: disabled,
+                  select__option_disabled: disabled || isOptionDisabled(option),
                 }"
                 @click="toggleOption(option, $event)"
               >
@@ -567,19 +605,19 @@ const hasSelectedItems = computed(() => {
                 <Checkbox
                   v-if="mode === 'multiple'"
                   class="select__checkbox"
-                  :disabled="disabled"
+                  :disabled="disabled || isOptionDisabled(option)"
                   :model-value="isSelected(option)"
                   :label="getOptionLabel(option)"
-                  binary
-                  readonly
                   @click.prevent
                 />
 
                 <!-- Радиокнопка для одиночного выбора -->
                 <Radio
                   v-else
-                  :model-value="!isSelected(option)"
+                  :model-value="isSelected(option) ? getRadioValue(option) : undefined"
+                  :value="getRadioValue(option)"
                   :label="getOptionLabel(option)"
+                  :disabled="disabled || isOptionDisabled(option)"
                   @click.prevent
                 />
               </div>
@@ -595,7 +633,7 @@ const hasSelectedItems = computed(() => {
             class="select__option"
             :class="{
               select__option_selected: isSelected(option),
-              select__option_disabled: disabled,
+              select__option_disabled: disabled || isOptionDisabled(option),
             }"
             @click="toggleOption(option, $event)"
           >
@@ -603,19 +641,19 @@ const hasSelectedItems = computed(() => {
             <Checkbox
               v-if="mode === 'multiple'"
               class="select__checkbox"
-              :disabled="disabled"
+              :disabled="disabled || isOptionDisabled(option)"
               :model-value="isSelected(option)"
               :label="getOptionLabel(option)"
-              binary
-              readonly
               @click.prevent
             />
 
             <!-- Радиокнопка для одиночного выбора -->
             <Radio
               v-else
-              :model-value="!isSelected(option)"
+              :model-value="isSelected(option) ? getRadioValue(option) : undefined"
+              :value="getRadioValue(option)"
               :label="getOptionLabel(option)"
+              :disabled="disabled || isOptionDisabled(option)"
               @click.prevent
             />
           </div>

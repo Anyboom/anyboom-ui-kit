@@ -3,6 +3,7 @@ interface Props {
   modelValue?: string | number | boolean
   label?: string
   inputId?: string
+  name?: string
   disabled?: boolean
   readonly?: boolean
   error?: boolean
@@ -54,6 +55,7 @@ function handleChange(event: Event) {
       :id="inputId"
       type="radio"
       class="radio__input"
+      :name="name"
       :checked="modelValue === value"
       :disabled="disabled"
       :value="value"

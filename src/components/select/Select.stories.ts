@@ -67,7 +67,7 @@ const meta = {
       description:
         'Активирует состояние ошибки. Визуально выделяет поле красным для индикации неверного ввода.',
     },
-    dataKey: {
+    optionValue: {
       control: 'text',
       description:
         'Название свойства, используемого в качестве уникального ключа для каждой опции.',
@@ -110,7 +110,7 @@ const meta = {
     optionLabel: 'label',
     optionGroupLabel: 'name',
     optionGroupChildren: 'options',
-    dataKey: 'value',
+    optionValue: 'value',
   },
 } satisfies Meta<typeof Select>
 
@@ -345,7 +345,7 @@ export const WithCustomDataKey: Story = {
   args: {
     options: sampleOptionsWithLabels,
     optionLabel: 'label',
-    dataKey: 'id',
+    optionValue: 'id',
     mode: 'single',
     placeholder: 'Select with custom data key...',
   },

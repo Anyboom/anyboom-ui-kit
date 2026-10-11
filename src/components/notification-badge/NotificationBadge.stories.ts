@@ -13,7 +13,15 @@ const meta: Meta<typeof NotificationBadge> = {
     },
     severity: {
       control: 'select',
-      options: ['primary', 'secondary', 'success', 'danger', 'info', 'warn'],
+      options: [
+        'primary',
+        'secondary',
+        'contrast',
+        'success',
+        'danger',
+        'info',
+        'warn',
+      ],
       description: 'Визуальный стиль бейджа',
     },
   },

@@ -10,7 +10,7 @@ interface Props {
 defineProps<Props>()
 
 const emit = defineEmits<{
-  (e: 'itemClick', item: MenuItemType): void
+  itemClick: [item: MenuItemType]
 }>()
 
 function handleItemClick(item: MenuItemType) {

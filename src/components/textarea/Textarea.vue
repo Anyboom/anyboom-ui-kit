@@ -8,6 +8,7 @@ import {
   onMounted,
   onUnmounted,
   ref,
+  useAttrs,
   useId,
   watch,
 } from 'vue'
@@ -33,6 +34,8 @@ interface Props {
   ariaLabel?: string
   ariaDescribedby?: string
 }
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: '',
@@ -64,6 +67,21 @@ interface Emits {
 
 const textareaElement = ref<HTMLTextAreaElement | null>(null)
 const textareaWrapper = ref<HTMLDivElement | null>(null)
+
+const attrs = useAttrs()
+
+const wrapperAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const textareaAttrs = computed(() => {
+  const { class: _class, style: _style, ...rest } = attrs
+  void _class
+  void _style
+
+  return rest
+})
 
 const autoId = useId()
 const fieldId = computed(() => props.inputId ?? autoId)
@@ -201,16 +219,19 @@ onUnmounted(() => {
   <div
     ref="textareaWrapper"
     class="textarea"
-    :class="{
-      'textarea_disabled': disabled,
-      'textarea_error': error,
-      'textarea_filled': isFilled,
-      'textarea_auto-height': autoHeight,
-      'textarea_resize-vertical': resize === 'vertical' && !autoHeight,
-      'textarea_resize-horizontal': resize === 'horizontal' && !autoHeight,
-      'textarea_resize-both': resize === 'both' && !autoHeight,
-      'textarea_resize-none': resize === 'none' || autoHeight,
-    }"
+    :class="[
+      {
+        'textarea_disabled': disabled,
+        'textarea_error': error,
+        'textarea_filled': isFilled,
+        'textarea_auto-height': autoHeight,
+        'textarea_resize-vertical': resize === 'vertical' && !autoHeight,
+        'textarea_resize-horizontal': resize === 'horizontal' && !autoHeight,
+        'textarea_resize-both': resize === 'both' && !autoHeight,
+        'textarea_resize-none': resize === 'none' || autoHeight,
+      },
+      wrapperAttrs,
+    ]"
   >
     <div class="textarea__wrapper">
       <div
@@ -221,6 +242,7 @@ onUnmounted(() => {
       </div>
 
       <textarea
+        v-bind="textareaAttrs"
         :id="fieldId"
         ref="textareaElement"
         :value="modelValue"

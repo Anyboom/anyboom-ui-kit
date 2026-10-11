@@ -13,7 +13,7 @@ interface Props {
 
 const { currentPage, totalItems, itemsPerPage = 10 } = defineProps<Props>()
 
-const emit = defineEmits(['page-changed'])
+const emit = defineEmits(['pageChanged'])
 
 const totalPages = computed(() => Math.ceil(totalItems / itemsPerPage))
 
@@ -59,8 +59,7 @@ const showLastPage = computed(() => {
 
 function goToPage(page: number) {
   if (page >= 1 && page <= totalPages.value && page !== currentPage) {
-    // eslint-disable-next-line vue/custom-event-name-casing -- публичное API события в kebab-case
-    emit('page-changed', page)
+    emit('pageChanged', page)
   }
 }
 </script>

@@ -304,7 +304,7 @@ watch(
           :model-value="selectedMonth"
           :options="months"
           option-label="name"
-          data-key="value"
+          option-value="value"
           mode="single"
           @update:model-value="(option) => handleMonthChange(option as Option)"
         />

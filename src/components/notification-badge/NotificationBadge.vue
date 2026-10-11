@@ -45,8 +45,6 @@ withDefaults(defineProps<Props>(), {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--anyboom-surface-inverse);
-    color: var(--anyboom-text-inverse);
     top: 0;
     right: 0;
     transform: translate(30%, -30%);
@@ -67,18 +65,47 @@ withDefaults(defineProps<Props>(), {
   }
 
   &_severity {
-    &_info {
+    &_primary,
+    &_contrast {
       #{$this}__badge {
-        background: var(--anyboom-badge-info-border);
-        color: var(--anyboom-badge-info-background);
-        border-color: var(--anyboom-badge-info-border);
+        background: var(--anyboom-notification-badge-primary-background);
+        color: var(--anyboom-notification-badge-primary-text);
+        border-color: var(--anyboom-notification-badge-primary-border);
+      }
+    }
+    &_secondary {
+      #{$this}__badge {
+        background: var(--anyboom-notification-badge-secondary-background);
+        color: var(--anyboom-notification-badge-secondary-text);
+        border-color: var(--anyboom-notification-badge-secondary-border);
+      }
+    }
+    &_success {
+      #{$this}__badge {
+        background: var(--anyboom-notification-badge-success-background);
+        color: var(--anyboom-notification-badge-success-text);
+        border-color: var(--anyboom-notification-badge-success-border);
       }
     }
     &_danger {
       #{$this}__badge {
-        background: var(--anyboom-badge-danger-border);
-        color: var(--anyboom-badge-danger-background);
-        border-color: var(--anyboom-badge-danger-border);
+        background: var(--anyboom-notification-badge-danger-background);
+        color: var(--anyboom-notification-badge-danger-text);
+        border-color: var(--anyboom-notification-badge-danger-border);
+      }
+    }
+    &_info {
+      #{$this}__badge {
+        background: var(--anyboom-notification-badge-info-background);
+        color: var(--anyboom-notification-badge-info-text);
+        border-color: var(--anyboom-notification-badge-info-border);
+      }
+    }
+    &_warn {
+      #{$this}__badge {
+        background: var(--anyboom-notification-badge-warn-background);
+        color: var(--anyboom-notification-badge-warn-text);
+        border-color: var(--anyboom-notification-badge-warn-border);
       }
     }
   }

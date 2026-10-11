@@ -31,10 +31,6 @@ interface Emits {
 }
 
 function getOptionLabel(option: unknown): string {
-  if (props.optionLabel === undefined) {
-    return String(option)
-  }
-
   if (typeof props.optionLabel === 'function') {
     return String(props.optionLabel(option))
   }
@@ -47,10 +43,6 @@ function getOptionLabel(option: unknown): string {
 }
 
 function getOptionValue(option: unknown): unknown {
-  if (props.optionValue === undefined) {
-    return option
-  }
-
   if (typeof props.optionValue === 'function') {
     return props.optionValue(option)
   }
@@ -65,10 +57,6 @@ function getOptionValue(option: unknown): unknown {
 function isOptionDisabled(option: unknown): boolean {
   if (props.disabled) {
     return true
-  }
-
-  if (props.optionDisabled === undefined) {
-    return false
   }
 
   if (typeof props.optionDisabled === 'function') {

@@ -3,7 +3,7 @@ import type { EnterKeyHint } from '@/components/input-text/enter-key-hint.ts'
 
 import type { InputMode } from '@/components/input-text/input-mode.ts'
 import type { InputType } from '@/components/input-text/input-type.ts'
-import { computed, nextTick, onMounted, ref, useId } from 'vue'
+import { computed, nextTick, onMounted, ref, useAttrs, useId } from 'vue'
 
 interface Props {
   size?: 'small' | 'medium' | 'large'
@@ -23,6 +23,12 @@ interface Props {
   ariaLabel?: string
   ariaDescribedby?: string
 }
+
+interface Emits {
+  'update:modelValue': [value: string | number]
+}
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<Props>(), {
   size: 'medium',
@@ -45,11 +51,22 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>()
 
-interface Emits {
-  'update:modelValue': [value: string | number]
-}
-
 const inputElement = ref<HTMLInputElement | undefined>(undefined)
+
+const attrs = useAttrs()
+
+const wrapperAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const inputAttrs = computed(() => {
+  const { class: _class, style: _style, ...rest } = attrs
+  void _class
+  void _style
+
+  return rest
+})
 
 const autoId = useId()
 const fieldId = computed(() => props.inputId ?? autoId)
@@ -92,6 +109,7 @@ onMounted(() => {
         'input-text_error': error,
         'input-text_success': success,
       },
+      wrapperAttrs,
     ]"
   >
     <div class="input-text__wrapper">
@@ -103,6 +121,7 @@ onMounted(() => {
       </div>
 
       <input
+        v-bind="inputAttrs"
         :id="fieldId"
         ref="inputElement"
         class="input-text__input"

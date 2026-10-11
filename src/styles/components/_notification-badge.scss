@@ -1,0 +1,29 @@
+:root {
+  --anyboom-notification-badge-primary-background: var(--anyboom-surface-contrast);
+  --anyboom-notification-badge-primary-border: var(--anyboom-border-contrast);
+  --anyboom-notification-badge-primary-text: var(--anyboom-text-inverse);
+
+  --anyboom-notification-badge-secondary-background: var(--anyboom-surface-inverse);
+  --anyboom-notification-badge-secondary-border: var(--anyboom-surface-inverse);
+  --anyboom-notification-badge-secondary-text: var(--anyboom-text-inverse);
+
+  --anyboom-notification-badge-contrast-background: var(--anyboom-surface-contrast);
+  --anyboom-notification-badge-contrast-border: var(--anyboom-border-contrast);
+  --anyboom-notification-badge-contrast-text: var(--anyboom-text-inverse);
+
+  --anyboom-notification-badge-success-background: var(--anyboom-border-success);
+  --anyboom-notification-badge-success-border: var(--anyboom-border-success);
+  --anyboom-notification-badge-success-text: var(--anyboom-text-inverse);
+
+  --anyboom-notification-badge-danger-background: var(--anyboom-border-danger);
+  --anyboom-notification-badge-danger-border: var(--anyboom-border-danger);
+  --anyboom-notification-badge-danger-text: var(--anyboom-text-inverse);
+
+  --anyboom-notification-badge-info-background: var(--anyboom-border-info);
+  --anyboom-notification-badge-info-border: var(--anyboom-border-info);
+  --anyboom-notification-badge-info-text: var(--anyboom-text-inverse);
+
+  --anyboom-notification-badge-warn-background: var(--anyboom-border-warn);
+  --anyboom-notification-badge-warn-border: var(--anyboom-border-warn);
+  --anyboom-notification-badge-warn-text: var(--anyboom-text-inverse);
+}
