@@ -39,9 +39,8 @@ interface Emits {
   'enter': [value: string]
 }
 
-const emptyValues = Array(props.length).fill('')
-const values = ref<string[]>(emptyValues)
-const inputRefs = ref<(HTMLInputElement | null)[]>(emptyValues)
+const values = ref<string[]>(Array(props.length).fill(''))
+const inputRefs = ref<(HTMLInputElement | null)[]>(Array(props.length).fill(null))
 const focusedIndex = ref<number>(-1)
 const fullValue = computed(() => values.value.join(''))
 
@@ -89,7 +88,7 @@ function handleInput(index: number, event: Event) {
 
   emit('update:modelValue', fullValue.value)
 
-  if (values.value.every(v => v !== '')) {
+  if (fullValue.value.length === props.length) {
     emit('complete', fullValue.value)
   }
 }
@@ -175,7 +174,7 @@ function handlePaste(event: ClipboardEvent) {
     const nextIndex = Math.min(code.length, props.length - 1)
     focusInput(nextIndex)
 
-    if (values.value.every(v => v !== '')) {
+    if (fullValue.value.length === props.length) {
       emit('complete', fullValue.value)
     }
   }
