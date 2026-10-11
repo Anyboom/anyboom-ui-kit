@@ -57,6 +57,11 @@ const meta = {
       },
       description: 'Указывает, что кнопка содержит только иконку',
     },
+    ariaLabel: {
+      control: 'text',
+      description:
+        'Подпись для скринридеров. Обязательна для `iconOnly`-кнопок, где нет текста.',
+    },
     default: {
       control: 'text',
       description:
@@ -81,6 +86,7 @@ export const IconOnly: Story = {
   },
   args: {
     iconOnly: true,
+    ariaLabel: 'Архив',
     default: () => `<ArchiveIcon height="1em" />`,
   },
   render: args => ({

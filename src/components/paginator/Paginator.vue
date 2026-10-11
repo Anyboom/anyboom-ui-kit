@@ -69,16 +69,18 @@ function goToPage(page: number) {
   <nav v-if="totalPages > 1" class="app-paginator">
     <ul class="app-paginator__list">
       <li v-if="showFirstPage">
-        <button class="app-paginator__button" @click="goToPage(1)">
+        <button type="button" class="app-paginator__button" aria-label="Первая страница" @click="goToPage(1)">
           <CaretDoubleLeftIcon height="1em" />
         </button>
       </li>
 
       <li>
         <button
+          type="button"
           class="app-paginator__button"
           :class="{ disabled: currentPage === 1 }"
           :disabled="currentPage === 1"
+          aria-label="Предыдущая страница"
           @click="goToPage(currentPage - 1)"
         >
           <CaretLeftIcon height="1em" />
@@ -87,6 +89,7 @@ function goToPage(page: number) {
 
       <li v-for="page in visiblePages" :key="page">
         <button
+          type="button"
           class="app-paginator__button"
           :class="{ active: page === currentPage }"
           @click="goToPage(page)"
@@ -97,9 +100,11 @@ function goToPage(page: number) {
 
       <li>
         <button
+          type="button"
           class="app-paginator__button"
           :class="{ disabled: currentPage === totalPages }"
           :disabled="currentPage === totalPages"
+          aria-label="Следующая страница"
           @click="goToPage(currentPage + 1)"
         >
           <CaretRightIcon height="1em" />
@@ -107,7 +112,7 @@ function goToPage(page: number) {
       </li>
 
       <li v-if="showLastPage">
-        <button class="app-paginator__button" @click="goToPage(totalPages)">
+        <button type="button" class="app-paginator__button" aria-label="Последняя страница" @click="goToPage(totalPages)">
           <CaretDoubleRightIcon height="1em" />
         </button>
       </li>

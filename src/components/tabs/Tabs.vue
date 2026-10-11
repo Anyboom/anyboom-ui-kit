@@ -44,6 +44,7 @@ function setActiveTab(tabId: string | number) {
       <button
         v-for="tab in tabs"
         :key="tab.id"
+        type="button"
         class="tabs__trigger"
         :class="{
           tabs__trigger_active: activeTab === tab.id,

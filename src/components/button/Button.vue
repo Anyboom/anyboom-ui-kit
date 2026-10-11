@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 interface Props {
   disabled?: boolean
   href?: string
@@ -15,6 +17,11 @@ interface Props {
   size?: 'small' | 'normal' | 'large'
   iconOnly?: boolean
   mono?: boolean
+  ariaLabel?: string
+}
+
+interface Emits {
+  click: [event: MouseEvent]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,13 +32,11 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'filled',
   size: 'normal',
   iconOnly: false,
+  mono: false,
+  ariaLabel: undefined,
 })
 
 const emit = defineEmits<Emits>()
-
-interface Emits {
-  click: []
-}
 
 function handleClick(event: MouseEvent) {
   if (props.disabled) {
@@ -39,17 +44,21 @@ function handleClick(event: MouseEvent) {
     return
   }
 
-  emit('click')
+  emit('click', event)
 }
 
-const tag = props.href && !props.disabled ? 'a' : 'button'
+const isLink = computed(() => Boolean(props.href) && !props.disabled)
+const tag = computed(() => (isLink.value ? 'a' : 'button'))
 </script>
 
 <template>
   <component
     :is="tag"
-    :href="href"
-    :target="target"
+    :type="isLink ? undefined : 'button'"
+    :href="isLink ? href : undefined"
+    :target="isLink ? target : undefined"
+    :rel="isLink && target === '_blank' ? 'noopener noreferrer' : undefined"
+    :disabled="isLink ? undefined : disabled"
     class="button"
     :class="[
       `button_variant_${variant}`,
@@ -60,7 +69,7 @@ const tag = props.href && !props.disabled ? 'a' : 'button'
         'button_mono': mono,
       },
     ]"
-    :disabled="disabled"
+    :aria-label="ariaLabel"
     @click="handleClick"
   >
     <slot />

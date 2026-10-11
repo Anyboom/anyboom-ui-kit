@@ -32,11 +32,13 @@ function handleClick() {
     @click="handleClick"
   >
     <component
-      :is="item.href ? 'a' : 'button'"
+      :is="item.href && !item.disabled ? 'a' : 'button'"
+      :type="item.href && !item.disabled ? undefined : 'button'"
       class="menu-item__link"
-      :href="item.href"
-      :target="item.target"
-      :disabled="item.disabled"
+      :href="item.href && !item.disabled ? item.href : undefined"
+      :target="item.href && !item.disabled ? item.target : undefined"
+      :rel="item.href && item.target === '_blank' ? 'noopener noreferrer' : undefined"
+      :disabled="item.href && !item.disabled ? undefined : item.disabled"
     >
       <span v-if="item.iconLeft" class="menu-item__icon">
         <component :is="item.iconLeft" />

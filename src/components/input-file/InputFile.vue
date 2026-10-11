@@ -296,6 +296,7 @@ function triggerFileSelect(): void {
               variant="text"
               severity="danger"
               icon-only
+              aria-label="Удалить файл"
               @click="removeFile(file.id)"
             >
               <XBoldIcon height="1em" />

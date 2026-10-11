@@ -152,7 +152,7 @@ onUnmounted(() => {
             <slot name="header" />
           </div>
 
-          <Button v-if="closable" variant="text" severity="secondary" icon-only @click="close">
+          <Button v-if="closable" variant="text" severity="secondary" icon-only aria-label="Закрыть" @click="close">
             <slot name="close-icon">
               <XBoldIcon height="1em" />
             </slot>

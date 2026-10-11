@@ -83,7 +83,7 @@ defineExpose({
       </div>
     </div>
 
-    <Button v-if="closable" variant="text" icon-only class="toast__close" @click="onClose">
+    <Button v-if="closable" variant="text" icon-only aria-label="Закрыть" class="toast__close" @click="onClose">
       <XIcon height="1em" />
     </Button>
   </div>
