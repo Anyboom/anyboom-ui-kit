@@ -26,28 +26,28 @@ function toggle(): void {
   <div
     class="anyboom-accordion"
     :class="{
-      accordion_open: modelValue,
-      accordion_disabled: disabled,
+      'anyboom-accordion_open': modelValue,
+      'anyboom-accordion_disabled': disabled,
     }"
   >
     <button
       type="button"
-      class="accordion__summary"
+      class="anyboom-accordion__summary"
       :aria-expanded="modelValue"
       :disabled="disabled"
       @click="toggle"
     >
-      <span class="accordion__title">
+      <span class="anyboom-accordion__title">
         <slot name="title" />
       </span>
       <CaretDownIcon
-        class="accordion__icon"
-        :class="{ accordion__icon_open: modelValue }"
+        class="anyboom-accordion__icon"
+        :class="{ 'anyboom-accordion__icon_open': modelValue }"
         height="1em"
       />
     </button>
 
-    <div v-if="modelValue" class="accordion__content" role="region">
+    <div v-if="modelValue" class="anyboom-accordion__content" role="region">
       <slot />
     </div>
   </div>

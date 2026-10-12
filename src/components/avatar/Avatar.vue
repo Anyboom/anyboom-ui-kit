@@ -9,9 +9,9 @@ withDefaults(defineProps<Props>(), { size: 'medium' })
 </script>
 
 <template>
-  <div class="anyboom-avatar" :class="[`avatar_size_${size}`]">
-    <img v-if="image" :src="image" class="avatar__image">
-    <span v-else-if="label" class="avatar__label">{{ label }}</span>
+  <div class="anyboom-avatar" :class="[`anyboom-avatar_size_${size}`]">
+    <img v-if="image" :src="image" class="anyboom-avatar__image">
+    <span v-else-if="label" class="anyboom-avatar__label">{{ label }}</span>
   </div>
 </template>
 

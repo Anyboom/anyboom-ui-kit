@@ -41,20 +41,20 @@ function handleChange(event: Event) {
 
 <template>
   <label
-    class="radio"
+    class="anyboom-radio"
     :class="[
-      `radio_size_${size}`,
+      `anyboom-radio_size_${size}`,
       {
-        radio_disabled: disabled,
-        radio_readonly: readonly,
-        radio_error: error,
+        'anyboom-radio_disabled': disabled,
+        'anyboom-radio_readonly': readonly,
+        'anyboom-radio_error': error,
       },
     ]"
   >
     <input
       :id="inputId"
       type="radio"
-      class="radio__input"
+      class="anyboom-radio__input"
       :name="name"
       :checked="modelValue === value"
       :disabled="disabled"
@@ -62,8 +62,8 @@ function handleChange(event: Event) {
       :aria-invalid="error || undefined"
       @change="handleChange"
     >
-    <span class="radio__checkmark" />
-    <span v-if="label" class="radio__label">{{ label }}</span>
+    <span class="anyboom-radio__checkmark" />
+    <span v-if="label" class="anyboom-radio__label">{{ label }}</span>
   </label>
 </template>
 

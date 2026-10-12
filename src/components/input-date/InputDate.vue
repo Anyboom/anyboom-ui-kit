@@ -298,8 +298,8 @@ watch(
       </template>
     </InputText>
 
-    <div v-if="isOpen" class="input-date__overlay">
-      <div class="input-date__overlay-header">
+    <div v-if="isOpen" class="anyboom-input-date__overlay">
+      <div class="anyboom-input-date__overlay-header">
         <Select
           :model-value="selectedMonth"
           :options="months"
@@ -318,23 +318,23 @@ watch(
         />
       </div>
 
-      <div class="input-date__weekdays">
-        <div v-for="day in weekdays" :key="day" class="input-date__weekday">
+      <div class="anyboom-input-date__weekdays">
+        <div v-for="day in weekdays" :key="day" class="anyboom-input-date__weekday">
           {{ day }}
         </div>
       </div>
 
-      <div class="input-date__days">
+      <div class="anyboom-input-date__days">
         <div
           v-for="day in calendarDays"
           :key="day.date.toISOString()"
-          class="input-date__day"
+          class="anyboom-input-date__day"
           :class="{
-            'input-date__day_other-month': !day.isCurrentMonth,
-            'input-date__day_selected': isSelected(day),
-            'input-date__day_in-range': isInSelectedRange(day),
-            'input-date__day_today': isToday(day),
-            'input-date__day_disabled': day.isDisabled,
+            'anyboom-input-date__day_other-month': !day.isCurrentMonth,
+            'anyboom-input-date__day_selected': isSelected(day),
+            'anyboom-input-date__day_in-range': isInSelectedRange(day),
+            'anyboom-input-date__day_today': isToday(day),
+            'anyboom-input-date__day_disabled': day.isDisabled,
           }"
           @click="selectDate(day)"
         >
@@ -412,7 +412,7 @@ watch(
     border-radius: var(--anyboom-radius-tiny);
     transition: all 0.2s;
 
-    &:hover:not(.input-date__day_disabled):not(.input-date__day_selected) {
+    &:hover:not(&_disabled):not(&_selected) {
       background: var(--anyboom-surface-secondary);
     }
 
@@ -433,7 +433,7 @@ watch(
       background: var(--anyboom-surface-secondary);
       border-radius: 0;
 
-      &:hover:not(.input-date__day_selected) {
+      &:hover:not(.anyboom-input-date__day_selected) {
         background: var(--anyboom-surface-tertiary);
       }
     }

@@ -29,23 +29,23 @@ function remove(event: Event) {
   <div
     class="anyboom-chip"
     :class="[
-      `chip_variant_${variant}`,
-      `chip_size_${size}`,
-      { chip_selected: selected },
+      `anyboom-chip_variant_${variant}`,
+      `anyboom-chip_size_${size}`,
+      { 'anyboom-chip_selected': selected },
     ]"
   >
-    <div class="chip__icon">
+    <div class="anyboom-chip__icon">
       <slot name="icon-left" />
     </div>
-    <span class="chip__label">
+    <span class="anyboom-chip__label">
       <slot>
         {{ label }}
       </slot>
     </span>
-    <div class="chip__icon">
+    <div class="anyboom-chip__icon">
       <slot name="icon-right" />
     </div>
-    <div v-if="removable" class="chip__icon chip__removable">
+    <div v-if="removable" class="anyboom-chip__icon anyboom-chip__removable">
       <XBoldIcon height="1em" @click="remove" />
     </div>
   </div>

@@ -214,24 +214,24 @@ function triggerFileSelect(): void {
 <template>
   <div class="anyboom-input-file">
     <div
-      class="input-file__drop-zone"
+      class="anyboom-input-file__drop-zone"
       :class="{
-        'input-file__drop-zone_dragging': isDragging,
+        'anyboom-input-file__drop-zone_dragging': isDragging,
       }"
       @dragover="onDragOver"
       @dragleave="onDragLeave"
       @drop="onDrop"
       @click="triggerFileSelect"
     >
-      <div class="input-file__drop-zone-content">
-        <div class="input-file__text-wrapper">
-          <p class="input-file__primary-text">
+      <div class="anyboom-input-file__drop-zone-content">
+        <div class="anyboom-input-file__text-wrapper">
+          <p class="anyboom-input-file__primary-text">
             Перетащите документы сюда или загрузите с компьютера
           </p>
-          <p class="input-file__secondary-text">
+          <p class="anyboom-input-file__secondary-text">
             Поддерживаемые форматы: {{ props.allowedExtensions.join(", ") }}
           </p>
-          <p class="input-file__secondary-text">
+          <p class="anyboom-input-file__secondary-text">
             Максимальный размер: {{ formatBytes(props.maxFileSize) }}
           </p>
         </div>
@@ -240,7 +240,7 @@ function triggerFileSelect(): void {
           :id="fieldId"
           ref="fileInput"
           type="file"
-          class="input-file__input"
+          class="anyboom-input-file__input"
           :accept="acceptString"
           :multiple="multiple"
           :aria-label="ariaLabel || undefined"
@@ -253,13 +253,13 @@ function triggerFileSelect(): void {
       </div>
     </div>
 
-    <div v-if="errorMessage" class="input-file__error-message">
-      <span class="input-file__error-text">{{ errorMessage }}</span>
+    <div v-if="errorMessage" class="anyboom-input-file__error-message">
+      <span class="anyboom-input-file__error-text">{{ errorMessage }}</span>
     </div>
 
-    <div v-if="files.length > 0" class="input-file__files-section">
-      <div class="input-file__files-header">
-        <h3 class="input-file__files-title">
+    <div v-if="files.length > 0" class="anyboom-input-file__files-section">
+      <div class="anyboom-input-file__files-header">
+        <h3 class="anyboom-input-file__files-title">
           Загруженные файлы ({{ files.length }})
         </h3>
         <Button
@@ -273,25 +273,25 @@ function triggerFileSelect(): void {
         </Button>
       </div>
 
-      <div class="input-file__files-list">
-        <div v-for="file in files" :key="file.id" class="input-file__file-item">
-          <div class="input-file__file-info">
-            <div class="input-file__file-details">
-              <div class="input-file__file-name" :title="file.name">
+      <div class="anyboom-input-file__files-list">
+        <div v-for="file in files" :key="file.id" class="anyboom-input-file__file-item">
+          <div class="anyboom-input-file__file-info">
+            <div class="anyboom-input-file__file-details">
+              <div class="anyboom-input-file__file-name" :title="file.name">
                 {{ file.name }}
               </div>
-              <div class="input-file__file-meta">
-                <span class="input-file__file-size">
+              <div class="anyboom-input-file__file-meta">
+                <span class="anyboom-input-file__file-size">
                   {{ formatBytes(file.size) }}
                 </span>
-                <span class="input-file__file-type">
+                <span class="anyboom-input-file__file-type">
                   {{ file.extension.toUpperCase() }}
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="input-file__file-actions">
+          <div class="anyboom-input-file__file-actions">
             <Button
               variant="text"
               severity="danger"

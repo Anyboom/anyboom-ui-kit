@@ -346,7 +346,7 @@ onBeforeUnmount(() => {
   <div ref="wrapperRef" class="anyboom-tooltip">
     <span
       ref="triggerRef"
-      class="tooltip__trigger"
+      class="anyboom-tooltip__trigger"
       tabindex="0"
       role="button"
       :aria-describedby="isVisible ? tooltipId : undefined"
@@ -366,16 +366,16 @@ onBeforeUnmount(() => {
           v-if="isVisible"
           :id="tooltipId"
           ref="tooltipRef"
-          class="tooltip__popup"
+          class="anyboom-tooltip__popup"
           role="tooltip"
           :class="{
-            tooltip__popup_interactive: interactive,
+            'anyboom-tooltip__popup_interactive': interactive,
           }"
           :style="tooltipStyle"
           @mouseenter="handleTooltipMouseEnter"
           @mouseleave="handleTooltipMouseLeave"
         >
-          <div class="tooltip__popup-content">
+          <div class="anyboom-tooltip__popup-content">
             <slot name="content">
               <span>{{ content }}</span>
             </slot>

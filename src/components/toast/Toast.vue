@@ -68,23 +68,23 @@ defineExpose({
 </script>
 
 <template>
-  <div class="anyboom-toast" :class="[`toast_severity_${severity}`]">
+  <div class="anyboom-toast" :class="[`anyboom-toast_severity_${severity}`]">
     <div v-if="showIcon">
-      <component :is="iconComponent" class="toast__icon" />
+      <component :is="iconComponent" class="anyboom-toast__icon" />
     </div>
 
-    <div class="toast__body">
-      <div v-if="title" class="toast__title">
+    <div class="anyboom-toast__body">
+      <div v-if="title" class="anyboom-toast__title">
         <slot name="title">
           {{ title }}
         </slot>
       </div>
-      <div class="toast__message">
+      <div class="anyboom-toast__message">
         <slot>{{ message }}</slot>
       </div>
     </div>
 
-    <Button v-if="closable" variant="text" icon-only aria-label="Закрыть" class="toast__close" @click="onClose">
+    <Button v-if="closable" variant="text" icon-only aria-label="Закрыть" class="anyboom-toast__close" @click="onClose">
       <XIcon height="1em" />
     </Button>
   </div>

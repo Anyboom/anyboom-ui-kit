@@ -26,27 +26,27 @@ function handleClick() {
   <li
     class="anyboom-menu-item"
     :class="{
-      'menu-item_active': props.item.active,
-      'menu-item_disabled': props.item.disabled,
+      'anyboom-menu-item_active': props.item.active,
+      'anyboom-menu-item_disabled': props.item.disabled,
     }"
     @click="handleClick"
   >
     <component
       :is="item.href && !item.disabled ? 'a' : 'button'"
       :type="item.href && !item.disabled ? undefined : 'button'"
-      class="menu-item__link"
+      class="anyboom-menu-item__link"
       :href="item.href && !item.disabled ? item.href : undefined"
       :target="item.href && !item.disabled ? item.target : undefined"
       :rel="item.href && item.target === '_blank' ? 'noopener noreferrer' : undefined"
       :disabled="item.href && !item.disabled ? undefined : item.disabled"
     >
-      <span v-if="item.iconLeft" class="menu-item__icon">
+      <span v-if="item.iconLeft" class="anyboom-menu-item__icon">
         <component :is="item.iconLeft" />
       </span>
 
-      <span class="menu-item__text">{{ item.label }}</span>
+      <span class="anyboom-menu-item__text">{{ item.label }}</span>
 
-      <span v-if="item.iconRight" class="menu-item__icon">
+      <span v-if="item.iconRight" class="anyboom-menu-item__icon">
         <component :is="item.iconRight" />
       </span>
     </component>

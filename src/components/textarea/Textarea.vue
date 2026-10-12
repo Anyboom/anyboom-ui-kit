@@ -221,22 +221,22 @@ onUnmounted(() => {
     class="anyboom-textarea"
     :class="[
       {
-        'textarea_disabled': disabled,
-        'textarea_error': error,
-        'textarea_filled': isFilled,
-        'textarea_auto-height': autoHeight,
-        'textarea_resize-vertical': resize === 'vertical' && !autoHeight,
-        'textarea_resize-horizontal': resize === 'horizontal' && !autoHeight,
-        'textarea_resize-both': resize === 'both' && !autoHeight,
-        'textarea_resize-none': resize === 'none' || autoHeight,
+        'anyboom-textarea_disabled': disabled,
+        'anyboom-textarea_error': error,
+        'anyboom-textarea_filled': isFilled,
+        'anyboom-textarea_auto-height': autoHeight,
+        'anyboom-textarea_resize-vertical': resize === 'vertical' && !autoHeight,
+        'anyboom-textarea_resize-horizontal': resize === 'horizontal' && !autoHeight,
+        'anyboom-textarea_resize-both': resize === 'both' && !autoHeight,
+        'anyboom-textarea_resize-none': resize === 'none' || autoHeight,
       },
       wrapperAttrs,
     ]"
   >
-    <div class="textarea__wrapper">
+    <div class="anyboom-textarea__wrapper">
       <div
         v-if="$slots['icon-left']"
-        class="textarea__icon textarea__icon_left"
+        class="anyboom-textarea__icon anyboom-textarea__icon_left"
       >
         <slot name="icon-left" />
       </div>
@@ -257,16 +257,16 @@ onUnmounted(() => {
         :maxlength="maxlength"
         :rows="autoHeight ? 1 : rows"
         :wrap="wrap"
-        class="textarea__input"
+        class="anyboom-textarea__input"
         :class="{
-          'textarea__input_auto-height': autoHeight,
+          'anyboom-textarea__input_auto-height': autoHeight,
         }"
         @input="handleInput"
       />
 
       <div
         v-if="$slots['icon-right']"
-        class="textarea__icon textarea__icon_right"
+        class="anyboom-textarea__icon anyboom-textarea__icon_right"
       >
         <slot name="icon-right" />
       </div>
@@ -274,10 +274,10 @@ onUnmounted(() => {
 
     <div
       v-if="maxlength && showCharCount"
-      class="textarea__counter"
+      class="anyboom-textarea__counter"
       :class="{
-        textarea__counter_warning: currentLength >= maxlength * 0.9,
-        textarea__counter_danger: currentLength >= maxlength,
+        'anyboom-textarea__counter_warning': currentLength >= maxlength * 0.9,
+        'anyboom-textarea__counter_danger': currentLength >= maxlength,
       }"
     >
       {{ currentLength }} / {{ maxlength }}

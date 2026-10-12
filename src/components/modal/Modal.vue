@@ -103,15 +103,15 @@ onUnmounted(() => {
         ref="panelRef"
         tabindex="-1"
         class="anyboom-modal"
-        :class="`modal_size_${size}`"
+        :class="`anyboom-modal_size_${size}`"
         role="dialog"
         aria-modal="true"
         :aria-labelledby="title ? titleId : undefined"
       >
-        <div v-if="showHeader" class="modal__header">
-          <div class="modal__header-content">
+        <div v-if="showHeader" class="anyboom-modal__header">
+          <div class="anyboom-modal__header-content">
             <slot name="header">
-              <h2 v-if="title" :id="titleId" class="modal__title">
+              <h2 v-if="title" :id="titleId" class="anyboom-modal__title">
                 {{ title }}
               </h2>
             </slot>
@@ -124,13 +124,13 @@ onUnmounted(() => {
           </Button>
         </div>
 
-        <div class="modal__body">
+        <div class="anyboom-modal__body">
           <slot />
         </div>
 
-        <div v-if="hasFooterSlot" class="modal__footer">
+        <div v-if="hasFooterSlot" class="anyboom-modal__footer">
           <Divider />
-          <div class="modal__footer-inner">
+          <div class="anyboom-modal__footer-inner">
             <slot name="footer" />
           </div>
         </div>

@@ -79,12 +79,12 @@ else {
       v-for="group in groupedToasts"
       :key="group.position"
       class="anyboom-toaster"
-      :class="`toaster_position_${group.position}`"
+      :class="`anyboom-toaster_position_${group.position}`"
     >
       <transition-group
         name="toaster-animation"
         tag="div"
-        class="toaster__list"
+        class="anyboom-toaster__list"
         appear
       >
         <Toast

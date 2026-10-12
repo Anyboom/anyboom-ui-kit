@@ -677,21 +677,21 @@ onUnmounted(() => {
     class="anyboom-input-number"
     :class="[
       {
-        'input-number_disabled': disabled,
-        'input-number_error': error,
-        'input-number_hidden': hidden,
-        'input-number_filled': isFilled,
-        'input-number_focused': isFocused,
-        'input-number_show-buttons': showButtons,
-        [`input-number_button-layout_${buttonLayout}`]: showButtons,
+        'anyboom-input-number_disabled': disabled,
+        'anyboom-input-number_error': error,
+        'anyboom-input-number_hidden': hidden,
+        'anyboom-input-number_filled': isFilled,
+        'anyboom-input-number_focused': isFocused,
+        'anyboom-input-number_show-buttons': showButtons,
+        [`anyboom-input-number_button-layout_${buttonLayout}`]: showButtons,
       },
       wrapperAttrs,
     ]"
   >
-    <div class="input-number__wrapper">
+    <div class="anyboom-input-number__wrapper">
       <div
         v-if="$slots['icon-left']"
-        class="input-number__icon input-number__icon_left"
+        class="anyboom-input-number__icon anyboom-input-number__icon_left"
       >
         <slot name="icon-left" />
       </div>
@@ -699,13 +699,13 @@ onUnmounted(() => {
       <button
         v-if="showButtons && buttonLayout === 'horizontal'"
         type="button"
-        class="input-number__button input-number__button_decrement"
+        class="anyboom-input-number__button anyboom-input-number__button_decrement"
         :disabled="disabled || readonly || isMinReached"
         @mousedown="handleDecrementMouseDown"
         @mouseup="stopLongPress"
         @mouseleave="stopLongPress"
       >
-        <span class="input-number__button-icon">
+        <span class="anyboom-input-number__button-icon">
           <slot name="icon-decrement">
             <CaretDownIcon height="1em" />
           </slot>
@@ -727,7 +727,7 @@ onUnmounted(() => {
         :autocomplete="autocomplete"
         :aria-label="ariaLabel || undefined"
         :aria-describedby="ariaDescribedby || undefined"
-        class="input-number__input"
+        class="anyboom-input-number__input"
         @input="handleInput"
         @beforeinput="handleBeforeInput"
         @keydown="handleKeydown"
@@ -738,13 +738,13 @@ onUnmounted(() => {
       <button
         v-if="showButtons && buttonLayout === 'vertical'"
         type="button"
-        class="input-number__button input-number__button_increment"
+        class="anyboom-input-number__button anyboom-input-number__button_increment"
         :disabled="disabled || readonly || isMaxReached"
         @mousedown="handleIncrementMouseDown"
         @mouseup="stopLongPress"
         @mouseleave="stopLongPress"
       >
-        <span class="input-number__button-icon">
+        <span class="anyboom-input-number__button-icon">
           <slot name="icon-increment">
             <CaretUpIcon height="1em" />
           </slot>
@@ -755,7 +755,7 @@ onUnmounted(() => {
         v-if="
           $slots['icon-right'] && (!showButtons || buttonLayout !== 'vertical')
         "
-        class="input-number__icon input-number__icon_right"
+        class="anyboom-input-number__icon anyboom-input-number__icon_right"
       >
         <slot name="icon-right" />
       </div>
@@ -763,13 +763,13 @@ onUnmounted(() => {
       <button
         v-if="showButtons && buttonLayout === 'horizontal'"
         type="button"
-        class="input-number__button input-number__button_increment"
+        class="anyboom-input-number__button anyboom-input-number__button_increment"
         :disabled="disabled || readonly || isMaxReached"
         @mousedown="handleIncrementMouseDown"
         @mouseup="stopLongPress"
         @mouseleave="stopLongPress"
       >
-        <span class="input-number__button-icon">
+        <span class="anyboom-input-number__button-icon">
           <slot name="icon-increment">
             <CaretUpIcon height="1em" />
           </slot>
@@ -779,13 +779,13 @@ onUnmounted(() => {
       <button
         v-if="showButtons && buttonLayout === 'vertical'"
         type="button"
-        class="input-number__button input-number__button_decrement"
+        class="anyboom-input-number__button anyboom-input-number__button_decrement"
         :disabled="disabled || readonly || isMinReached"
         @mousedown="handleDecrementMouseDown"
         @mouseup="stopLongPress"
         @mouseleave="stopLongPress"
       >
-        <span class="input-number__button-icon">
+        <span class="anyboom-input-number__button-icon">
           <slot name="icon-decrement">
             <CaretDownIcon height="1em" />
           </slot>
@@ -950,7 +950,7 @@ onUnmounted(() => {
     &_left {
       left: var(--anyboom-spacing-1);
 
-      & ~ .input-number__input {
+      & ~ .anyboom-input-number__input {
         padding-left: var(--anyboom-spacing-10);
       }
     }
@@ -958,7 +958,7 @@ onUnmounted(() => {
     &_right {
       right: var(--anyboom-spacing-1);
 
-      & ~ .input-number__input {
+      & ~ .anyboom-input-number__input {
         padding-right: var(--anyboom-spacing-10);
       }
     }

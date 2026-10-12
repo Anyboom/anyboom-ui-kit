@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), { severity: 'secondary' })
 </script>
 
 <template>
-  <div class="anyboom-badge" :class="[`badge_severity_${severity}`]">
+  <div class="anyboom-badge" :class="[`anyboom-badge_severity_${severity}`]">
     <slot />
   </div>
 </template>

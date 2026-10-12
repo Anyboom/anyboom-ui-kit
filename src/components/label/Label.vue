@@ -21,23 +21,23 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <span class="anyboom-label" :class="[`label_size_${size}`]">
-    <label class="label__label" :for="inputId">
-      <span class="label__text">
+  <span class="anyboom-label" :class="[`anyboom-label_size_${size}`]">
+    <label class="anyboom-label__label" :for="inputId">
+      <span class="anyboom-label__text">
         <slot>
           {{ text }}
         </slot>
       </span>
       <span
         v-if="required === 'optional'"
-        class="label__required label__required_optional"
+        class="anyboom-label__required anyboom-label__required_optional"
       >
         <TextDivider />
         Необязательное
       </span>
       <span
         v-if="required === 'asterisk'"
-        class="label__required label__required_asterisk"
+        class="anyboom-label__required anyboom-label__required_asterisk"
       >
         <AsteriskIcon height="1em" />
       </span>
@@ -46,7 +46,7 @@ withDefaults(defineProps<Props>(), {
     <Tooltip v-if="$slots.tooltip || tooltip">
       <template #default>
         <slot name="icon-tooltip">
-          <InfoBoldIcon class="label__icon-tooltip" height="1em" />
+          <InfoBoldIcon class="anyboom-label__icon-tooltip" height="1em" />
         </slot>
       </template>
       <template #content>

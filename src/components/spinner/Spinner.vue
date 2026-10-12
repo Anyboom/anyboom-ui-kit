@@ -17,9 +17,9 @@ withDefaults(defineProps<Props>(), {
   <div
     class="anyboom-spinner"
     :class="[
-      `spinner_speed_${speed}`,
-      `spinner_thickness_${thickness}`,
-      `spinner_size_${size}`,
+      `anyboom-spinner_speed_${speed}`,
+      `anyboom-spinner_thickness_${thickness}`,
+      `anyboom-spinner_size_${size}`,
     ]"
   />
 </template>

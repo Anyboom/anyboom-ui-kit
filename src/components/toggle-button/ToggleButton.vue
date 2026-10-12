@@ -59,11 +59,11 @@ defineExpose({
     type="button"
     class="anyboom-toggle-button"
     :class="[
-      `toggle-button_icon-pos_${iconPos}`,
-      `toggle-button_size_${size}`,
+      `anyboom-toggle-button_icon-pos_${iconPos}`,
+      `anyboom-toggle-button_size_${size}`,
       {
-        'toggle-button_active': modelValue,
-        'toggle-button_disabled': disabled,
+        'anyboom-toggle-button_active': modelValue,
+        'anyboom-toggle-button_disabled': disabled,
       },
     ]"
     :disabled="disabled"
@@ -73,10 +73,10 @@ defineExpose({
     @click="handleClick"
   >
     <slot :active="modelValue" :label="label">
-      <span v-if="$slots.icon" class="toggle-button__icon">
+      <span v-if="$slots.icon" class="anyboom-toggle-button__icon">
         <slot name="icon" :active="modelValue" />
       </span>
-      <span v-if="label" class="toggle-button__label">{{ label }}</span>
+      <span v-if="label" class="anyboom-toggle-button__label">{{ label }}</span>
     </slot>
   </button>
 </template>

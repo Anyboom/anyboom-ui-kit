@@ -56,21 +56,21 @@ const showHeader = computed<boolean>(() =>
 const hasFooterSlot = computed<boolean>(() => Boolean(slots.footer))
 
 const drawerModifiers = computed<string[]>(() => {
-  const modifiers: string[] = [`drawer_${position}`]
+  const modifiers: string[] = [`anyboom-drawer_${position}`]
 
   if (showHeader.value) {
-    modifiers.push('drawer_with-header')
+    modifiers.push('anyboom-drawer_with-header')
   }
 
   if (hasFooterSlot.value) {
-    modifiers.push('drawer_with-footer')
+    modifiers.push('anyboom-drawer_with-footer')
   }
 
   return modifiers
 })
 
 const drawerTransitionName = computed<string>(
-  () => `drawer__slide-${position}`,
+  () => `anyboom-drawer__slide-${position}`,
 )
 
 const drawerStyles = computed(() => {
@@ -124,7 +124,7 @@ onUnmounted(() => {
 
 <template>
   <Teleport to="body">
-    <Transition name="drawer-overlay">
+    <Transition name="anyboom-drawer-overlay">
       <Overlay
         v-if="modelValue"
         ref="overlayRef"
@@ -144,9 +144,9 @@ onUnmounted(() => {
         aria-modal="true"
         :aria-label="title"
       >
-        <div v-if="showHeader" class="drawer__header">
-          <div class="drawer__header-content">
-            <h2 v-if="title" class="drawer__title">
+        <div v-if="showHeader" class="anyboom-drawer__header">
+          <div class="anyboom-drawer__header-content">
+            <h2 v-if="title" class="anyboom-drawer__title">
               {{ title }}
             </h2>
             <slot name="header" />
@@ -159,11 +159,11 @@ onUnmounted(() => {
           </Button>
         </div>
 
-        <div class="drawer__body">
+        <div class="anyboom-drawer__body">
           <slot />
         </div>
 
-        <div v-if="hasFooterSlot" class="drawer__footer">
+        <div v-if="hasFooterSlot" class="anyboom-drawer__footer">
           <slot name="footer" />
         </div>
       </div>

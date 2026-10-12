@@ -16,9 +16,9 @@ withDefaults(defineProps<Props>(), {
   <div
     class="anyboom-message"
     :class="[
-      `message_variant_${variant}`,
-      `message_severity_${severity}`,
-      `message_size_${size}`,
+      `anyboom-message_variant_${variant}`,
+      `anyboom-message_severity_${severity}`,
+      `anyboom-message_size_${size}`,
     ]"
   >
     <slot />

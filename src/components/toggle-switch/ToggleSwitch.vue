@@ -43,28 +43,28 @@ function handleChange(event: Event) {
   <label
     class="anyboom-toggle-switch"
     :class="[
-      `toggle-switch_size_${size}`,
+      `anyboom-toggle-switch_size_${size}`,
       {
-        'toggle-switch_checked': modelValue,
-        'toggle-switch_disabled': disabled,
-        'toggle-switch_readonly': readonly,
-        'toggle-switch_error': error,
+        'anyboom-toggle-switch_checked': modelValue,
+        'anyboom-toggle-switch_disabled': disabled,
+        'anyboom-toggle-switch_readonly': readonly,
+        'anyboom-toggle-switch_error': error,
       },
     ]"
   >
     <input
       :id="inputId"
       type="checkbox"
-      class="toggle-switch__input"
+      class="anyboom-toggle-switch__input"
       :checked="modelValue"
       :disabled="disabled"
       :aria-invalid="error || undefined"
       @change="handleChange"
     >
-    <span class="toggle-switch__slider">
-      <span class="toggle-switch__thumb" />
+    <span class="anyboom-toggle-switch__slider">
+      <span class="anyboom-toggle-switch__thumb" />
     </span>
-    <span v-if="label" class="toggle-switch__label">{{ label }}</span>
+    <span v-if="label" class="anyboom-toggle-switch__label">{{ label }}</span>
   </label>
 </template>
 

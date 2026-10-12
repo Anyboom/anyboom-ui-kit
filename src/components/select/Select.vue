@@ -466,19 +466,19 @@ const hasSelectedItems = computed(() => {
     ref="dropdownRef"
     class="anyboom-select"
     :class="{
-      select_disabled: disabled,
-      select_error: error,
-      select_readonly: readonly,
-      select_loading: loading,
-      select_open: isOpen,
-      select_single: mode === 'single',
-      select_multiple: mode === 'multiple',
+      'anyboom-select_disabled': disabled,
+      'anyboom-select_error': error,
+      'anyboom-select_readonly': readonly,
+      'anyboom-select_loading': loading,
+      'anyboom-select_open': isOpen,
+      'anyboom-select_single': mode === 'single',
+      'anyboom-select_multiple': mode === 'multiple',
     }"
   >
     <button
       :id="fieldId"
       type="button"
-      class="select__header"
+      class="anyboom-select__header"
       :disabled="disabled"
       :aria-expanded="isOpen"
       aria-haspopup="listbox"
@@ -487,32 +487,32 @@ const hasSelectedItems = computed(() => {
       @click="toggleDropdown"
     >
       <template v-if="loading">
-        <span class="select__loading-text">Загрузка...</span>
+        <span class="anyboom-select__loading-text">Загрузка...</span>
       </template>
       <template v-else>
-        <span v-if="!hasSelectedItems" class="select__placeholder">
+        <span v-if="!hasSelectedItems" class="anyboom-select__placeholder">
           {{ placeholder }}
         </span>
-        <span v-else class="select__selected-labels">
+        <span v-else class="anyboom-select__selected-labels">
           {{ selectedLabels }}
         </span>
       </template>
 
-      <div class="select__icons-wrapper">
+      <div class="anyboom-select__icons-wrapper">
         <Badge v-if="showCounterVisible" severity="secondary">
           {{ (selectedItems as Option[]).length }}
         </Badge>
         <span
           v-if="showClearVisible"
-          class="select__clear-icon"
+          class="anyboom-select__clear-icon"
           @click.stop="removeItems"
         >
           <XIcon height="1em" />
         </span>
         <span
-          class="select__dropdown-icon"
+          class="anyboom-select__dropdown-icon"
           :class="{
-            'select__dropdown-icon_open': isOpen,
+            'anyboom-select__dropdown-icon_open': isOpen,
           }"
         >
           <template v-if="loading">
@@ -525,8 +525,8 @@ const hasSelectedItems = computed(() => {
       </div>
     </button>
 
-    <div v-if="isOpen && !disabled && !loading" class="select__dropdown">
-      <div v-if="searchable" class="select__search">
+    <div v-if="isOpen && !disabled && !loading" class="anyboom-select__dropdown">
+      <div v-if="searchable" class="anyboom-select__search">
         <InputText
           v-model="searchQuery"
           placeholder="Поиск..."
@@ -539,7 +539,7 @@ const hasSelectedItems = computed(() => {
       <!-- Превью выбранных элементов только для мультиселекта -->
       <div
         v-if="mode === 'multiple' && hasSelectedItems"
-        class="select__selected-preview"
+        class="anyboom-select__selected-preview"
       >
         <Chip
           v-for="item in selectedItems as Option[]"
@@ -551,22 +551,22 @@ const hasSelectedItems = computed(() => {
         </Chip>
       </div>
 
-      <div class="select__options">
+      <div class="anyboom-select__options">
         <!-- Режим с группами -->
         <template v-if="grouped">
           <div
             v-for="(group, groupIndex) in filteredGroups"
             :key="groupIndex"
-            class="select__group"
+            class="anyboom-select__group"
           >
             <div
-              class="select__group-header"
+              class="anyboom-select__group-header"
               @click="toggleGroup(getGroupLabel(group))"
             >
-              <span class="select__group-name">
+              <span class="anyboom-select__group-name">
                 {{ getGroupLabel(group) }}
               </span>
-              <div class="select__group-controls">
+              <div class="anyboom-select__group-controls">
                 <Checkbox
                   v-if="mode === 'multiple' && selectAllGroup"
                   :disabled="disabled"
@@ -576,12 +576,12 @@ const hasSelectedItems = computed(() => {
                 />
                 <PlusIcon
                   v-show="!isGroupVisible(getGroupLabel(group))"
-                  class="select__group-toggle"
+                  class="anyboom-select__group-toggle"
                   height="1em"
                 />
                 <MinusIcon
                   v-show="isGroupVisible(getGroupLabel(group))"
-                  class="select__group-toggle"
+                  class="anyboom-select__group-toggle"
                   height="1em"
                 />
               </div>
@@ -589,22 +589,22 @@ const hasSelectedItems = computed(() => {
 
             <div
               v-if="isGroupVisible(getGroupLabel(group))"
-              class="select__group-options"
+              class="anyboom-select__group-options"
             >
               <div
                 v-for="(option, optionIndex) in getGroupChildren(group)"
                 :key="optionIndex"
-                class="select__option"
+                class="anyboom-select__option"
                 :class="{
-                  select__option_selected: isSelected(option),
-                  select__option_disabled: disabled || isOptionDisabled(option),
+                  'anyboom-select__option_selected': isSelected(option),
+                  'anyboom-select__option_disabled': disabled || isOptionDisabled(option),
                 }"
                 @click="toggleOption(option, $event)"
               >
                 <!-- Чекбокс отображается только в мультиселекте -->
                 <Checkbox
                   v-if="mode === 'multiple'"
-                  class="select__checkbox"
+                  class="anyboom-select__checkbox"
                   :disabled="disabled || isOptionDisabled(option)"
                   :model-value="isSelected(option)"
                   :label="getOptionLabel(option)"
@@ -630,17 +630,17 @@ const hasSelectedItems = computed(() => {
           <div
             v-for="(option, optionIndex) in filteredOptions"
             :key="optionIndex"
-            class="select__option"
+            class="anyboom-select__option"
             :class="{
-              select__option_selected: isSelected(option),
-              select__option_disabled: disabled || isOptionDisabled(option),
+              'anyboom-select__option_selected': isSelected(option),
+              'anyboom-select__option_disabled': disabled || isOptionDisabled(option),
             }"
             @click="toggleOption(option, $event)"
           >
             <!-- Чекбокс отображается только в мультиселекте -->
             <Checkbox
               v-if="mode === 'multiple'"
-              class="select__checkbox"
+              class="anyboom-select__checkbox"
               :disabled="disabled || isOptionDisabled(option)"
               :model-value="isSelected(option)"
               :label="getOptionLabel(option)"

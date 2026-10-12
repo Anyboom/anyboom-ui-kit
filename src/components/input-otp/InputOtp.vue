@@ -216,12 +216,12 @@ function toAutofocus() {
   <div
     class="anyboom-input-otp"
     :class="[
-      `input-otp_size_${size}`,
-      `input-otp_shape_${shape}`,
+      `anyboom-input-otp_size_${size}`,
+      `anyboom-input-otp_shape_${shape}`,
       {
-        'input-otp_disabled': disabled,
-        'input-otp_status_error': error,
-        'input-otp_status_success': success,
+        'anyboom-input-otp_disabled': disabled,
+        'anyboom-input-otp_status_error': error,
+        'anyboom-input-otp_status_success': success,
       },
     ]"
   >
@@ -231,11 +231,11 @@ function toAutofocus() {
       :ref="(el) => setInputRef(el, index)"
       :key="index"
       v-model="values[index]"
-      class="input-otp__input"
+      class="anyboom-input-otp__input"
       :class="{
-        'input-otp__input_disabled': disabled,
-        'input-otp__input_status_error': error,
-        'input-otp__input_status_success': success,
+        'anyboom-input-otp__input_disabled': disabled,
+        'anyboom-input-otp__input_status_error': error,
+        'anyboom-input-otp__input_status_success': success,
       }"
       :type="type"
       :maxlength="1"

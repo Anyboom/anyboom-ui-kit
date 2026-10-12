@@ -40,14 +40,14 @@ function setActiveTab(tabId: string | number) {
 
 <template>
   <div class="anyboom-tabs">
-    <div class="tabs__header">
+    <div class="anyboom-tabs__header">
       <button
         v-for="tab in tabs"
         :key="tab.id"
         type="button"
-        class="tabs__trigger"
+        class="anyboom-tabs__trigger"
         :class="{
-          tabs__trigger_active: activeTab === tab.id,
+          'anyboom-tabs__trigger_active': activeTab === tab.id,
         }"
         :disabled="tab.disabled"
         @click="setActiveTab(tab.id)"
@@ -56,12 +56,12 @@ function setActiveTab(tabId: string | number) {
       </button>
     </div>
 
-    <div class="tabs__content">
+    <div class="anyboom-tabs__content">
       <div
         v-for="tab in tabs"
         v-show="activeTab === tab.id"
         :key="tab.id"
-        class="tabs__panel"
+        class="anyboom-tabs__panel"
       >
         <slot :name="tab.id">
           {{ tab.content }}

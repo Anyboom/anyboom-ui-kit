@@ -61,12 +61,12 @@ const tag = computed(() => (isLink.value ? 'a' : 'anyboom-button'))
     :disabled="isLink ? undefined : disabled"
     class="anyboom-button"
     :class="[
-      `button_variant_${variant}`,
-      `button_severity_${severity}`,
-      `button_size_${size}`,
+      `anyboom-button_variant_${variant}`,
+      `anyboom-button_severity_${severity}`,
+      `anyboom-button_size_${size}`,
       {
-        'button_icon-only': iconOnly,
-        'button_mono': mono,
+        'anyboom-button_icon-only': iconOnly,
+        'anyboom-button_mono': mono,
       },
     ]"
     :aria-label="ariaLabel"

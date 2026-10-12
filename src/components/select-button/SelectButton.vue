@@ -120,7 +120,7 @@ function handleSelect(option: unknown): void {
 <template>
   <div
     class="anyboom-select-button"
-    :class="{ 'select-button_disabled': disabled, 'select-button_readonly': readonly }"
+    :class="{ 'anyboom-select-button_disabled': disabled, 'anyboom-select-button_readonly': readonly }"
     role="group"
     :aria-labelledby="ariaLabelledby || undefined"
     :aria-readonly="readonly || undefined"
@@ -129,8 +129,8 @@ function handleSelect(option: unknown): void {
       v-for="(option, index) in options"
       :key="index"
       type="button"
-      class="select-button__item"
-      :class="{ 'select-button__item_active': isSelected(option) }"
+      class="anyboom-select-button__item"
+      :class="{ 'anyboom-select-button__item_active': isSelected(option) }"
       :disabled="isOptionDisabled(option)"
       :aria-pressed="isSelected(option)"
       @click="handleSelect(option)"

@@ -66,8 +66,8 @@ function updateModel(event: Event, value: number) {
   <div
     class="anyboom-rating"
     :class="{
-      rating_readonly: readonly,
-      rating_disabled: disabled,
+      'anyboom-rating_readonly': readonly,
+      'anyboom-rating_disabled': disabled,
     }"
     role="radiogroup"
     :aria-readonly="readonly || undefined"
@@ -76,16 +76,16 @@ function updateModel(event: Event, value: number) {
     <div
       v-for="value in stars"
       :key="value"
-      class="rating__item"
+      class="anyboom-rating__item"
       :class="{
-        rating__item_active: value <= modelValue,
-        rating__item_focused: value === focusedOptionIndex,
+        'anyboom-rating__item_active': value <= modelValue,
+        'anyboom-rating__item_focused': value === focusedOptionIndex,
       }"
       @click="onClick($event, value)"
     >
       <input
         :id="`${inputName}-${value}`"
-        class="rating__hidden-input"
+        class="anyboom-rating__hidden-input"
         type="radio"
         :name="inputName"
         :value="value"
@@ -98,11 +98,11 @@ function updateModel(event: Event, value: number) {
       >
 
       <span
-        class="rating__icon"
+        class="anyboom-rating__icon"
         aria-hidden="true"
         :class="{
-          rating__icon_filled: value <= modelValue,
-          rating__icon_empty: value > modelValue,
+          'anyboom-rating__icon_filled': value <= modelValue,
+          'anyboom-rating__icon_empty': value > modelValue,
         }"
       >
         <slot v-if="value <= modelValue" name="on-icon"> ★ </slot>

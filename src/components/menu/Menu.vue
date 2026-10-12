@@ -20,7 +20,7 @@ function handleItemClick(item: MenuItemType) {
 
 <template>
   <nav class="anyboom-menu">
-    <ul class="menu__list">
+    <ul class="anyboom-menu__list">
       <MenuItem
         v-for="(item, index) in items"
         :key="item.id || index"

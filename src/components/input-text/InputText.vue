@@ -103,19 +103,19 @@ onMounted(() => {
   <div
     class="anyboom-input-text"
     :class="[
-      `input-text_size_${size}`,
+      `anyboom-input-text_size_${size}`,
       {
-        'input-text_disabled': disabled,
-        'input-text_error': error,
-        'input-text_success': success,
+        'anyboom-input-text_disabled': disabled,
+        'anyboom-input-text_error': error,
+        'anyboom-input-text_success': success,
       },
       wrapperAttrs,
     ]"
   >
-    <div class="input-text__wrapper">
+    <div class="anyboom-input-text__wrapper">
       <div
         v-if="$slots['icon-left']"
-        class="input-text__icon input-text__icon_left"
+        class="anyboom-input-text__icon anyboom-input-text__icon_left"
       >
         <slot name="icon-left" />
       </div>
@@ -124,7 +124,7 @@ onMounted(() => {
         v-bind="inputAttrs"
         :id="fieldId"
         ref="inputElement"
-        class="input-text__input"
+        class="anyboom-input-text__input"
         :type="inputType"
         :value="modelValue"
         :placeholder="placeholder"
@@ -142,7 +142,7 @@ onMounted(() => {
 
       <div
         v-if="$slots['icon-right']"
-        class="input-text__icon input-text__icon_right"
+        class="anyboom-input-text__icon anyboom-input-text__icon_right"
       >
         <slot name="icon-right" />
       </div>

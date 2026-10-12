@@ -47,20 +47,20 @@ function handleChange(event: Event) {
 
 <template>
   <label
-    class="checkbox"
+    class="anyboom-checkbox"
     :class="[
-      `checkbox_size_${size}`,
+      `anyboom-checkbox_size_${size}`,
       {
-        checkbox_disabled: disabled,
-        checkbox_readonly: readonly,
-        checkbox_error: error,
+        'anyboom-checkbox_disabled': disabled,
+        'anyboom-checkbox_readonly': readonly,
+        'anyboom-checkbox_error': error,
       },
     ]"
   >
     <input
       :id="inputId"
       type="checkbox"
-      class="checkbox__input"
+      class="anyboom-checkbox__input"
       :name="name"
       :checked="modelValue"
       :indeterminate="indeterminate"
@@ -68,8 +68,8 @@ function handleChange(event: Event) {
       :aria-invalid="error || undefined"
       @change="handleChange"
     >
-    <span class="checkbox__checkmark" />
-    <span v-if="label" class="checkbox__label">{{ label }}</span>
+    <span class="anyboom-checkbox__checkmark" />
+    <span v-if="label" class="anyboom-checkbox__label">{{ label }}</span>
   </label>
 </template>
 

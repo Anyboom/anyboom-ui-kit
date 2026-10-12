@@ -212,7 +212,7 @@ defineExpose({
   <div class="anyboom-popover">
     <div
       ref="triggerRef"
-      class="popover__trigger"
+      class="anyboom-popover__trigger"
       role="button"
       tabindex="0"
       aria-haspopup="dialog"
@@ -230,7 +230,7 @@ defineExpose({
           v-if="isOpen"
           :id="contentId"
           ref="contentRef"
-          class="popover__content"
+          class="anyboom-popover__content"
           role="dialog"
           tabindex="-1"
           :style="contentStyle"

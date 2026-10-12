@@ -21,10 +21,10 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div
     class="anyboom-notification-badge"
-    :class="[`notification-badge_severity_${severity}`]"
+    :class="[`anyboom-notification-badge_severity_${severity}`]"
   >
-    <div v-if="active" class="notification-badge__badge">
-      <span v-if="value" class="notification-badge__value">{{ value }}</span>
+    <div v-if="active" class="anyboom-notification-badge__badge">
+      <span v-if="value" class="anyboom-notification-badge__value">{{ value }}</span>
     </div>
     <slot />
   </div>

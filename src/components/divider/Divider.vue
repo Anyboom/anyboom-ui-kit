@@ -9,7 +9,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="anyboom-divider" :class="{ divider_vertical: vertical }" />
+  <div class="anyboom-divider" :class="{ 'anyboom-divider_vertical': vertical }" />
 </template>
 
 <style lang="scss">
